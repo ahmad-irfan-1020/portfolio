@@ -83,18 +83,13 @@
   .wrap{
     max-width:1180px;
     margin:0 auto;
-    padding:0 max(24px, env(safe-area-inset-right)) 0 max(24px, env(safe-area-inset-left));
+    padding:0 max(30px, env(safe-area-inset-right)) 0 max(30px, env(safe-area-inset-left));
     width:100%;
     box-sizing:border-box;
   }
-  @media (max-width:640px){
+  @media (max-width:768px){
     .wrap{
-      padding:0 max(18px, env(safe-area-inset-right)) 0 max(18px, env(safe-area-inset-left));
-    }
-  }
-  @media (max-width:380px){
-    .wrap{
-      padding:0 14px;
+      padding:0 max(24px, env(safe-area-inset-right)) 0 max(24px, env(safe-area-inset-left));
     }
   }
   .mono{font-family:"Space Mono",ui-monospace,monospace}
