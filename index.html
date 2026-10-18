@@ -320,6 +320,7 @@
   /* testimonials */
   .quotes{display:grid;grid-template-columns:1fr 1fr;gap:22px}
   .quote{
+    margin:0;box-sizing:border-box;width:100%;
     background:var(--green);color:var(--on-green);border-radius:var(--radius);padding:32px 32px 28px;position:relative;overflow:hidden;
   }
   .quote::before{content:"“";position:absolute;top:-28px;right:14px;font-family:"Bricolage Grotesque",sans-serif;font-size:150px;color:rgba(198,242,78,.16);font-weight:800;line-height:1}
@@ -331,7 +332,15 @@
   }
   .quote .who .nm{font-weight:700;font-size:15.5px;line-height:1.3}
   .quote .who .rl{font-size:13px;color:var(--on-green-dim)}
-  @media (max-width:760px){.quotes{grid-template-columns:1fr}}
+  @media (max-width:760px){
+    #words .wrap{padding-left:max(16px,env(safe-area-inset-left));padding-right:max(16px,env(safe-area-inset-right))}
+    .quotes{display:flex;flex-direction:column;gap:16px;width:100%}
+    .quote{
+      margin:0;width:100%;max-width:100%;box-sizing:border-box;
+      padding:24px 20px 22px;border-radius:18px;
+    }
+    .quote p{font-size:16px;line-height:1.55;margin-bottom:18px}
+  }
 
   /* contact */
   .contact{background:var(--green);color:var(--on-green);border-radius:28px;padding:56px 52px;position:relative;overflow:hidden}
@@ -409,13 +418,19 @@
   .sticky-cta{display:none}
   @media (max-width:760px){
     .sticky-cta{
-      display:flex;align-items:center;justify-content:space-between;gap:14px;
-      position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:70;
-      background:var(--green);color:var(--on-green);border-radius:16px;padding:12px 14px 12px 18px;
+      display:flex;align-items:center;justify-content:space-between;flex-wrap:nowrap;gap:8px;
+      position:fixed;left:10px;right:10px;bottom:calc(10px + env(safe-area-inset-bottom));z-index:70;
+      background:var(--green);color:var(--on-green);border-radius:999px;padding:8px 8px 8px 16px;
       box-shadow:var(--shadow);transform:translateY(150%);transition:transform .3s ease;
+      box-sizing:border-box;
     }
     .sticky-cta.show{transform:none}
-    .sticky-cta .sc-text{font-weight:700;font-size:15px}
+    .sticky-cta .sc-text{
+      font-weight:700;font-size:clamp(12px, 3.4vw, 14.5px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex-shrink:1;min-width:0;line-height:1.2;
+    }
+    .sticky-cta .btn{
+      white-space:nowrap;flex-shrink:0;padding:8px 14px;font-size:clamp(12px, 3.4vw, 13.5px);line-height:1.2;
+    }
     .toast{bottom:96px}
   }
 
@@ -1151,7 +1166,7 @@
           <form class="brief" id="briefForm" action="https://formsubmit.co/ahmaddirfaan@gmail.com" method="POST">
             <!-- FormSubmit Configuration: triggers automated confirmation email to user & email notification to Ahmad -->
             <input type="hidden" name="_subject" id="fSubject" value="New Project Inquiry - Ahmad Irfan Portfolio" />
-            <input type="hidden" name="_autoresponse" value="Thank you for reaching out to Ahmad Irfan! I have received your message regarding your project and will review the details promptly. You can expect a response within 24 hours. If your project is urgent, feel free to contact me directly on WhatsApp (+92 300 4323600) or LinkedIn." />
+            <input type="hidden" name="_autoresponse" value="Thank you for contacting Ahmad Irfan! We have received your inquiry and will review your project details and reply soon (within 24 hours). If your request is urgent, feel free to reach out directly via WhatsApp at +92 300 4323600 or on LinkedIn." />
             <input type="hidden" name="_template" value="table" />
             <input type="hidden" name="_next" id="fNext" value="" />
             <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
