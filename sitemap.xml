@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://ahmadirfan.me/</loc>
+    <lastmod>2026-10-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://ahmadirfan.me/apple-touch-icon.png</image:loc>
+      <image:title>Ahmad Irfan — WordPress Developer &amp; SEO Specialist</image:title>
+      <image:caption>Ahmad Irfan portfolio monogram and branding</image:caption>
+    </image:image>
+  </url>
+</urlset>
