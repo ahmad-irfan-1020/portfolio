@@ -1350,8 +1350,8 @@
   // To activate client auto-replies: paste your free keys from emailjs.com below.
   var EMAILJS_CONFIG = {
     publicKey: '',   // Paste your EmailJS Public Key here (e.g. 'AbCdEf12345')
-    serviceId: '',   // Paste your EmailJS Service ID here (e.g. 'service_gmail')
-    templateId: ''   // Paste your EmailJS Template ID here (e.g. 'template_contact')
+    serviceId: 'service_dfus2vu',   // Configured Gmail Service ID
+    templateId: ''   // Paste your EmailJS Template ID here (e.g. 'template_xxxxxxx')
   };
 
   if (window.emailjs && EMAILJS_CONFIG.publicKey) {
@@ -1417,8 +1417,11 @@
       if (window.emailjs && EMAILJS_CONFIG.publicKey && EMAILJS_CONFIG.serviceId && EMAILJS_CONFIG.templateId) {
         emailjs.send(EMAILJS_CONFIG.serviceId, EMAILJS_CONFIG.templateId, {
           name: name,
+          client_name: name,
           email: email,
+          user_email: email,
           project_type: type,
+          title: type || 'Project Inquiry',
           website: site || '(none provided)',
           message: msg,
           to_email: email,
