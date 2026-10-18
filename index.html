@@ -266,7 +266,7 @@
   .filter-btn.active{background:var(--ink);color:var(--bg);border-color:var(--ink)}
   .work-list{display:flex;flex-direction:column}
   .work-item{
-    display:grid;grid-template-columns:110px 1fr 1.1fr auto;gap:28px;align-items:start;
+    display:grid;grid-template-columns:110px 1fr 1.25fr;gap:28px;align-items:start;
     padding:34px 6px;border-top:1.5px solid var(--line-strong);text-decoration:none;
   }
   .work-item:last-child{border-bottom:1.5px solid var(--line-strong)}
@@ -276,18 +276,12 @@
   .work-kind{font-size:14px;color:var(--accent-text);font-weight:700;margin-top:6px}
   .work-desc{color:var(--ink-2);font-size:16px;margin:4px 0 0}
   .work-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}
-  .work-arrow{
-    width:46px;height:46px;border-radius:50%;background:var(--green);color:var(--lime);flex:none;
-    display:flex;align-items:center;justify-content:center;font-size:19px;margin-top:2px;
-    transition:transform .2s ease;
-  }
-  .work-item:hover .work-arrow{transform:translate(3px,-3px)}
+  .work-arrow{display:none !important}
   .work-item:hover .work-name{text-decoration:underline;text-decoration-color:var(--lime);text-decoration-thickness:4px;text-underline-offset:5px}
   @media (max-width:860px){
-    .work-item{grid-template-columns:1fr auto;gap:8px 18px}
+    .work-item{grid-template-columns:1fr;gap:8px 0}
     .work-year{grid-column:1}
-    .work-desc{grid-column:1 / -1}
-    .work-arrow{grid-row:1;grid-column:2}
+    .work-desc{grid-column:1}
   }
 
   /* experience timeline */
@@ -815,7 +809,6 @@
             </div>
           </div>
           <p class="work-desc">Built the company's website, then stayed on for the search side: technical and on-page optimization, Google Search Console and Bing Webmaster setup, and ongoing indexing and performance monitoring so problems get caught early, not after traffic drops.</p>
-          <span class="work-arrow" aria-hidden="true">↗</span>
         </article>
         <article class="work-item" data-cat="web ecom">
           <div class="work-year">WEBSITE</div>
@@ -827,7 +820,6 @@
             </div>
           </div>
           <p class="work-desc">A full website project covering design and development: a clean, modern front end that presents the brand properly and gives customers a straight path from landing on the site to getting in touch or buying.</p>
-          <span class="work-arrow" aria-hidden="true">↗</span>
         </article>
         <article class="work-item" data-cat="web ecom">
           <div class="work-year">E-COMMERCE</div>
@@ -839,7 +831,6 @@
             </div>
           </div>
           <p class="work-desc">A complete online store for a mobile phone retailer, built from scratch in WordPress and WooCommerce, entirely to the client's requirements. The catalogue covers smartphones, tablets, and accessories organised by brand and category, with spec-led product pages, variants like storage and PTA approval status, and a checkout set up the way the shop actually takes orders.</p>
-          <span class="work-arrow" aria-hidden="true">↗</span>
         </article>
         <article class="work-item" data-cat="web">
           <div class="work-year">WEBSITE</div>
@@ -851,7 +842,6 @@
             </div>
           </div>
           <p class="work-desc">Website for an engineering and construction company with three decades of work behind it. The build leads with what clients actually check before hiring a contractor: a portfolio of completed projects across homes, hotels, and commercial buildings, the full range of services from architecture and civil construction to renovation and maintenance, and clear contact paths so enquiries come in without friction.</p>
-          <span class="work-arrow" aria-hidden="true">↗</span>
         </article>
         <article class="work-item" data-cat="design">
           <div class="work-year">3D DESIGN</div>
@@ -863,7 +853,6 @@
             </div>
           </div>
           <p class="work-desc">A 3D design project, not a website: starting from a flat 2D wire rope reference, the steel wire ropes were modeled from scratch in Blender and rendered as realistic 3D product images, strand by strand, so the client could show exactly how the rope is built without a photoshoot.</p>
-          <span class="work-arrow" aria-hidden="true">↗</span>
         </article>
 
       </div>
