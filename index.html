@@ -1415,50 +1415,71 @@
         setFormStatus('err', 'Unable to send right now. Please try again or email me directly at ahmaddirfaan@gmail.com.');
       }
 
-      // If EmailJS keys are provided, send through EmailJS (dispatches lead & client auto-reply)
-      if (window.emailjs && EMAILJS_CONFIG.publicKey && EMAILJS_CONFIG.serviceId && EMAILJS_CONFIG.templateId) {
-        emailjs.send(EMAILJS_CONFIG.serviceId, EMAILJS_CONFIG.templateId, {
-          name: name,
-          client_name: name,
-          email: email,
-          user_email: email,
-          project_type: type,
-          title: type || 'Project Inquiry',
-          website: site || '(none provided)',
-          message: msg,
-          to_email: email,
-          reply_to: email
-        })
-        .then(onSuccess)
-        .catch(onError);
-      } else {
-        // Fallback: FormSubmit AJAX endpoint (delivers directly to Ahmad's inbox in-page)
-        fetch('https://formsubmit.co/ajax/ahmaddirfaan@gmail.com', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-          },
-          body: JSON.stringify({
+      // Send BOTH: Form-filling details to Ahmad's inbox + Auto-reply to the client
+      var payload = {
+        name: name,
+        email: email,
+        _replyto: email,
+        _subject: 'Project inquiry: ' + type + (name ? ' — from ' + name : ''),
+        _template: 'table',
+        'Client Name': name,
+        'Client Email': email,
+        'Project Type': type,
+        'Current Website': site || '(none provided)',
+        'Project Details': msg
+      };
+
+      // 1. Deliver full project details to Ahmad's inbox (ahmaddirfaan@gmail.com) via in-page AJAX
+      var formSubmitReq = fetch('https://formsubmit.co/ajax/ahmaddirfaan@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      }).then(function (res) {
+        if (!res.ok) throw new Error('FormSubmit error');
+        return res.json();
+      });
+
+      // 2. Deliver branded auto-reply to the client's email via EmailJS
+      var emailJsReq = (window.emailjs && EMAILJS_CONFIG.publicKey && EMAILJS_CONFIG.serviceId && EMAILJS_CONFIG.templateId)
+        ? emailjs.send(EMAILJS_CONFIG.serviceId, EMAILJS_CONFIG.templateId, {
             name: name,
+            client_name: name,
             email: email,
-            _replyto: email,
-            _subject: 'Project inquiry: ' + type + (name ? ' — from ' + name : ''),
-            _template: 'table',
-            'Client Name': name,
-            'Client Email': email,
-            'Project Type': type,
-            'Current Website': site || '(none provided)',
-            'Project Details': msg
+            user_email: email,
+            project_type: type,
+            title: type || 'Project Inquiry',
+            website: site || '(none provided)',
+            message: msg,
+            to_email: email,
+            reply_to: 'ahmaddirfaan@gmail.com'
           })
-        })
-        .then(function (res) {
-          if (!res.ok) throw new Error('Submission failed');
-          return res.json();
-        })
-        .then(onSuccess)
-        .catch(onError);
+        : Promise.resolve();
+
+      var doneCount = 0;
+      var successCount = 0;
+      function checkCompletion() {
+        doneCount++;
+        if (doneCount === 2) {
+          if (successCount > 0) {
+            onSuccess();
+          } else {
+            onError();
+          }
+        }
       }
+
+      formSubmitReq
+        .then(function () { successCount++; })
+        .catch(function (err) { console.warn('Lead delivery:', err); })
+        .finally(checkCompletion);
+
+      emailJsReq
+        .then(function () { successCount++; })
+        .catch(function (err) { console.warn('Auto-reply delivery:', err); })
+        .finally(checkCompletion);
     });
   }
 
