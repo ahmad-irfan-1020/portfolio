@@ -200,8 +200,8 @@
   .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
   .hero-note{margin:16px 0 0;font-size:14.5px;color:var(--on-green-dim)}
   .hero-meta{grid-column:1 / -1;display:flex;gap:0;flex-wrap:wrap;margin-top:6px;border-top:1px solid rgba(239,246,236,.18);padding-top:20px}
-  .hero-meta div{padding-right:26px;margin-right:26px;border-right:1px solid rgba(239,246,236,.18)}
-  .hero-meta div:last-child{border-right:none;margin-right:0;padding-right:0}
+  .hero-meta > div{padding-right:26px;margin-right:26px;border-right:1px solid rgba(239,246,236,.18)}
+  .hero-meta > div:last-child{border-right:none;margin-right:0;padding-right:0}
   .hero-meta .k{font-family:"Space Mono",monospace;font-size:11px;letter-spacing:.12em;color:var(--on-green-dim);text-transform:uppercase}
   .hero-meta .v{font-weight:700;font-size:15.5px;margin-top:2px}
 
@@ -242,6 +242,132 @@
     .stack{min-height:0;max-width:520px;display:flex;flex-direction:column;gap:16px}
     .stack .card{position:static;width:100%;transform:none}
     .stack .card-chip{width:auto;align-self:flex-start}
+  }
+
+  @media (max-width:760px){
+    .wrap{padding-left:max(16px,env(safe-area-inset-left));padding-right:max(16px,env(safe-area-inset-right))}
+    .hero-inner{padding-top:40px;padding-bottom:48px;gap:32px}
+    .hero-meta{
+      grid-column:1 / -1;
+      display:flex;
+      flex-direction:column;
+      gap:9px;
+      margin-top:22px;
+      border-top:1px solid rgba(239,246,236,.14);
+      padding-top:18px;
+      width:100%;
+    }
+    .hero-meta > div{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      padding:11px 15px;
+      margin:0;
+      border:1px solid rgba(239,246,236,.14);
+      border-left:3px solid var(--lime);
+      border-radius:12px;
+      background:rgba(255,255,255,.04);
+      backdrop-filter:blur(6px);
+      -webkit-backdrop-filter:blur(6px);
+      transition:background .2s ease,border-color .2s ease;
+    }
+    .hero-meta > div:hover{
+      background:rgba(255,255,255,.07);
+      border-color:rgba(239,246,236,.25);
+    }
+    .hero-meta div{
+      border-right:none;
+      margin-right:0;
+      padding-right:0;
+    }
+    .hero-meta .k{
+      font-family:"Space Mono",monospace;
+      font-size:10.5px;
+      letter-spacing:.1em;
+      color:var(--on-green-dim);
+      text-transform:uppercase;
+      flex-shrink:0;
+    }
+    .hero-meta .v{
+      font-family:"Instrument Sans",sans-serif;
+      font-size:13.5px;
+      font-weight:700;
+      color:var(--on-green);
+      margin:0;
+      text-align:right;
+      letter-spacing:-.01em;
+    }
+  }
+
+  @media (max-width:600px){
+    .avail{
+      white-space:nowrap;
+      font-size:clamp(9.5px, 2.7vw, 11.5px);
+      letter-spacing:.025em;
+      padding:6px 12px;
+      gap:7px;
+      max-width:100%;
+    }
+    .avail .dot{
+      width:7px;
+      height:7px;
+      flex-shrink:0;
+    }
+    h1.hero-title{
+      margin:18px 0 16px;
+    }
+    .hero-sub{
+      font-size:clamp(15px, 4vw, 17px);
+      line-height:1.52;
+      margin-bottom:24px;
+    }
+    .hero-ctas{
+      display:flex;
+      flex-direction:row;
+      flex-wrap:nowrap;
+      gap:8px;
+      width:100%;
+      align-items:stretch;
+    }
+    .hero-ctas .btn{
+      padding:12px 6px;
+      font-size:clamp(10.5px, 2.75vw, 13px);
+      line-height:1.2;
+      white-space:nowrap;
+      justify-content:center;
+      text-align:center;
+      letter-spacing:-.01em;
+    }
+    .hero-ctas .btn-lime{
+      flex:1.32 1 0;
+      min-width:0;
+    }
+    .hero-ctas .btn-ghost{
+      flex:0.95 1 0;
+      min-width:0;
+    }
+  }
+
+  @media (max-width:360px){
+    .avail{
+      font-size:9.5px;
+      padding:5px 9px;
+      gap:6px;
+    }
+    .hero-ctas .btn{
+      font-size:10px;
+      padding:11px 4px;
+    }
+    .hero-meta > div{
+      padding:10px 12px;
+    }
+    .hero-meta .k{
+      font-size:9.5px;
+    }
+    .hero-meta .v{
+      font-size:12.5px;
+    }
   }
 
   /* ---------- marquee ---------- */
