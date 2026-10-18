@@ -381,8 +381,52 @@
   .form-status.ok{color:var(--lime)}
   .form-status.err{color:#FFB59E}
   form.brief button[type="submit"][disabled]{opacity:.65;cursor:wait}
-  @media (max-width:860px){.contact{padding:38px 26px}.contact-grid{grid-template-columns:1fr}}
-  @media (max-width:520px){.form-row{grid-template-columns:1fr}}
+  @media (max-width:860px){
+    .contact-grid{grid-template-columns:1fr;gap:32px}
+  }
+  @media (max-width:760px){
+    section#contact{padding-top:16px;padding-bottom:56px}
+    #contact .wrap{
+      padding-left:max(12px, env(safe-area-inset-left));
+      padding-right:max(12px, env(safe-area-inset-right));
+    }
+    .contact{
+      padding:32px 18px 28px;
+      border-radius:20px;
+    }
+    .contact h2{
+      font-size:clamp(26px, 6.8vw, 38px);
+      margin-bottom:12px;
+      max-width:100%;
+    }
+    .contact .c-sub{
+      font-size:16px;
+      margin-bottom:24px;
+      line-height:1.5;
+    }
+    .contact-grid{gap:24px}
+    .c-methods{gap:10px;width:100%}
+    .c-link{padding:12px 14px;font-size:15px;border-radius:12px}
+    .c-link .ic{width:34px;height:34px;border-radius:8px}
+    .c-link .sm{font-size:12px}
+    form.brief{gap:12px;width:100%}
+    form.brief label{font-size:12px;margin-bottom:5px}
+    form.brief input, form.brief select, form.brief textarea{
+      padding:11px 13px;font-size:15px;border-radius:10px;
+    }
+    form.brief textarea{min-height:86px}
+  }
+  @media (max-width:520px){
+    #contact .wrap{
+      padding-left:max(10px, env(safe-area-inset-left));
+      padding-right:max(10px, env(safe-area-inset-right));
+    }
+    .contact{
+      padding:24px 14px 22px;
+      border-radius:18px;
+    }
+    .form-row{grid-template-columns:1fr;gap:12px}
+  }
 
   /* mid-page CTA band */
   .cta-band{margin-top:44px;background:var(--green);color:var(--on-green);border-radius:var(--radius);padding:34px 36px;display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap}
