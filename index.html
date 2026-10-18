@@ -1349,6 +1349,7 @@
   var briefForm = document.getElementById('briefForm');
   var fSubmit = document.getElementById('fSubmit');
   var formStatus = document.getElementById('formStatus');
+  var isSubmitting = false;
 
   function setFormStatus(kind, msg) {
     if (!formStatus) return;
@@ -1359,6 +1360,7 @@
   if (briefForm) {
     briefForm.addEventListener('submit', function (e) {
       e.preventDefault();
+      if (isSubmitting) return;
 
       // Bot spam check
       var honey = document.getElementById('fHoney');
@@ -1370,6 +1372,7 @@
       var site = (document.getElementById('fSite').value || '').trim();
       var msg = (document.getElementById('fMsg').value || '').trim();
 
+      isSubmitting = true;
       fSubmit.disabled = true;
       fSubmit.textContent = 'Sending message…';
       if (formStatus) {
@@ -1388,7 +1391,6 @@
           email: email,
           _replyto: email,
           _subject: 'Project inquiry: ' + type + (name ? ' — from ' + name : ''),
-          _autoresponse: 'Thank you for contacting Ahmad Irfan! We have received your inquiry and will review your project details and reply soon (within 24 hours). If your request is urgent, feel free to reach out directly via WhatsApp at +92 300 4323600 or on LinkedIn.',
           _template: 'table',
           'Client Name': name,
           'Client Email': email,
@@ -1408,11 +1410,13 @@
         setFormStatus('ok', 'Thanks, ' + firstName + ' — your message is in my inbox! I have received your inquiry and will reply soon (within 24 hours).');
         showToast('Message sent — thank you');
         setTimeout(function () {
+          isSubmitting = false;
           fSubmit.disabled = false;
           fSubmit.textContent = 'Send my message →';
         }, 4000);
       })
       .catch(function () {
+        isSubmitting = false;
         fSubmit.disabled = false;
         fSubmit.textContent = 'Send my message →';
         setFormStatus('err', 'Unable to send right now. Please try again or email me directly at ahmaddirfaan@gmail.com.');
