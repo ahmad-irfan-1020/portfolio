@@ -1207,13 +1207,12 @@
             </a>
             <p class="c-note">Working with clients worldwide, across time zones. Freelance &amp; contract only.</p>
           </div>
-          <form class="brief" id="briefForm" action="https://formsubmit.co/ahmaddirfaan@gmail.com" method="POST">
-            <!-- FormSubmit Configuration: triggers automated confirmation email to user & email notification to Ahmad -->
+          <form class="brief" id="briefForm">
+            <!-- FormSubmit Configuration: delivers directly to Ahmad's inbox with automated response -->
             <input type="hidden" name="_subject" id="fSubject" value="New Project Inquiry - Ahmad Irfan Portfolio" />
             <input type="hidden" name="_autoresponse" value="Thank you for contacting Ahmad Irfan! We have received your inquiry and will review your project details and reply soon (within 24 hours). If your request is urgent, feel free to reach out directly via WhatsApp at +92 300 4323600 or on LinkedIn." />
             <input type="hidden" name="_template" value="table" />
-            <input type="hidden" name="_next" id="fNext" value="" />
-            <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
+            <input type="text" name="_honey" id="fHoney" style="display:none" tabindex="-1" autocomplete="off" />
 
             <div class="form-row">
               <div>
@@ -1249,7 +1248,7 @@
             </div>
             <button class="btn btn-lime" type="submit" id="fSubmit" style="align-self:flex-start">Send my message →</button>
             <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
-            <p class="c-note" style="margin:0">Sends straight to my inbox with an automated confirmation to your email. No email app needed.</p>
+            <p class="c-note" style="margin:0">Sends straight to my inbox. Never leaves this page.</p>
           </form>
         </div>
       </div>
@@ -1346,46 +1345,78 @@
     }
   });
 
-  // Handle FormSubmit redirect on successful submission (?sent=true#contact)
-  var formStatus = document.getElementById('formStatus');
-  if (window.location.search.indexOf('sent=true') !== -1) {
-    if (formStatus) {
-      formStatus.className = 'form-status show ok';
-      formStatus.textContent = 'Thank you! Your message has been sent to Ahmad. An automated confirmation email was sent to your inbox.';
-    }
-    showToast('Message sent — confirmation emailed');
-    if (window.history && window.history.replaceState) {
-      var cleanUrl = window.location.pathname + (window.location.hash || '#contact');
-      window.history.replaceState({}, document.title, cleanUrl);
-    }
-  }
-
-  // Brief form handling: syncs _next and _subject metadata, provides instant UI feedback
+  // Brief form handling: submits via AJAX so the visitor NEVER leaves the page
   var briefForm = document.getElementById('briefForm');
   var fSubmit = document.getElementById('fSubmit');
-  if (briefForm) {
-    var updateFormSubmitMeta = function () {
-      var nextInput = document.getElementById('fNext');
-      if (nextInput && window.location.protocol.indexOf('http') === 0) {
-        nextInput.value = window.location.origin + window.location.pathname + '?sent=true#contact';
-      }
-      var name = (document.getElementById('fName').value || '').trim();
-      var type = document.getElementById('fType').value;
-      var subjInput = document.getElementById('fSubject');
-      if (subjInput) {
-        subjInput.value = 'Project Enquiry: ' + type + (name ? ' — from ' + name : '');
-      }
-    };
-    updateFormSubmitMeta();
+  var formStatus = document.getElementById('formStatus');
 
-    briefForm.addEventListener('submit', function () {
-      updateFormSubmitMeta();
-      setTimeout(function () {
-        if (fSubmit) {
-          fSubmit.disabled = true;
-          fSubmit.textContent = 'Sending message…';
-        }
-      }, 10);
+  function setFormStatus(kind, msg) {
+    if (!formStatus) return;
+    formStatus.className = 'form-status show ' + kind;
+    formStatus.textContent = msg;
+  }
+
+  if (briefForm) {
+    briefForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      // Bot spam check
+      var honey = document.getElementById('fHoney');
+      if (honey && honey.value) return;
+
+      var name = (document.getElementById('fName').value || '').trim();
+      var email = (document.getElementById('fEmail').value || '').trim();
+      var type = document.getElementById('fType').value;
+      var site = (document.getElementById('fSite').value || '').trim();
+      var msg = (document.getElementById('fMsg').value || '').trim();
+
+      fSubmit.disabled = true;
+      fSubmit.textContent = 'Sending message…';
+      if (formStatus) {
+        formStatus.className = 'form-status';
+        formStatus.textContent = '';
+      }
+
+      fetch('https://formsubmit.co/ajax/ahmaddirfaan@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          name: name,
+          email: email,
+          _replyto: email,
+          _subject: 'Project inquiry: ' + type + (name ? ' — from ' + name : ''),
+          _autoresponse: 'Thank you for contacting Ahmad Irfan! We have received your inquiry and will review your project details and reply soon (within 24 hours). If your request is urgent, feel free to reach out directly via WhatsApp at +92 300 4323600 or on LinkedIn.',
+          _template: 'table',
+          'Client Name': name,
+          'Client Email': email,
+          'Project Type': type,
+          'Current Website': site || '(none provided)',
+          'Project Details': msg
+        })
+      })
+      .then(function (res) {
+        if (!res.ok) throw new Error('Submission failed');
+        return res.json();
+      })
+      .then(function () {
+        briefForm.reset();
+        fSubmit.textContent = 'Message sent ✓';
+        var firstName = name.split(' ')[0] || 'there';
+        setFormStatus('ok', 'Thanks, ' + firstName + ' — your message is in my inbox! I have received your inquiry and will reply soon (within 24 hours).');
+        showToast('Message sent — thank you');
+        setTimeout(function () {
+          fSubmit.disabled = false;
+          fSubmit.textContent = 'Send my message →';
+        }, 4000);
+      })
+      .catch(function () {
+        fSubmit.disabled = false;
+        fSubmit.textContent = 'Send my message →';
+        setFormStatus('err', 'Unable to send right now. Please try again or email me directly at ahmaddirfaan@gmail.com.');
+      });
     });
   }
 
