@@ -1277,6 +1277,7 @@
 
 <div class="toast" id="toast" role="status" aria-live="polite">Email copied to clipboard</div>
 
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script>
   // Header border on scroll
   var header = document.getElementById('siteHeader');
@@ -1345,6 +1346,18 @@
     }
   });
 
+  // EmailJS Configuration (Enables in-page AJAX submission + automatic client reply email)
+  // To activate client auto-replies: paste your free keys from emailjs.com below.
+  var EMAILJS_CONFIG = {
+    publicKey: '',   // Paste your EmailJS Public Key here (e.g. 'AbCdEf12345')
+    serviceId: '',   // Paste your EmailJS Service ID here (e.g. 'service_gmail')
+    templateId: ''   // Paste your EmailJS Template ID here (e.g. 'template_contact')
+  };
+
+  if (window.emailjs && EMAILJS_CONFIG.publicKey) {
+    emailjs.init({ publicKey: EMAILJS_CONFIG.publicKey });
+  }
+
   // Brief form handling: submits via AJAX so the visitor NEVER leaves the page
   var briefForm = document.getElementById('briefForm');
   var fSubmit = document.getElementById('fSubmit');
@@ -1380,30 +1393,7 @@
         formStatus.textContent = '';
       }
 
-      fetch('https://formsubmit.co/ajax/ahmaddirfaan@gmail.com', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-          name: name,
-          email: email,
-          _replyto: email,
-          _subject: 'Project inquiry: ' + type + (name ? ' — from ' + name : ''),
-          _template: 'table',
-          'Client Name': name,
-          'Client Email': email,
-          'Project Type': type,
-          'Current Website': site || '(none provided)',
-          'Project Details': msg
-        })
-      })
-      .then(function (res) {
-        if (!res.ok) throw new Error('Submission failed');
-        return res.json();
-      })
-      .then(function () {
+      function onSuccess() {
         briefForm.reset();
         fSubmit.textContent = 'Message sent ✓';
         var firstName = name.split(' ')[0] || 'there';
@@ -1414,13 +1404,56 @@
           fSubmit.disabled = false;
           fSubmit.textContent = 'Send my message →';
         }, 4000);
-      })
-      .catch(function () {
+      }
+
+      function onError() {
         isSubmitting = false;
         fSubmit.disabled = false;
         fSubmit.textContent = 'Send my message →';
         setFormStatus('err', 'Unable to send right now. Please try again or email me directly at ahmaddirfaan@gmail.com.');
-      });
+      }
+
+      // If EmailJS keys are provided, send through EmailJS (dispatches lead & client auto-reply)
+      if (window.emailjs && EMAILJS_CONFIG.publicKey && EMAILJS_CONFIG.serviceId && EMAILJS_CONFIG.templateId) {
+        emailjs.send(EMAILJS_CONFIG.serviceId, EMAILJS_CONFIG.templateId, {
+          name: name,
+          email: email,
+          project_type: type,
+          website: site || '(none provided)',
+          message: msg,
+          to_email: email,
+          reply_to: email
+        })
+        .then(onSuccess)
+        .catch(onError);
+      } else {
+        // Fallback: FormSubmit AJAX endpoint (delivers directly to Ahmad's inbox in-page)
+        fetch('https://formsubmit.co/ajax/ahmaddirfaan@gmail.com', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify({
+            name: name,
+            email: email,
+            _replyto: email,
+            _subject: 'Project inquiry: ' + type + (name ? ' — from ' + name : ''),
+            _template: 'table',
+            'Client Name': name,
+            'Client Email': email,
+            'Project Type': type,
+            'Current Website': site || '(none provided)',
+            'Project Details': msg
+          })
+        })
+        .then(function (res) {
+          if (!res.ok) throw new Error('Submission failed');
+          return res.json();
+        })
+        .then(onSuccess)
+        .catch(onError);
+      }
     });
   }
 
