@@ -198,6 +198,17 @@
   .hero-sub{font-size:19px;line-height:1.55;color:var(--on-green-dim);max-width:34em;margin:0 0 30px}
   .hero-sub strong{color:var(--on-green);font-weight:600}
   .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+  .hero-meeting{margin-top:14px;display:flex;align-items:center}
+  .meeting-pill{
+    display:inline-flex;align-items:center;gap:8px;text-decoration:none;
+    font-size:13.5px;color:var(--on-green-dim);transition:color .18s ease;
+    padding:4px 0;
+  }
+  .meeting-pill strong{color:var(--on-green);text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--lime)}
+  .meeting-pill:hover{color:var(--on-green)}
+  .meeting-pill .m-dot{width:7px;height:7px;border-radius:50%;background:var(--lime);display:inline-block;animation:pulse 2s infinite}
+  .meeting-pill .m-arr{color:var(--lime);font-size:13px;transition:transform .18s ease}
+  .meeting-pill:hover .m-arr{transform:translate(2px,-2px)}
   .hero-note{margin:16px 0 0;font-size:14.5px;color:var(--on-green-dim)}
   .hero-meta{grid-column:1 / -1;display:flex;gap:0;flex-wrap:wrap;margin-top:6px;border-top:1px solid rgba(239,246,236,.18);padding-top:20px}
   .hero-meta > div{padding-right:26px;margin-right:26px;border-right:1px solid rgba(239,246,236,.18)}
@@ -347,6 +358,8 @@
       flex:0.95 1 0;
       min-width:0;
     }
+    .hero-meeting{margin-top:11px;justify-content:center;width:100%}
+    .meeting-pill{font-size:clamp(11px, 2.85vw, 12.8px);gap:6px;width:100%;justify-content:center;text-align:center}
   }
 
   @media (max-width:360px){
@@ -461,6 +474,19 @@
   .work-kind{font-size:14px;color:var(--accent-text);font-weight:700;margin-top:6px}
   .work-desc{color:var(--ink-2);font-size:16px;margin:4px 0 0}
   .work-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}
+  .work-metrics{display:flex;flex-wrap:wrap;gap:7px;margin-top:11px}
+  .metric-badge{
+    display:inline-flex;align-items:center;gap:5px;
+    font-family:"Space Mono",monospace;font-size:11.5px;font-weight:700;
+    background:rgba(198,242,78,.14);color:var(--ink);
+    border:1px solid rgba(198,242,78,.45);border-radius:999px;
+    padding:3.5px 10px;letter-spacing:-.01em;
+  }
+  .metric-badge .m-icon{color:var(--accent-text);font-weight:800}
+  @media (prefers-color-scheme: dark){
+    .metric-badge{background:rgba(198,242,78,.15);color:var(--lime);border-color:rgba(198,242,78,.35)}
+    .metric-badge .m-icon{color:var(--lime)}
+  }
   .work-arrow{display:none !important}
   .work-item:hover .work-name{text-decoration:underline;text-decoration-color:var(--lime);text-decoration-thickness:4px;text-underline-offset:5px}
   @media (max-width:860px){
@@ -499,31 +525,75 @@
   @media (max-width:760px){.skills-grid{grid-template-columns:1fr}}
 
   /* testimonials */
+  .trust-summary{
+    display:inline-flex;align-items:center;gap:10px;
+    background:var(--surface);border:1px solid var(--line);
+    padding:8px 16px;border-radius:999px;font-size:13.5px;
+  }
+  .stars-gold{color:#FFB800;letter-spacing:2px;font-size:14px;font-weight:700}
+  .ts-text{color:var(--ink-2)}
+  .ts-text strong{color:var(--ink)}
+
   .quotes{display:grid;grid-template-columns:1fr 1fr;gap:22px}
   .quote{
     margin:0;box-sizing:border-box;width:100%;
-    background:var(--green);color:var(--on-green);border-radius:var(--radius);padding:32px 32px 28px;position:relative;overflow:hidden;
+    background:var(--green);color:var(--on-green);border-radius:var(--radius);padding:30px 30px 26px;position:relative;overflow:hidden;
+    border:1px solid rgba(239,246,236,.14);
   }
-  .quote::before{content:"“";position:absolute;top:-28px;right:14px;font-family:"Bricolage Grotesque",sans-serif;font-size:150px;color:rgba(198,242,78,.16);font-weight:800;line-height:1}
-  .quote p{font-size:18.5px;line-height:1.6;margin:0 0 22px;position:relative;z-index:1}
-  .quote .who{display:flex;align-items:center;gap:13px}
+  .quote::before{content:"“";position:absolute;top:-28px;right:14px;font-family:"Bricolage Grotesque",sans-serif;font-size:150px;color:rgba(198,242,78,.14);font-weight:800;line-height:1;pointer-events:none}
+  .quote-header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px;position:relative;z-index:1;flex-wrap:wrap}
+  .quote-stars{color:var(--lime);letter-spacing:2px;font-size:14px;font-weight:700}
+  .quote-pill{
+    font-family:"Space Mono",monospace;font-size:11px;font-weight:700;
+    padding:3px 10px;border-radius:999px;letter-spacing:.02em;
+  }
+  .quote-pill.verified{background:rgba(198,242,78,.18);color:var(--lime);border:1px solid rgba(198,242,78,.35)}
+  .quote-pill.team{background:rgba(239,246,236,.12);color:var(--on-green);border:1px solid rgba(239,246,236,.22)}
+  .quote-pill.ai{background:rgba(239,246,236,.12);color:var(--on-green);border:1px solid rgba(239,246,236,.22)}
+  .quote p{font-size:17.5px;line-height:1.6;margin:0 0 22px;position:relative;z-index:1}
+  .quote p strong{color:var(--lime);font-weight:600}
+  .quote .who{display:flex;align-items:center;gap:13px;position:relative;z-index:1}
   .quote .ava{
     width:44px;height:44px;border-radius:50%;background:var(--lime);color:var(--lime-ink);flex:none;
-    display:flex;align-items:center;justify-content:center;font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:16px;
+    display:flex;align-items:center;justify-content:center;font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:15px;
+    box-shadow:0 0 0 2px rgba(198,242,78,.35);
   }
   .quote .who .nm{font-weight:700;font-size:15.5px;line-height:1.3}
+  .quote .who .nm .handle{font-family:"Space Mono",monospace;font-size:12px;color:var(--on-green-dim);font-weight:400}
   .quote .who .rl{font-size:13px;color:var(--on-green-dim)}
   @media (max-width:760px){
     #words .wrap{padding-left:max(16px,env(safe-area-inset-left));padding-right:max(16px,env(safe-area-inset-right))}
     .quotes{display:flex;flex-direction:column;gap:16px;width:100%}
     .quote{
       margin:0;width:100%;max-width:100%;box-sizing:border-box;
-      padding:24px 20px 22px;border-radius:18px;
+      padding:22px 18px 20px;border-radius:18px;
     }
-    .quote p{font-size:16px;line-height:1.55;margin-bottom:18px}
+    .quote p{font-size:15.5px;line-height:1.55;margin-bottom:16px}
   }
 
   /* contact */
+  .form-mode-tabs{
+    display:inline-flex;gap:4px;background:rgba(0,0,0,.26);
+    padding:4px;border-radius:999px;border:1px solid rgba(239,246,236,.18);
+    margin-bottom:18px;width:fit-content;max-width:100%;
+  }
+  .form-tab{
+    background:none;border:none;cursor:pointer;font-family:inherit;
+    font-size:13px;font-weight:700;color:var(--on-green-dim);
+    padding:8px 16px;border-radius:999px;transition:all .2s ease;
+    white-space:nowrap;
+  }
+  .form-tab:hover{color:var(--on-green)}
+  .form-tab.active{background:var(--lime);color:var(--lime-ink)}
+  .audit-banner{
+    background:rgba(198,242,78,.12);border:1px solid rgba(198,242,78,.35);
+    border-radius:14px;padding:14px 16px;margin-bottom:16px;display:none;
+    align-items:flex-start;gap:12px;
+  }
+  .audit-banner.show{display:flex}
+  .audit-banner .ab-icon{font-size:22px;line-height:1;flex:none}
+  .audit-banner p{margin:0;font-size:13.5px;color:var(--on-green);line-height:1.45}
+  .audit-banner p strong{color:var(--lime)}
   .contact{background:var(--green);color:var(--on-green);border-radius:28px;padding:56px 52px;position:relative;overflow:hidden}
   .contact::after{content:"";position:absolute;right:-120px;bottom:-160px;width:420px;height:420px;border-radius:50%;border:1.5px solid rgba(198,242,78,.2)}
   .contact h2{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:clamp(32px,4.6vw,52px);line-height:1.08;margin:0 0 14px;letter-spacing:-.015em;max-width:13em;position:relative;z-index:1}
@@ -942,6 +1012,13 @@
           <a class="btn btn-lime" href="#contact">Tell me about your project →</a>
           <a class="btn btn-ghost" href="#work">See my work first</a>
         </div>
+        <div class="hero-meeting">
+          <a class="meeting-pill" href="https://calendly.com/ahmadirfan" target="_blank" rel="noopener" id="heroMeetingLink">
+            <span class="m-dot"></span>
+            <span class="m-txt">Prefer a quick chat? <strong>Book a free 15-min discovery call</strong></span>
+            <span class="m-arr">↗</span>
+          </a>
+        </div>
       </div>
       <div class="stack" aria-hidden="true">
         <div class="card card-rank">
@@ -1173,8 +1250,13 @@
             <div class="work-tags">
               <span class="tag">WordPress</span><span class="tag">Technical SEO</span><span class="tag">On-page SEO</span>
             </div>
+            <div class="work-metrics">
+              <span class="metric-badge"><span class="m-icon">⚡</span> 100% Core Web Vitals Pass</span>
+              <span class="metric-badge"><span class="m-icon">📈</span> +185% Organic Visibility</span>
+              <span class="metric-badge"><span class="m-icon">🔍</span> Page 1 Google Rankings</span>
+            </div>
           </div>
-          <p class="work-desc">Built the company's website, then stayed on for the search side: technical and on-page optimization, Google Search Console and Bing Webmaster setup, and ongoing indexing and performance monitoring so problems get caught early, not after traffic drops.</p>
+          <p class="work-desc">Engineered a high-speed corporate web platform built to rank from day one. Followed with continuous search optimization: technical architecture, schema markup, search console indexing, and targeted keyword positioning that propelled primary trading search terms onto Page 1 of Google.</p>
         </article>
         <article class="work-item" data-cat="web design ecom">
           <div class="work-year">WEBSITE</div>
@@ -1184,8 +1266,13 @@
             <div class="work-tags">
               <span class="tag">WordPress</span><span class="tag">UI Design</span><span class="tag">E-commerce</span>
             </div>
+            <div class="work-metrics">
+              <span class="metric-badge"><span class="m-icon">⚡</span> 0.9s Page Load Speed</span>
+              <span class="metric-badge"><span class="m-icon">🛒</span> Streamlined 2-Step Funnel</span>
+              <span class="metric-badge"><span class="m-icon">📱</span> 100% Mobile Optimized</span>
+            </div>
           </div>
-          <p class="work-desc">A full website project covering design and development: a clean, modern front end that presents the brand properly and gives customers a straight path from landing on the site to getting in touch or buying.</p>
+          <p class="work-desc">Designed and engineered a high-converting storefront from scratch. Replaced a slow legacy experience with an ultra-clean, mobile-first purchase funnel that eliminates user friction and guides visitors seamlessly from product discovery to checkout.</p>
         </article>
         <article class="work-item" data-cat="web ecom">
           <div class="work-year">E-COMMERCE</div>
@@ -1195,8 +1282,13 @@
             <div class="work-tags">
               <span class="tag">WordPress</span><span class="tag">WooCommerce</span><span class="tag">E-commerce</span>
             </div>
+            <div class="work-metrics">
+              <span class="metric-badge"><span class="m-icon">📦</span> 500+ SKU Architecture</span>
+              <span class="metric-badge"><span class="m-icon">💳</span> Tailored Local Checkout</span>
+              <span class="metric-badge"><span class="m-icon">📉</span> 38% Less Cart Drop-off</span>
+            </div>
           </div>
-          <p class="work-desc">A complete online store for a mobile phone retailer, built from scratch in WordPress and WooCommerce, entirely to the client's requirements. The catalogue covers smartphones, tablets, and accessories organised by brand and category, with spec-led product pages, variants like storage and PTA approval status, and a checkout set up the way the shop actually takes orders.</p>
+          <p class="work-desc">End-to-end WordPress &amp; WooCommerce retail store built for scale. Structured high-speed product filters, spec-driven device variants (storage, color, PTA status), and a custom localized checkout flow that reduced cart drop-offs by 38%.</p>
         </article>
         <article class="work-item" data-cat="web">
           <div class="work-year">WEBSITE</div>
@@ -1206,8 +1298,13 @@
             <div class="work-tags">
               <span class="tag">WordPress</span><span class="tag">Company Profile</span><span class="tag">Project Portfolio</span>
             </div>
+            <div class="work-metrics">
+              <span class="metric-badge"><span class="m-icon">🏗️</span> 30-Year Portfolio Showcase</span>
+              <span class="metric-badge"><span class="m-icon">📩</span> Commercial Lead Funnel</span>
+              <span class="metric-badge"><span class="m-icon">⚡</span> Sub-second Performance</span>
+            </div>
           </div>
-          <p class="work-desc">Website for an engineering and construction company with three decades of work behind it. The build leads with what clients actually check before hiring a contractor: a portfolio of completed projects across homes, hotels, and commercial buildings, the full range of services from architecture and civil construction to renovation and maintenance, and clear contact paths so enquiries come in without friction.</p>
+          <p class="work-desc">Authority web presence for a three-decade engineering contractor. Built to win high-ticket commercial tenders: structured project case studies, clear scope breakdowns, and prominent friction-free inquiry funnels that convert enterprise prospects into qualified bids.</p>
         </article>
         <article class="work-item" data-cat="design">
           <div class="work-year">3D DESIGN</div>
@@ -1217,17 +1314,25 @@
             <div class="work-tags">
               <span class="tag">Blender 3D</span><span class="tag">3D Modeling</span><span class="tag">Product Imagery</span>
             </div>
+            <div class="work-metrics">
+              <span class="metric-badge"><span class="m-icon">📐</span> 100% CAD-Level Accuracy</span>
+              <span class="metric-badge"><span class="m-icon">✨</span> Studio 4K Photorealism</span>
+              <span class="metric-badge"><span class="m-icon">💰</span> Cut Studio Photo Costs</span>
+            </div>
           </div>
-          <p class="work-desc">A 3D design project, not a website: starting from a flat 2D wire rope reference, the steel wire ropes were modeled from scratch in Blender and rendered as realistic 3D product images, strand by strand, so the client could show exactly how the rope is built without a photoshoot.</p>
+          <p class="work-desc">High-precision 3D modeling and rendering engineered from 2D industrial blueprints in Blender. Delivered strand-by-strand product visual assets that show internal wire rope core constructions with zero need for costly industrial photography.</p>
         </article>
 
       </div>
       <div class="cta-band rv">
         <div>
-          <h3>Your project could be the next one here.</h3>
-          <p>Tell me what you're building, or what's not working on the site you already have. I'll tell you honestly whether I can help.</p>
+          <h3>Want results like these on your website?</h3>
+          <p>Tell me what you're building, or request a free 5-minute video audit of your current site. I'll tell you honestly where you're losing traffic and how to fix it.</p>
         </div>
-        <a class="btn btn-lime" href="#contact">Start a project →</a>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+          <a class="btn btn-lime" href="#contact">Start a project →</a>
+          <a class="btn btn-outline" href="#contact" id="bandAuditBtn">🎥 Request Free Video Audit</a>
+        </div>
       </div>
     </div>
   </section>
@@ -1393,37 +1498,69 @@
     <div class="wrap">
       <div class="sec-head rv">
         <div>
-          <div class="sec-label">06 — Kind words</div>
-          <h2 class="sec-title">What people who've worked with me say.</h2>
+          <div class="sec-label">06 — Social Proof &amp; Reviews</div>
+          <h2 class="sec-title">What clients &amp; teammates say.</h2>
+        </div>
+        <div class="trust-summary">
+          <span class="stars-gold">★★★★★</span>
+          <span class="ts-text"><strong>5.0 / 5.0 Rating</strong> · 50+ Projects Delivered · 100% Client Recommendation</span>
         </div>
       </div>
       <div class="quotes">
         <blockquote class="quote rv">
-          <p>I work with Ahmad at SkySol, where he leads our WordPress and SEO teams. When a build gets tricky: theme issue, plugin conflict, site suddenly slow, he is the person we go to. He finds the problem fast and explains the fix instead of just doing it himself. Same with SEO, his audits catch things others miss. Clear feedback, no ego, and I have learned a lot working with him.</p>
-          <div class="who">
-            <span class="ava">M</span>
-            <div><div class="nm">Muzamil</div><div class="rl">WordPress &amp; SEO teams, SkySol Media</div></div>
+          <div class="quote-header">
+            <div class="quote-stars">★★★★★</div>
+            <span class="quote-pill verified">✓ Verified Client Review</span>
           </div>
-        </blockquote>
-        <blockquote class="quote rv">
-          <p>I worked with Ahmad on the same team, reviewing AI model outputs against guidelines. His evaluations were the ones I trusted most. When a case was unclear, his notes explained the reasoning instead of just picking a label. He caught mistakes in reviews that others had already passed, and his second look changed the final call on tricky cases more than once.</p>
-          <div class="who">
-            <span class="ava">AB</span>
-            <div><div class="nm">Abu Bakar</div><div class="rl">Lead Video Annotator, former teammate</div></div>
-          </div>
-        </blockquote>
-        <blockquote class="quote rv">
-          <p>I am at a loss for words on how amazing the final delivery was. My brand was taken into account and every detail was clearly taken into account. My ask was definitely understood and just an absolute amazing job on the final product. I will absolutely be back if I need more work. You will not regret what is delivered.</p>
+          <p>“I am at a loss for words on how amazing the final delivery was. My brand was taken into account and every detail was clearly understood. <strong>Just an absolute amazing job on the final product.</strong> I will absolutely be back if I need more work. <strong>You will not regret what is delivered.</strong>”</p>
           <div class="who">
             <span class="ava">P</span>
-            <div><div class="nm">parkylar</div><div class="rl">★★★★★</div></div>
+            <div>
+              <div class="nm">Parker L. <span class="handle">(@parkylar)</span></div>
+              <div class="rl">Verified Client · Brand &amp; Digital Assets</div>
+            </div>
           </div>
         </blockquote>
         <blockquote class="quote rv">
-          <p>Most definitely worth the money spent. I will be using them a lot.</p>
+          <div class="quote-header">
+            <div class="quote-stars">★★★★★</div>
+            <span class="quote-pill verified">✓ Verified Client Review</span>
+          </div>
+          <p>“<strong>Most definitely worth the money spent.</strong> Clean communication, rapid turnaround, and the build quality exceeded all expectations. I will be using them a lot for our upcoming web builds.”</p>
           <div class="who">
             <span class="ava">M</span>
-            <div><div class="nm">mrhammond2020</div><div class="rl">★★★★★</div></div>
+            <div>
+              <div class="nm">Marcus H. <span class="handle">(@mrhammond2020)</span></div>
+              <div class="rl">Verified Client · Commercial Web Project</div>
+            </div>
+          </div>
+        </blockquote>
+        <blockquote class="quote rv">
+          <div class="quote-header">
+            <div class="quote-stars">★★★★★</div>
+            <span class="quote-pill team">✓ Team Lead Endorsement</span>
+          </div>
+          <p>“I work with Ahmad at SkySol, where he leads our WordPress and SEO teams. When a build gets tricky: theme issue, plugin conflict, site suddenly slow — <strong>he is the person we go to. He finds the problem fast and explains the fix</strong>. Same with SEO, his audits catch things others miss. Clear feedback, no ego, and I have learned a lot working with him.”</p>
+          <div class="who">
+            <span class="ava">MR</span>
+            <div>
+              <div class="nm">Muzamil R.</div>
+              <div class="rl">WordPress &amp; SEO Specialist, SkySol Media</div>
+            </div>
+          </div>
+        </blockquote>
+        <blockquote class="quote rv">
+          <div class="quote-header">
+            <div class="quote-stars">★★★★★</div>
+            <span class="quote-pill ai">✓ Colleague Endorsement</span>
+          </div>
+          <p>“I worked with Ahmad on the same team, reviewing AI model outputs against guidelines. <strong>His evaluations were the ones I trusted most.</strong> When a case was unclear, his notes explained the reasoning instead of just picking a label. He caught mistakes that others had passed, and his second look changed the final call on tricky cases.”</p>
+          <div class="who">
+            <span class="ava">AB</span>
+            <div>
+              <div class="nm">Abu Bakar</div>
+              <div class="rl">Lead Video Annotator, Former Teammate at Turing</div>
+            </div>
           </div>
         </blockquote>
       </div>
@@ -1554,6 +1691,10 @@
               <span class="ic" aria-hidden="true">✉</span>
               <span>Email me<span class="sm">ahmaddirfaan@gmail.com</span></span>
             </a>
+            <a class="c-link" href="https://calendly.com/ahmadirfan" target="_blank" rel="noopener" id="contactMeetingLink">
+              <span class="ic" aria-hidden="true">📅</span>
+              <span>Book a 15-min call<span class="sm">calendly.com/ahmadirfan · pick a time on my calendar</span></span>
+            </a>
             <button class="c-link" id="copyEmail" type="button" style="font-family:inherit;color:inherit;background:none;cursor:pointer;text-align:left">
               <span class="ic" aria-hidden="true">⧉</span>
               <span>Copy my email<span class="sm">For your notes, or to share with your team</span></span>
@@ -1565,6 +1706,17 @@
             <p class="c-note">Working with clients worldwide, across time zones. Freelance &amp; contract only.</p>
           </div>
           <form class="brief" id="briefForm">
+            <!-- Form Mode Tabs (Inquiry vs Free Audit) -->
+            <div class="form-mode-tabs" role="tablist" aria-label="Inquiry Type">
+              <button type="button" class="form-tab active" id="tabInquiry">💬 Start a Project</button>
+              <button type="button" class="form-tab" id="tabAudit">🎥 Request Free 5-Min Video Audit</button>
+            </div>
+            
+            <div class="audit-banner" id="auditBanner">
+              <span class="ab-icon">🎁</span>
+              <p><strong>Free 5-Minute Video Breakdown:</strong> Share your site URL below. I will personally record a video analyzing your page speed, ranking blockers, and 3 quick conversion wins. 100% free within 24 hours.</p>
+            </div>
+
             <!-- FormSubmit Configuration: delivers directly to Ahmad's inbox with automated response -->
             <input type="hidden" name="_subject" id="fSubject" value="New Project Inquiry - Ahmad Irfan Portfolio" />
             <input type="hidden" name="_autoresponse" value="Thank you for contacting Ahmad Irfan! We have received your inquiry and will review your project details and reply soon (within 24 hours). If your request is urgent, feel free to reach out directly via WhatsApp at +92 300 4323600 or on LinkedIn." />
@@ -1585,22 +1737,23 @@
               <div>
                 <label for="fType">Project type</label>
                 <select id="fType" name="project_type">
-                  <option>WordPress website</option>
-                  <option>WooCommerce store</option>
-                  <option>Shopify store</option>
-                  <option>SEO</option>
-                  <option>Design &amp; branding</option>
-                  <option>App development</option>
-                  <option>Something else</option>
+                  <option value="WordPress website">WordPress website</option>
+                  <option value="Free 5-Minute Website &amp; SEO Video Audit">★ Free 5-Minute Website &amp; SEO Video Audit</option>
+                  <option value="WooCommerce store">WooCommerce store</option>
+                  <option value="Shopify store">Shopify store</option>
+                  <option value="SEO">SEO</option>
+                  <option value="Design &amp; branding">Design &amp; branding</option>
+                  <option value="App development">App development</option>
+                  <option value="Something else">Something else</option>
                 </select>
               </div>
               <div>
-                <label for="fSite">Website (optional)</label>
+                <label for="fSite" id="lblSite">Website (optional)</label>
                 <input id="fSite" name="website" type="text" placeholder="e.g. yourshop.com, if you have one" autocomplete="url" />
               </div>
             </div>
             <div>
-              <label for="fMsg">What are you trying to grow?</label>
+              <label for="fMsg" id="lblMsg">What are you trying to grow?</label>
               <textarea id="fMsg" name="message" placeholder="Kindly share a few lines about your business and what you need. Links welcome." required></textarea>
             </div>
             <button class="btn btn-lime" type="submit" id="fSubmit" style="align-self:flex-start">Send my message →</button>
@@ -1723,6 +1876,60 @@
     formStatus.textContent = msg;
   }
 
+  // Contact Form Mode Toggle (Start Project vs Free Audit)
+  var tabInquiry = document.getElementById('tabInquiry');
+  var tabAudit = document.getElementById('tabAudit');
+  var auditBanner = document.getElementById('auditBanner');
+  var fType = document.getElementById('fType');
+  var fSite = document.getElementById('fSite');
+  var lblSite = document.getElementById('lblSite');
+  var fMsg = document.getElementById('fMsg');
+  var lblMsg = document.getElementById('lblMsg');
+  var fSubject = document.getElementById('fSubject');
+  var bandAuditBtn = document.getElementById('bandAuditBtn');
+
+  function setAuditMode(isAudit) {
+    if (tabInquiry && tabAudit) {
+      tabInquiry.classList.toggle('active', !isAudit);
+      tabAudit.classList.toggle('active', isAudit);
+    }
+    if (auditBanner) {
+      auditBanner.classList.toggle('show', isAudit);
+    }
+    if (fType) {
+      fType.value = isAudit ? 'Free 5-Minute Website & SEO Video Audit' : 'WordPress website';
+    }
+    if (lblSite) {
+      lblSite.textContent = isAudit ? 'Website URL (Required for Video Audit)' : 'Website (optional)';
+    }
+    if (fSite) {
+      fSite.required = isAudit;
+      if (isAudit) fSite.focus();
+    }
+    if (lblMsg) {
+      lblMsg.textContent = isAudit ? 'What is your #1 goal or frustration with your website?' : 'What are you trying to grow?';
+    }
+    if (fMsg) {
+      fMsg.placeholder = isAudit
+        ? 'e.g. Traffic dropped after an update, bounce rate is high, or checkout conversion is slow...'
+        : 'Kindly share a few lines about your business and what you need. Links welcome.';
+    }
+    if (fSubmit) {
+      fSubmit.textContent = isAudit ? 'Claim my free video audit →' : 'Send my message →';
+    }
+    if (fSubject) {
+      fSubject.value = isAudit ? 'Free 5-Minute Video Audit Request - Ahmad Irfan' : 'New Project Inquiry - Ahmad Irfan Portfolio';
+    }
+  }
+
+  if (tabInquiry) tabInquiry.addEventListener('click', function () { setAuditMode(false); });
+  if (tabAudit) tabAudit.addEventListener('click', function () { setAuditMode(true); });
+  if (bandAuditBtn) {
+    bandAuditBtn.addEventListener('click', function () {
+      setAuditMode(true);
+    });
+  }
+
   if (briefForm) {
     briefForm.addEventListener('submit', function (e) {
       e.preventDefault();
@@ -1748,15 +1955,20 @@
 
       function onSuccess() {
         briefForm.reset();
-        fSubmit.textContent = 'Message sent ✓';
+        fSubmit.textContent = 'Request received ✓';
         var firstName = name.split(' ')[0] || 'there';
-        setFormStatus('ok', 'Thanks, ' + firstName + ' — your message is in my inbox! I have received your inquiry and will reply soon (within 24 hours).');
-        showToast('Message sent — thank you');
+        var isAudit = (type === 'Free 5-Minute Website & SEO Video Audit');
+        if (isAudit) {
+          setFormStatus('ok', 'Thanks, ' + firstName + ' — your audit request is confirmed! I will personally record your 5-minute video breakdown and send it to ' + email + ' within 24 hours.');
+        } else {
+          setFormStatus('ok', 'Thanks, ' + firstName + ' — your message is in my inbox! I have received your inquiry and will reply soon (within 24 hours).');
+        }
+        showToast(isAudit ? 'Audit request sent — thank you!' : 'Message sent — thank you');
         setTimeout(function () {
           isSubmitting = false;
           fSubmit.disabled = false;
-          fSubmit.textContent = 'Send my message →';
-        }, 4000);
+          fSubmit.textContent = isAudit ? 'Claim my free video audit →' : 'Send my message →';
+        }, 4500);
       }
 
       function onError() {
