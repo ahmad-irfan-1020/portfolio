@@ -1,8 +1,10 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark" style="background-color:#0A120E;color:#EDF3E9;color-scheme:dark;">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#0A120E" />
+<meta name="color-scheme" content="dark light" />
 <meta name="description" content="Ahmad Irfan is a WordPress developer, SEO specialist, and Web &amp; SEO Team Lead at SkySol Media based in Lahore, Pakistan. Specializing in high-ranking websites, technical SEO, WooCommerce, and Shopify." />
 <meta name="keywords" content="Ahmad Irfan, Ahmad Irfan web developer, Ahmad Irfan SEO specialist, Ahmad Irfan WordPress, WordPress developer Lahore, SEO specialist Pakistan, SkySol Media Ahmad Irfan, Zonix Tech Ahmad Irfan" />
 <meta name="author" content="Ahmad Irfan" />
@@ -48,18 +50,17 @@
 <link rel="icon" href="favicon.ico" sizes="32x32" />
 <link rel="icon" type="image/svg+xml" href="favicon.svg" />
 <link rel="apple-touch-icon" href="apple-touch-icon.png" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="preload" href="https://fonts.gstatic.com/s/instrumentsans/v4/pxiTypc9vsFDm051Uf6KVwgkfoSxQ0GsQv8ToedPibnr0SZe1Q.woff2" as="font" type="font/woff2" crossorigin />
-<link rel="preload" href="https://fonts.gstatic.com/s/bricolagegrotesque/v9/3y9K6as8bTXq_nANBjzKo3IeZx8z6up5BeSl9D4dj_x9PpZBMlGIInE.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="/fonts/instrumentsans.woff2" as="font" type="font/woff2" crossorigin fetchpriority="high" />
+<link rel="preload" href="/fonts/bricolagegrotesque.woff2" as="font" type="font/woff2" crossorigin fetchpriority="high" />
 <style>
-  /* Inlined Font Definitions: eliminates critical request chaining & external CSS latency */
+  /* Inlined Font Definitions: same-origin zero-latency font loading */
   @font-face {
     font-family: 'Instrument Sans';
     font-style: normal;
     font-weight: 400 700;
     font-stretch: 100%;
     font-display: swap;
-    src: url('https://fonts.gstatic.com/s/instrumentsans/v4/pxiTypc9vsFDm051Uf6KVwgkfoSxQ0GsQv8ToedPibnr0SZe1Q.woff2') format('woff2');
+    src: url('/fonts/instrumentsans.woff2') format('woff2');
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
   }
   @font-face {
@@ -68,7 +69,7 @@
     font-weight: 700 800;
     font-stretch: 100%;
     font-display: swap;
-    src: url('https://fonts.gstatic.com/s/bricolagegrotesque/v9/3y9K6as8bTXq_nANBjzKo3IeZx8z6up5BeSl9D4dj_x9PpZBMlGIInE.woff2') format('woff2');
+    src: url('/fonts/bricolagegrotesque.woff2') format('woff2');
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
   }
   /* Fallback Font Metric Overrides to completely eliminate layout shift */
@@ -135,18 +136,19 @@
     --shadow:0 24px 48px -24px rgba(7,35,26,.35);
   }
   *{box-sizing:border-box}
-  html{scroll-behavior:smooth}
+  html{background-color:#0A120E;color:#EDF3E9;color-scheme:dark;scroll-behavior:smooth}
+  html[data-theme="light"]{background-color:#F5F1E6;color:#132019;color-scheme:light}
   @media (prefers-reduced-motion: reduce){
     html{scroll-behavior:auto}
     *,*::before,*::after{animation-duration:.001s !important;animation-iteration-count:1 !important;transition-duration:.001s !important}
   }
   body{
-    margin:0;background:var(--bg);color:var(--ink);
+    margin:0;background-color:#0A120E;color:#EDF3E9;
     font-family:"Instrument Sans","Instrument Fallback",system-ui,-apple-system,"Segoe UI",sans-serif;
     font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;
     overflow-x:hidden;
-    transition:background-color .25s ease, color .25s ease;
   }
+  html[data-theme="light"] body{background-color:#F5F1E6;color:#132019}
   ::selection{background:var(--lime);color:var(--lime-ink)}
   a{color:inherit}
   img{max-width:100%}
@@ -980,191 +982,19 @@
   @media (max-width:760px){ footer.site{padding-bottom:118px} }
 </style>
 
-<!-- Structured Data JSON-LD Graph for Google, Perplexity, Gemini & ChatGPT (AEO, GEO & Entity SEO) -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Person",
-      "@id": "#ahmadirfan",
-      "name": "Ahmad Irfan",
-      "givenName": "Ahmad",
-      "familyName": "Irfan",
-      "gender": "https://schema.org/Male",
-      "nationality": "Pakistani",
-      "jobTitle": [
-        "WordPress Developer",
-        "SEO Specialist",
-        "Web & SEO Team Lead"
-      ],
-      "description": "Ahmad Irfan is a WordPress developer and SEO specialist from Lahore, Pakistan, serving as Web & SEO Team Lead at SkySol Media and managing search strategy at Zonix Tech.",
-      "email": "ahmaddirfaan@gmail.com",
-      "telephone": "+923004323600",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Lahore",
-        "addressRegion": "Punjab",
-        "addressCountry": "PK"
-      },
-      "alumniOf": {
-        "@type": "EducationalOrganization",
-        "name": "University of Engineering and Technology, Lahore",
-        "alternateName": "UET Lahore"
-      },
-      "worksFor": [
-        {
-          "@type": "Organization",
-          "name": "SkySol Media",
-          "jobTitle": "Team Lead — WordPress, SEO & Design"
-        },
-        {
-          "@type": "Organization",
-          "name": "Zonix Tech",
-          "jobTitle": "SEO Project Manager"
-        }
-      ],
-      "sameAs": [
-        "https://www.linkedin.com/in/ahmadirfan1020",
-        "https://github.com/ahmad-irfan-1020",
-        "https://wa.me/923004323600"
-      ],
-      "knowsAbout": [
-        "WordPress Development",
-        "Search Engine Optimization (SEO)",
-        "Technical SEO",
-        "On-Page SEO",
-        "Off-Page SEO & Link Building",
-        "Local SEO & Google Business Profile",
-        "Answer Engine Optimization (AEO)",
-        "Generative Engine Optimization (GEO)",
-        "WooCommerce",
-        "Shopify Development",
-        "Website Speed Optimization & Core Web Vitals",
-        "UI/UX Design & Branding",
-        "Blender 3D Modeling",
-        "Artificial Intelligence & LLM Evaluation"
-      ]
-    },
-    {
-      "@type": "WebSite",
-      "@id": "#website",
-      "name": "Ahmad Irfan — Websites that rank & convert",
-      "alternateName": "Ahmad Irfan Portfolio",
-      "description": "Official portfolio of Ahmad Irfan, WordPress developer and SEO specialist.",
-      "publisher": {
-        "@id": "#ahmadirfan"
-      },
-      "inLanguage": "en-US"
-    },
-    {
-      "@type": "ProfilePage",
-      "@id": "#profilepage",
-      "isPartOf": {
-        "@id": "#website"
-      },
-      "name": "Ahmad Irfan — WordPress Developer & SEO Specialist",
-      "mainEntity": {
-        "@id": "#ahmadirfan"
-      },
-      "about": {
-        "@id": "#ahmadirfan"
-      }
-    },
-    {
-      "@type": "ProfessionalService",
-      "@id": "#service",
-      "name": "Ahmad Irfan — Web Development & SEO Services",
-      "founder": {
-        "@id": "#ahmadirfan"
-      },
-      "areaServed": {
-        "@type": "AdministrativeArea",
-        "name": "Worldwide"
-      },
-      "serviceType": [
-        "WordPress Development",
-        "Shopify Development",
-        "Technical & On-Page SEO",
-        "Local SEO",
-        "Speed Optimization & Core Web Vitals",
-        "Graphic & Brand Design"
-      ],
-      "priceRange": "$$",
-      "currenciesAccepted": "USD, EUR, GBP, PKR",
-      "paymentAccepted": "Bank Transfer, Payoneer, Wise",
-      "telephone": "+923004323600",
-      "email": "ahmaddirfaan@gmail.com",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Lahore",
-        "addressRegion": "Punjab",
-        "addressCountry": "PK"
-      }
-    },
-    {
-      "@type": "FAQPage",
-      "@id": "#faq",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "Do you work with clients outside Pakistan?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. Ahmad Irfan works remotely with clients in different countries and time zones across the US, UK, and worldwide, communicating via email, WhatsApp, and LinkedIn with transparent milestones."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Can you handle both the website and the SEO?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. When development and SEO are planned together, the site is architected to rank from day one: technical structure, Core Web Vitals speed, structured data, content hierarchy, and target keywords are built in before launch."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What do you need from me to get started?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "A brief overview of your business goals and what you want the website to accomplish. If you have an existing site, share the URL so Ahmad can run an initial audit and outline next steps."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How much will my project cost?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Pricing is scope-based with transparent milestones and no preset inflated packages. Inquiries receive an upfront, detailed quote before any work starts."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Do you take full-time roles?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Ahmad works strictly on a freelance and contract project basis, alongside his team lead position at SkySol Media."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What happens after my site launches?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Post-launch maintenance, security, Core Web Vitals monitoring, and ongoing search optimization ensure search rankings and technical performance stay healthy."
-          }
-        }
-      ]
-    }
-  ]
-}
-</script>
 <script>
-  function getTheme(){
-    return document.documentElement.getAttribute('data-theme') || 'dark';
-  }
+  try {
+    var saved = localStorage.getItem('theme');
+    if (saved === 'light') {
+      document.documentElement.setAttribute('data-theme', 'light');
+      document.documentElement.style.backgroundColor = '#F5F1E6';
+      document.documentElement.style.colorScheme = 'light';
+    }
+  } catch(e){}
+  function getTheme(){ return document.documentElement.getAttribute('data-theme') || 'dark'; }
   function setTheme(t){
     document.documentElement.setAttribute('data-theme', t);
+    document.documentElement.style.backgroundColor = t === 'light' ? '#F5F1E6' : '#0A120E';
     document.documentElement.style.colorScheme = t;
     try { localStorage.setItem('theme', t); } catch(e){}
     var btn = document.getElementById('themeToggle');
@@ -1176,20 +1006,10 @@
     }
   }
   function toggleTheme(){
+    document.body.style.transition = 'background-color .25s ease, color .25s ease';
     var cur = getTheme();
-    var next = cur === 'dark' ? 'light' : 'dark';
-    setTheme(next);
+    setTheme(cur === 'dark' ? 'light' : 'dark');
   }
-  (function(){
-    try {
-      var urlTheme = (new URLSearchParams(window.location.search)).get('theme');
-      var saved = urlTheme || localStorage.getItem('theme');
-      var theme = saved === 'light' ? 'light' : 'dark';
-      setTheme(theme);
-    } catch(e) {
-      setTheme('dark');
-    }
-  })();
 </script>
 </head>
 <body>
@@ -2398,6 +2218,186 @@
     themeToggleBtn.setAttribute('aria-label', label);
     themeToggleBtn.setAttribute('title', label);
   }
+</script>
+
+<!-- Structured Data JSON-LD Graph for Google, Perplexity, Gemini & ChatGPT (AEO, GEO & Entity SEO) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "#ahmadirfan",
+      "name": "Ahmad Irfan",
+      "givenName": "Ahmad",
+      "familyName": "Irfan",
+      "gender": "https://schema.org/Male",
+      "nationality": "Pakistani",
+      "jobTitle": [
+        "WordPress Developer",
+        "SEO Specialist",
+        "Web & SEO Team Lead"
+      ],
+      "description": "Ahmad Irfan is a WordPress developer and SEO specialist from Lahore, Pakistan, serving as Web & SEO Team Lead at SkySol Media and managing search strategy at Zonix Tech.",
+      "email": "ahmaddirfaan@gmail.com",
+      "telephone": "+923004323600",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Lahore",
+        "addressRegion": "Punjab",
+        "addressCountry": "PK"
+      },
+      "alumniOf": {
+        "@type": "EducationalOrganization",
+        "name": "University of Engineering and Technology, Lahore",
+        "alternateName": "UET Lahore"
+      },
+      "worksFor": [
+        {
+          "@type": "Organization",
+          "name": "SkySol Media",
+          "jobTitle": "Team Lead — WordPress, SEO & Design"
+        },
+        {
+          "@type": "Organization",
+          "name": "Zonix Tech",
+          "jobTitle": "SEO Project Manager"
+        }
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/in/ahmadirfan1020",
+        "https://github.com/ahmad-irfan-1020",
+        "https://wa.me/923004323600"
+      ],
+      "knowsAbout": [
+        "WordPress Development",
+        "Search Engine Optimization (SEO)",
+        "Technical SEO",
+        "On-Page SEO",
+        "Off-Page SEO & Link Building",
+        "Local SEO & Google Business Profile",
+        "Answer Engine Optimization (AEO)",
+        "Generative Engine Optimization (GEO)",
+        "WooCommerce",
+        "Shopify Development",
+        "Website Speed Optimization & Core Web Vitals",
+        "UI/UX Design & Branding",
+        "Blender 3D Modeling",
+        "Artificial Intelligence & LLM Evaluation"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "#website",
+      "name": "Ahmad Irfan — Websites that rank & convert",
+      "alternateName": "Ahmad Irfan Portfolio",
+      "description": "Official portfolio of Ahmad Irfan, WordPress developer and SEO specialist.",
+      "publisher": {
+        "@id": "#ahmadirfan"
+      },
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "ProfilePage",
+      "@id": "#profilepage",
+      "isPartOf": {
+        "@id": "#website"
+      },
+      "name": "Ahmad Irfan — WordPress Developer & SEO Specialist",
+      "mainEntity": {
+        "@id": "#ahmadirfan"
+      },
+      "about": {
+        "@id": "#ahmadirfan"
+      }
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "#service",
+      "name": "Ahmad Irfan — Web Development & SEO Services",
+      "founder": {
+        "@id": "#ahmadirfan"
+      },
+      "areaServed": {
+        "@type": "AdministrativeArea",
+        "name": "Worldwide"
+      },
+      "serviceType": [
+        "WordPress Development",
+        "Shopify Development",
+        "Technical & On-Page SEO",
+        "Local SEO",
+        "Speed Optimization & Core Web Vitals",
+        "Graphic & Brand Design"
+      ],
+      "priceRange": "$$",
+      "currenciesAccepted": "USD, EUR, GBP, PKR",
+      "paymentAccepted": "Bank Transfer, Payoneer, Wise",
+      "telephone": "+923004323600",
+      "email": "ahmaddirfaan@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Lahore",
+        "addressRegion": "Punjab",
+        "addressCountry": "PK"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Do you work with clients outside Pakistan?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Ahmad Irfan works remotely with clients in different countries and time zones across the US, UK, and worldwide, communicating via email, WhatsApp, and LinkedIn with transparent milestones."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can you handle both the website and the SEO?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. When development and SEO are planned together, the site is architected to rank from day one: technical structure, Core Web Vitals speed, structured data, content hierarchy, and target keywords are built in before launch."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What do you need from me to get started?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A brief overview of your business goals and what you want the website to accomplish. If you have an existing site, share the URL so Ahmad can run an initial audit and outline next steps."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much will my project cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pricing is scope-based with transparent milestones and no preset inflated packages. Inquiries receive an upfront, detailed quote before any work starts."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you take full-time roles?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ahmad works strictly on a freelance and contract project basis, alongside his team lead position at SkySol Media."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What happens after my site launches?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Post-launch maintenance, security, Core Web Vitals monitoring, and ongoing search optimization ensure search rankings and technical performance stay healthy."
+          }
+        }
+      ]
+    }
+  ]
+}
 </script>
 </body>
 </html>
