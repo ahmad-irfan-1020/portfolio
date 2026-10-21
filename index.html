@@ -48,13 +48,46 @@
 <link rel="icon" href="favicon.ico" sizes="32x32" />
 <link rel="icon" type="image/svg+xml" href="favicon.svg" />
 <link rel="apple-touch-icon" href="apple-touch-icon.png" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="preload" href="https://fonts.gstatic.com/s/bricolagegrotesque/v9/3y9K6as8bTXq_nANBjzKo3IeZx8z6up5BeSl9D4dj_x9PpZBMlGIInE.woff2" as="font" type="font/woff2" crossorigin />
 <link rel="preload" href="https://fonts.gstatic.com/s/instrumentsans/v4/pxiTypc9vsFDm051Uf6KVwgkfoSxQ0GsQv8ToedPibnr0SZe1Q.woff2" as="font" type="font/woff2" crossorigin />
-<link rel="preload" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Instrument+Sans:wght@400;600;700&family=Space+Mono:wght@400;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Instrument+Sans:wght@400;600;700&family=Space+Mono:wght@400;700&display=swap" /></noscript>
+<link rel="preload" href="https://fonts.gstatic.com/s/bricolagegrotesque/v9/3y9K6as8bTXq_nANBjzKo3IeZx8z6up5BeSl9D4dj_x9PpZBMlGIInE.woff2" as="font" type="font/woff2" crossorigin />
 <style>
+  /* Inlined Font Definitions: eliminates critical request chaining & external CSS latency */
+  @font-face {
+    font-family: 'Instrument Sans';
+    font-style: normal;
+    font-weight: 400 700;
+    font-stretch: 100%;
+    font-display: swap;
+    src: url('https://fonts.gstatic.com/s/instrumentsans/v4/pxiTypc9vsFDm051Uf6KVwgkfoSxQ0GsQv8ToedPibnr0SZe1Q.woff2') format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face {
+    font-family: 'Bricolage Grotesque';
+    font-style: normal;
+    font-weight: 700 800;
+    font-stretch: 100%;
+    font-display: swap;
+    src: url('https://fonts.gstatic.com/s/bricolagegrotesque/v9/3y9K6as8bTXq_nANBjzKo3IeZx8z6up5BeSl9D4dj_x9PpZBMlGIInE.woff2') format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face {
+    font-family: 'Space Mono';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('https://fonts.gstatic.com/s/spacemono/v17/i7dPIFZifjKcF5UAWdDRYEF8RQ.woff2') format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face {
+    font-family: 'Space Mono';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url('https://fonts.gstatic.com/s/spacemono/v17/i7dMIFZifjKcF5UAWdDRaPpZUFWaHg.woff2') format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+
   /* Fallback Font Metric Overrides to completely eliminate layout shift */
   @font-face {
     font-family: 'Bricolage Fallback';
@@ -1985,31 +2018,33 @@
 
 <div class="toast" id="toast" role="status" aria-live="polite">Email copied to clipboard</div>
 
-<script defer src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script>
-  // Header border and reading progress on scroll (rAF-throttled to eliminate forced reflow)
+  // Header border and reading progress on scroll (zero reflow on initial load)
   var header = document.getElementById('siteHeader');
   var progress = document.getElementById('progress');
   var scrollTicking = false;
+  var maxScroll = 0;
+  function measureDocHeight(){
+    var doc = document.documentElement;
+    maxScroll = (doc.scrollHeight || 0) - (doc.clientHeight || 0);
+  }
   function updateScroll(){
     var sy = window.scrollY || window.pageYOffset || 0;
-    var doc = document.documentElement;
-    var max = (doc.scrollHeight || 0) - (doc.clientHeight || 0);
-    var isScrolled = sy > 8;
-    var pct = max > 0 ? (sy / max) * 100 : 0;
-
-    if (header) header.classList.toggle('scrolled', isScrolled);
-    if (progress) progress.style.width = pct + '%';
+    if (header) header.classList.toggle('scrolled', sy > 8);
+    if (progress && maxScroll > 0) {
+      progress.style.width = ((sy / maxScroll) * 100) + '%';
+    }
     scrollTicking = false;
   }
   function onScroll(){
+    if (maxScroll <= 0) measureDocHeight();
     if (!scrollTicking) {
       scrollTicking = true;
       requestAnimationFrame(updateScroll);
     }
   }
   window.addEventListener('scroll', onScroll, { passive: true });
-  updateScroll();
+  window.addEventListener('resize', measureDocHeight, { passive: true });
 
   // Services + FAQ accordions (reflow-safe initialization and expansion)
   document.querySelectorAll('.svc, .faq-item').forEach(function (svc) {
@@ -2074,19 +2109,43 @@
   });
 
   // EmailJS Configuration (Enables in-page AJAX submission + automatic client reply email)
-  // To activate client auto-replies: paste your free keys from emailjs.com below.
+  // Lazily loaded on user interaction to guarantee 100/100 performance without blocking page load
   var EMAILJS_CONFIG = {
     publicKey: 'nkfWw92oPDuqxeEBu',
     serviceId: 'service_dfus2vu',
     templateId: 'template_5y3u4es'
   };
 
-  if (window.emailjs && EMAILJS_CONFIG.publicKey) {
-    emailjs.init({ publicKey: EMAILJS_CONFIG.publicKey });
+  var emailJsLoading = false;
+  function ensureEmailJs(callback) {
+    if (window.emailjs) {
+      if (callback) callback();
+      return;
+    }
+    if (emailJsLoading) {
+      var poll = setInterval(function () {
+        if (window.emailjs) { clearInterval(poll); if (callback) callback(); }
+      }, 50);
+      return;
+    }
+    emailJsLoading = true;
+    var s = document.createElement('script');
+    s.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js';
+    s.onload = function () {
+      if (window.emailjs && EMAILJS_CONFIG.publicKey) {
+        emailjs.init({ publicKey: EMAILJS_CONFIG.publicKey });
+      }
+      if (callback) callback();
+    };
+    document.head.appendChild(s);
   }
 
   // Brief form handling: submits via AJAX so the visitor NEVER leaves the page
   var briefForm = document.getElementById('briefForm');
+  if (briefForm) {
+    briefForm.addEventListener('focusin', function () { ensureEmailJs(); }, { once: true });
+    briefForm.addEventListener('mouseenter', function () { ensureEmailJs(); }, { once: true });
+  }
   var fSubmit = document.getElementById('fSubmit');
   var formStatus = document.getElementById('formStatus');
   var isSubmitting = false;
@@ -2228,21 +2287,34 @@
         return res.json();
       });
 
-      // 2. Deliver branded auto-reply to the client's email via EmailJS
-      var emailJsReq = (window.emailjs && EMAILJS_CONFIG.publicKey && EMAILJS_CONFIG.serviceId && EMAILJS_CONFIG.templateId)
-        ? emailjs.send(EMAILJS_CONFIG.serviceId, EMAILJS_CONFIG.templateId, {
-            name: name,
-            client_name: name,
-            email: email,
-            user_email: email,
-            project_type: type,
-            title: type || 'Project Inquiry',
-            website: site || '(none provided)',
-            message: msg,
-            to_email: email,
-            reply_to: 'ahmaddirfaan@gmail.com'
-          })
-        : Promise.resolve();
+      // 2. Deliver branded auto-reply to the client's email via EmailJS (on-demand)
+      var emailJsReq = new Promise(function (resolve) {
+        if (!EMAILJS_CONFIG.publicKey || !EMAILJS_CONFIG.serviceId || !EMAILJS_CONFIG.templateId) {
+          resolve();
+          return;
+        }
+        ensureEmailJs(function () {
+          if (window.emailjs) {
+            emailjs.send(EMAILJS_CONFIG.serviceId, EMAILJS_CONFIG.templateId, {
+              name: name,
+              client_name: name,
+              email: email,
+              user_email: email,
+              project_type: type,
+              title: type || 'Project Inquiry',
+              website: site || '(none provided)',
+              message: msg,
+              to_email: email,
+              reply_to: 'ahmaddirfaan@gmail.com'
+            }).then(resolve).catch(function (err) {
+              console.warn('Auto-reply delivery:', err);
+              resolve();
+            });
+          } else {
+            resolve();
+          }
+        });
+      });
 
       var doneCount = 0;
       var successCount = 0;
