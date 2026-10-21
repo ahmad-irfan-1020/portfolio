@@ -1080,7 +1080,7 @@
           <a class="btn btn-ghost" href="#work">See my work first</a>
         </div>
         <div class="hero-meeting">
-          <a class="meeting-pill" href="https://calendly.com/ahmadirfan" target="_blank" rel="noopener" id="heroMeetingLink">
+          <a class="meeting-pill" href="https://calendly.com/ahmaddirfaan/15-minute-meeting" target="_blank" rel="noopener" id="heroMeetingLink">
             <span class="m-dot"></span>
             <span class="m-txt">Prefer a quick chat? <strong>Book a free 15-min discovery call</strong></span>
             <span class="m-arr">↗</span>
@@ -1394,7 +1394,7 @@
       <div class="cta-band rv">
         <div>
           <h3>Want results like these on your website?</h3>
-          <p>Tell me what you're building, or request a free 5-minute video audit of your current site. I'll tell you honestly where you're losing traffic and how to fix it.</p>
+          <p>Tell me what you're building, or request a free 15-minute video audit of your current site. I'll tell you honestly where you're losing traffic and how to fix it.</p>
         </div>
         <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
           <a class="btn btn-lime" href="#contact">Start a project →</a>
@@ -1758,9 +1758,9 @@
               <span class="ic" aria-hidden="true">✉</span>
               <span>Email me<span class="sm">ahmaddirfaan@gmail.com</span></span>
             </a>
-            <a class="c-link" href="https://calendly.com/ahmadirfan" target="_blank" rel="noopener" id="contactMeetingLink">
+            <a class="c-link" href="https://calendly.com/ahmaddirfaan/15-minute-meeting" target="_blank" rel="noopener" id="contactMeetingLink">
               <span class="ic" aria-hidden="true">📅</span>
-              <span>Book a 15-min call<span class="sm">calendly.com/ahmadirfan · pick a time on my calendar</span></span>
+              <span>Book a 15-min call<span class="sm">calendly.com/ahmaddirfaan/15-minute-meeting · pick a time on my calendar</span></span>
             </a>
             <button class="c-link" id="copyEmail" type="button" style="font-family:inherit;color:inherit;background:none;cursor:pointer;text-align:left">
               <span class="ic" aria-hidden="true">⧉</span>
@@ -1776,12 +1776,12 @@
             <!-- Form Mode Tabs (Inquiry vs Free Audit) -->
             <div class="form-mode-tabs" role="tablist" aria-label="Inquiry Type">
               <button type="button" class="form-tab active" id="tabInquiry">💬 Start a Project</button>
-              <button type="button" class="form-tab" id="tabAudit">🎥 Free 5-Min Audit</button>
+              <button type="button" class="form-tab" id="tabAudit">🎥 Free 15-Min Audit</button>
             </div>
             
             <div class="audit-banner" id="auditBanner">
               <span class="ab-icon">🎁</span>
-              <p><strong>Free 5-Minute Video Breakdown:</strong> Share your site URL below. I will personally record a video analyzing your page speed, ranking blockers, and 3 quick conversion wins. 100% free within 24 hours.</p>
+              <p><strong>Free 15-Minute Video Breakdown:</strong> Share your site URL below. I will personally record a video analyzing your page speed, ranking blockers, and 3 quick conversion wins. 100% free within 24 hours.</p>
             </div>
 
             <!-- FormSubmit Configuration: delivers directly to Ahmad's inbox with automated response -->
@@ -1805,7 +1805,7 @@
                 <label for="fType">Project type</label>
                 <select id="fType" name="project_type">
                   <option value="WordPress website">WordPress website</option>
-                  <option value="Free 5-Minute Website &amp; SEO Video Audit">★ Free 5-Minute Website &amp; SEO Video Audit</option>
+                  <option value="Free 15-Minute Website &amp; SEO Video Audit">★ Free 15-Minute Website &amp; SEO Video Audit</option>
                   <option value="WooCommerce store">WooCommerce store</option>
                   <option value="Shopify store">Shopify store</option>
                   <option value="SEO">SEO</option>
@@ -1964,7 +1964,7 @@
       auditBanner.classList.toggle('show', isAudit);
     }
     if (fType) {
-      fType.value = isAudit ? 'Free 5-Minute Website & SEO Video Audit' : 'WordPress website';
+      fType.value = isAudit ? 'Free 15-Minute Website & SEO Video Audit' : 'WordPress website';
     }
     if (lblSite) {
       lblSite.textContent = isAudit ? 'Website URL (Required for Video Audit)' : 'Website (optional)';
@@ -1985,7 +1985,7 @@
       fSubmit.textContent = isAudit ? 'Claim my free video audit →' : 'Send my message →';
     }
     if (fSubject) {
-      fSubject.value = isAudit ? 'Free 5-Minute Video Audit Request - Ahmad Irfan' : 'New Project Inquiry - Ahmad Irfan Portfolio';
+      fSubject.value = isAudit ? 'Free 15-Minute Video Audit Request - Ahmad Irfan' : 'New Project Inquiry - Ahmad Irfan Portfolio';
     }
   }
 
@@ -2024,9 +2024,9 @@
         briefForm.reset();
         fSubmit.textContent = 'Request received ✓';
         var firstName = name.split(' ')[0] || 'there';
-        var isAudit = (type === 'Free 5-Minute Website & SEO Video Audit');
+        var isAudit = (type === 'Free 15-Minute Website & SEO Video Audit');
         if (isAudit) {
-          setFormStatus('ok', 'Thanks, ' + firstName + ' — your audit request is confirmed! I will personally record your 5-minute video breakdown and send it to ' + email + ' within 24 hours.');
+          setFormStatus('ok', 'Thanks, ' + firstName + ' — your audit request is confirmed! I will personally record your 15-minute video breakdown and send it to ' + email + ' within 24 hours.');
         } else {
           setFormStatus('ok', 'Thanks, ' + firstName + ' — your message is in my inbox! I have received your inquiry and will reply soon (within 24 hours).');
         }
