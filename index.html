@@ -403,11 +403,11 @@
       letter-spacing:-.01em;
     }
     .hero-ctas .btn-lime{
-      flex:1.32 1 0;
+      flex:1 1 0;
       min-width:0;
     }
     .hero-ctas .btn-ghost{
-      flex:0.95 1 0;
+      flex:1 1 0;
       min-width:0;
     }
     .hero-meeting{margin-top:11px;justify-content:center;width:100%}
@@ -469,6 +469,61 @@
   .stat .l{margin-top:8px;color:var(--ink-2);font-size:15px;line-height:1.45}
   @media (max-width:820px){.stats-grid{grid-template-columns:1fr 1fr}.stat{padding:26px 18px}.stat:nth-child(odd){border-left:none;padding-left:0}}
 
+  /* guarantees band */
+  .guarantees-band{
+    background:var(--bg-soft);
+    border-bottom:1px solid var(--line);
+    padding:24px 0;
+  }
+  .guar-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:18px;
+    align-items:stretch;
+  }
+  .guar-item{
+    display:flex;
+    align-items:flex-start;
+    gap:14px;
+    padding:16px 18px;
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    transition:border-color .2s ease;
+  }
+  .guar-item:hover{
+    border-color:var(--lime);
+  }
+  .guar-icon{
+    font-size:24px;
+    line-height:1;
+    flex-shrink:0;
+    margin-top:2px;
+  }
+  .guar-title{
+    font-family:"Bricolage Grotesque",sans-serif;
+    font-weight:700;
+    font-size:16px;
+    margin:0 0 4px;
+    color:var(--ink);
+    line-height:1.25;
+  }
+  .guar-desc{
+    font-size:13.5px;
+    line-height:1.45;
+    color:var(--muted);
+    margin:0;
+  }
+  @media (max-width:860px){
+    .guar-grid{
+      grid-template-columns:1fr;
+      gap:12px;
+    }
+    .guar-item{
+      padding:14px 16px;
+    }
+  }
+
   /* about */
   .about-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:start}
   .about-copy p{font-size:18.5px;line-height:1.65;color:var(--ink-2);margin:0 0 18px}
@@ -510,6 +565,129 @@
   .svc-deliv li:last-child{border-bottom:none}
   .svc-deliv li::before{content:"→";position:absolute;left:0;color:var(--accent-text);font-weight:700}
   @media (max-width:700px){.svc-body-in{grid-template-columns:1fr;padding-left:4px}.svc-num{width:28px}}
+
+  /* AEO & GEO framework */
+  .aeo-grid{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:22px;
+    margin-bottom:28px;
+  }
+  .aeo-card{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:28px 28px 24px;
+    display:flex;
+    flex-direction:column;
+    position:relative;
+    transition:transform .2s ease, border-color .2s ease;
+  }
+  .aeo-card:hover{
+    border-color:var(--lime);
+    transform:translateY(-2px);
+  }
+  .aeo-badge-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    margin-bottom:14px;
+    flex-wrap:wrap;
+  }
+  .aeo-step{
+    font-family:var(--mono);
+    font-size:12px;
+    color:var(--accent-text);
+    font-weight:700;
+    letter-spacing:.06em;
+  }
+  .aeo-pill{
+    font-family:var(--mono);
+    font-size:11px;
+    font-weight:700;
+    background:rgba(198,242,78,.14);
+    color:var(--lime);
+    border:1px solid rgba(198,242,78,.35);
+    border-radius:999px;
+    padding:3px 10px;
+    letter-spacing:.02em;
+  }
+  html[data-theme="light"] .aeo-pill{
+    background:rgba(198,242,78,.14);
+    color:var(--ink);
+    border-color:rgba(198,242,78,.45);
+  }
+  .aeo-card h3{
+    font-family:"Bricolage Grotesque",sans-serif;
+    font-size:21px;
+    line-height:1.2;
+    margin:0 0 10px;
+    color:var(--ink);
+  }
+  .aeo-card p{
+    font-size:15px;
+    line-height:1.55;
+    color:var(--ink-2);
+    margin:0 0 16px;
+    flex:1;
+  }
+  .aeo-impact{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-family:var(--mono);
+    font-size:12px;
+    font-weight:600;
+    color:var(--accent-text);
+    padding-top:12px;
+    border-top:1px dashed var(--line);
+  }
+  .aeo-turing-banner{
+    background:var(--green);
+    color:var(--on-green);
+    border-radius:var(--radius);
+    padding:26px 30px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:24px;
+    border:1px solid rgba(239,246,236,.14);
+    flex-wrap:wrap;
+  }
+  .aeo-turing-banner h4{
+    font-family:"Bricolage Grotesque",sans-serif;
+    font-size:19px;
+    font-weight:800;
+    margin:0 0 6px;
+    color:var(--lime);
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .aeo-turing-banner p{
+    margin:0;
+    font-size:15px;
+    line-height:1.5;
+    color:var(--on-green-dim);
+    max-width:44em;
+  }
+  .aeo-turing-banner .btn{
+    white-space:nowrap;
+    flex-shrink:0;
+  }
+  @media (max-width:860px){
+    .aeo-grid{
+      grid-template-columns:1fr;
+      gap:16px;
+    }
+    .aeo-card{
+      padding:22px 20px 20px;
+    }
+    .aeo-turing-banner{
+      padding:20px;
+    }
+  }
 
   /* work */
   .work-filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:34px}
@@ -1020,11 +1198,12 @@
   <div class="wrap nav">
     <a class="brand" href="#top">
       <span class="b-name">Ahmad Irfan</span>
-      <span class="b-role">WORDPRESS · WEB &amp; APP DEVELOPMENT · SEO</span>
+      <span class="b-role">WORDPRESS · TECHNICAL SEO · AEO &amp; GEO</span>
     </a>
     <nav class="nav-links" aria-label="Main">
       <a href="#work">Work</a>
       <a href="#services">Services</a>
+      <a href="#aeo-geo">AI Search</a>
       <a href="#experience">Experience</a>
       <a href="#about">About</a>
       <button id="themeToggle" class="theme-toggle" type="button" onclick="toggleTheme()" aria-label="Switch to light mode" title="Switch to light mode">
@@ -1042,12 +1221,12 @@
   <div class="hero">
     <div class="wrap hero-inner">
       <div>
-        <span class="avail"><span class="dot"></span> OPEN TO FREELANCE &amp; CONTRACT PROJECTS</span>
-        <h1 class="hero-title">I build websites that <span class="hl">rank</span> &amp; <em>convert.</em></h1>
-        <p class="hero-sub">I'm Ahmad Irfan, a <strong>WordPress developer</strong> and <strong>SEO specialist</strong>, working across Shopify, web, and app development too. I lead the web and SEO teams at SkySol Media, and I take on client projects from first sketch to search rankings: the build, the design, the store, the app.</p>
+        <span class="avail"><span class="dot"></span> OPEN TO FREELANCE &amp; CONTRACT PROJECTS · WORLDWIDE</span>
+        <h1 class="hero-title">I engineer websites that <span class="hl">rank</span> &amp; <em>convert.</em></h1>
+        <p class="hero-sub">I'm Ahmad Irfan, a <strong>Web Engineer &amp; Search Dominance Specialist</strong>. I lead the web and SEO teams at SkySol Media, engineering high-speed WordPress, WooCommerce, and Shopify platforms built to dominate Google and AI search engines (AEO/GEO). From custom code to Page 1 rankings — delivered with speed and zero fluff.</p>
         <div class="hero-ctas">
-          <a class="btn btn-lime" href="#contact">Tell me about your project →</a>
-          <a class="btn btn-ghost" href="#work">See my work first</a>
+          <a class="btn btn-lime" href="#contact" id="heroStartBtn">Start a project →</a>
+          <a class="btn btn-ghost" href="#contact" id="heroAuditBtn">🎥 Free Video Audit</a>
         </div>
         <div class="hero-meeting">
           <a class="meeting-pill" href="https://calendly.com/ahmaddirfaan/15-minute-meeting" target="_blank" rel="noopener" id="heroMeetingLink">
@@ -1059,7 +1238,7 @@
       </div>
       <div class="stack" aria-hidden="true">
         <div class="card card-rank">
-          <div class="c-head">◆ Development · SEO · Design · Apps</div>
+          <div class="c-head">◆ Engineering · SEO · AI · E-Commerce</div>
           <div class="rank-row">
             <div class="rank-badge">WP</div>
             <div><div class="t">WordPress &amp; Shopify</div><div class="s">Custom themes, plugins &amp; stores</div></div>
@@ -1071,9 +1250,9 @@
             <div class="up">RANK</div>
           </div>
           <div class="rank-row">
-            <div class="rank-badge">UI</div>
-            <div><div class="t">Design &amp; apps</div><div class="s">Branding, creatives &amp; development</div></div>
-            <div class="up">SHIP</div>
+            <div class="rank-badge">AI</div>
+            <div><div class="t">AEO &amp; 3D Digital Assets</div><div class="s">Perplexity/Gemini answers &amp; Blender</div></div>
+            <div class="up">CONVERT</div>
           </div>
         </div>
         <div class="card card-traffic">
@@ -1097,8 +1276,8 @@
   <!-- MARQUEE -->
   <div class="marquee" aria-hidden="true">
     <div class="marquee-track" id="marqueeTrack">
-      <span>WordPress <b>✦</b> WooCommerce <b>✦</b> Shopify <b>✦</b> Technical SEO <b>✦</b> Custom Themes <b>✦</b> Custom Plugins <b>✦</b> Local SEO <b>✦</b> Link Building <b>✦</b> Branding <b>✦</b> App Development <b>✦</b> AEO &amp; GEO <b>✦</b></span>
-      <span>WordPress <b>✦</b> WooCommerce <b>✦</b> Shopify <b>✦</b> Technical SEO <b>✦</b> Custom Themes <b>✦</b> Custom Plugins <b>✦</b> Local SEO <b>✦</b> Link Building <b>✦</b> Branding <b>✦</b> App Development <b>✦</b> AEO &amp; GEO <b>✦</b></span>
+      <span>WordPress Engineering <b>✦</b> Technical SEO <b>✦</b> AEO &amp; GEO <b>✦</b> WooCommerce <b>✦</b> Shopify <b>✦</b> Core Web Vitals <b>✦</b> Schema.org Graphs <b>✦</b> 3D Digital Twins <b>✦</b> CRO Funnels <b>✦</b> Entity SEO <b>✦</b></span>
+      <span>WordPress Engineering <b>✦</b> Technical SEO <b>✦</b> AEO &amp; GEO <b>✦</b> WooCommerce <b>✦</b> Shopify <b>✦</b> Core Web Vitals <b>✦</b> Schema.org Graphs <b>✦</b> 3D Digital Twins <b>✦</b> CRO Funnels <b>✦</b> Entity SEO <b>✦</b></span>
     </div>
   </div>
 
@@ -1109,6 +1288,33 @@
       <div class="stat rv"><div class="n"><span data-count="5">5</span><em>+</em></div><div class="l">Years of experience since 2021, across design, SEO, development, team leadership, and AI work</div></div>
       <div class="stat rv"><div class="n"><span data-count="3">3</span></div><div class="l">Teams led day to day: WordPress development, SEO, and design</div></div>
       <div class="stat rv"><div class="n"><span data-count="6">6</span></div><div class="l">Roles across my career so far: designer, SEO specialist, developer, team lead, project manager, AI engineer</div></div>
+    </div>
+  </div>
+
+  <!-- GUARANTEES & RISK REVERSAL -->
+  <div class="guarantees-band">
+    <div class="wrap guar-grid">
+      <div class="guar-item rv">
+        <div class="guar-icon" aria-hidden="true">⚡</div>
+        <div>
+          <h3 class="guar-title">100% Core Web Vitals Pass</h3>
+          <p class="guar-desc">Sub-second load speeds and green mobile Google PageSpeed scores guaranteed on every build before final payment.</p>
+        </div>
+      </div>
+      <div class="guar-item rv">
+        <div class="guar-icon" aria-hidden="true">🛡️</div>
+        <div>
+          <h3 class="guar-title">30-Day Post-Launch Warranty</h3>
+          <p class="guar-desc">A full month of included post-go-live coverage: bug fixes, index monitoring, and Core Web Vitals maintenance.</p>
+        </div>
+      </div>
+      <div class="guar-item rv">
+        <div class="guar-icon" aria-hidden="true">🤝</div>
+        <div>
+          <h3 class="guar-title">Transparent Milestone Pricing</h3>
+          <p class="guar-desc">Written scope and fixed milestone billing. Zero surprise costs, paid in staged intervals as work is reviewed.</p>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -1220,19 +1426,19 @@
         <div class="svc">
           <button class="svc-head" aria-expanded="false">
             <span class="svc-num">/04</span>
-            <span class="svc-name">Design &amp; Branding<span class="svc-tagline">Where I started in 2021, and still part of almost every project.</span></span>
+            <span class="svc-name">Conversion UI &amp; 3D Visual Assets<span class="svc-tagline">Brand identity, UI systems, and Blender 3D product visuals built to sell.</span></span>
             <span class="svc-arrow">+</span>
           </button>
           <div class="svc-body">
             <div class="svc-body-in">
-              <p>I began freelancing as a graphic designer on Fiverr, from August 2021 to December 2022. That eye for design is why my websites don't look like templates, and why a website and its brand assets can be planned together in a single project.</p>
+              <p>Visuals should drive conversions, not just fill space. From high-converting UI design systems to CAD-accurate Blender 3D product digital twins that replace expensive physical photoshoots, I engineer visual assets that elevate perceived product value and accelerate customer checkouts.</p>
               <ul class="svc-deliv">
-                <li>Logos &amp; brand identity</li>
-                <li>Social media creatives &amp; campaigns</li>
-                <li>Marketing materials</li>
-                <li>UI design for web &amp; apps</li>
+                <li>Conversion UI &amp; responsive UX design</li>
+                <li>Blender 3D product digital twins &amp; exploded renders</li>
+                <li>Brand identity &amp; design systems</li>
+                <li>High-resolution, zero-bloat web media assets</li>
               </ul>
-              <a class="svc-cta" href="#contact" data-type="Design &amp; branding">Start a design project →</a>
+              <a class="svc-cta" href="#contact" data-type="Design &amp; branding">Start a creative / 3D project →</a>
             </div>
           </div>
         </div>
@@ -1240,23 +1446,86 @@
         <div class="svc">
           <button class="svc-head" aria-expanded="false">
             <span class="svc-num">/05</span>
-            <span class="svc-name">Apps &amp; AI Workflows<span class="svc-tagline">Fast, reliable apps, and AI used where it actually helps.</span></span>
+            <span class="svc-name">Full-Stack Apps &amp; AI Workflows<span class="svc-tagline">High-speed web platforms, workflow automation, and LLM engineering.</span></span>
             <span class="svc-arrow">+</span>
           </button>
           <div class="svc-body">
             <div class="svc-body-in">
-              <p>Mobile and web apps built to be fast and reliable. And after six months at Turing evaluating and fine-tuning large language models, I also help teams use AI properly: in their workflows, their content, and their search presence.</p>
+              <p>High-speed web platforms paired with real-world AI engineering. Drawing from six months at Turing evaluating large language models and RLHF pipelines for US tech leaders, I build production-grade web applications and optimize content architectures to rank across both traditional search and AI answer engines.</p>
               <ul class="svc-deliv">
-                <li>Mobile &amp; web app development</li>
-                <li>AI-assisted team workflows</li>
-                <li>LLM evaluation &amp; prompt refinement</li>
-                <li>AI search visibility (AEO / GEO)</li>
+                <li>Web &amp; mobile application development</li>
+                <li>AEO &amp; GEO optimization for AI search engines</li>
+                <li>LLM prompt refinement &amp; evaluation</li>
+                <li>Automated AI-assisted team workflows</li>
               </ul>
-              <a class="svc-cta" href="#contact" data-type="App development">Start an app project →</a>
+              <a class="svc-cta" href="#contact" data-type="App development">Start an app / AI project →</a>
             </div>
           </div>
         </div>
 
+      </div>
+    </div>
+  </section>
+
+  <!-- AEO & GEO FRAMEWORK -->
+  <section class="block" id="aeo-geo">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <div>
+          <div class="sec-label">03 — AI Search (AEO &amp; GEO Framework)</div>
+          <h2 class="sec-title">Engineering sites for Perplexity, ChatGPT &amp; Google AI.</h2>
+        </div>
+        <p class="sec-note">Traditional SEO optimizes for keyword bots. Answer Engine Optimization (AEO) and Generative Engine Optimization (GEO) optimize for large language models. Drawing from 6 months evaluating LLMs at Turing, here is my 4-pillar technical framework to get brands cited as authoritative AI sources.</p>
+      </div>
+
+      <div class="aeo-grid rv">
+        <div class="aeo-card">
+          <div class="aeo-badge-row">
+            <span class="aeo-step">PILLAR 01 / GRAPH</span>
+            <span class="aeo-pill">ENTITY DISAMBIGUATION</span>
+          </div>
+          <h3>Semantic Entity Graphs &amp; Nested JSON-LD Triples</h3>
+          <p>AI search engines build knowledge graphs from entity triples (Subject-Predicate-Object). I architect deeply nested Schema.org <code>@graph</code> JSON-LD linking your brand directly to verified Wikidata, Wikipedia, and LinkedIn nodes so LLMs resolve entity disambiguation with zero hallucination.</p>
+          <div class="aeo-impact"><span>✦ Perplexity Sonar &amp; Google Knowledge Graph verification</span></div>
+        </div>
+
+        <div class="aeo-card">
+          <div class="aeo-badge-row">
+            <span class="aeo-step">PILLAR 02 / RAG</span>
+            <span class="aeo-pill">ZERO-SHOT EXTRACTION</span>
+          </div>
+          <h3>Direct-Answer Micro-Summaries (40–60 Words)</h3>
+          <p>Modern RAG pipelines chunk web pages into 256–512 token embeddings and score them against user queries using semantic vector similarity. I structure content hierarchies with concise, declarative 40–60 word micro-summaries directly beneath question headings for instant zero-shot snippet extraction.</p>
+          <div class="aeo-impact"><span>✦ Preferred snippet source for SearchGPT &amp; Google AI Overviews</span></div>
+        </div>
+
+        <div class="aeo-card">
+          <div class="aeo-badge-row">
+            <span class="aeo-step">PILLAR 03 / DATA</span>
+            <span class="aeo-pill">HIGH VECTOR WEIGHT</span>
+          </div>
+          <h3>Fact-Dense Comparison &amp; Benchmark Tables</h3>
+          <p>Language models heavily discount marketing adjectives and prioritize structured data matrices with exact numerical metrics, comparative specs, and quantified boundaries. I engineer semantic HTML tables that RAG systems retrieve as high-confidence citation passages for commercial intent queries.</p>
+          <div class="aeo-impact"><span>✦ Priority citation in AI product comparisons &amp; vendor evaluations</span></div>
+        </div>
+
+        <div class="aeo-card">
+          <div class="aeo-badge-row">
+            <span class="aeo-step">PILLAR 04 / CRAWL</span>
+            <span class="aeo-pill">ZERO-JS INGESTION</span>
+          </div>
+          <h3>Bot-First Crawlability &amp; Sub-200ms Token Ingestion</h3>
+          <p>AI crawlers (GPTBot, PerplexityBot, ClaudeBot, Google-Extended) operate on tight compute budgets and rarely execute heavy client-side JavaScript. Every site I engineer serves lightweight, semantic HTML with zero DOM bloat, ensuring 100% token ingestibility in under 200ms.</p>
+          <div class="aeo-impact"><span>✦ Guaranteed indexation across all major AI search user-agents</span></div>
+        </div>
+      </div>
+
+      <div class="aeo-turing-banner rv">
+        <div>
+          <h4><span>🧠</span> The Turing LLM Engineering Advantage</h4>
+          <p>Most SEO agencies guess what AI models want. Having spent 6 months at <strong>Turing</strong> evaluating LLM outputs and prompt-response architectures for US tech clients, I engineer web platforms that align with how frontier models actually evaluate factuality, citation authority, and context retrieval.</p>
+        </div>
+        <a class="btn btn-lime small" href="#contact" data-type="SEO">Audit my AI search visibility →</a>
       </div>
     </div>
   </section>
@@ -1266,16 +1535,16 @@
     <div class="wrap">
       <div class="sec-head rv">
         <div>
-          <div class="sec-label">03 — Selected work</div>
+          <div class="sec-label">04 — Selected work</div>
           <h2 class="sec-title">Recent projects.</h2>
         </div>
-        <p class="sec-note">A few engagements from my current portfolio. Client analytics stay private, so results are described, not screenshotted.</p>
+        <p class="sec-note">Selected commercial builds and search campaigns. Every project is engineered for verified outcomes: sub-second load times, technical search dominance, and measurable conversion lift.</p>
       </div>
       <div class="work-filters rv" role="group" aria-label="Filter projects">
         <button class="filter-btn active" data-filter="all">All Projects</button>
-        <button class="filter-btn" data-filter="web">Website</button>
-        <button class="filter-btn" data-filter="seo">SEO</button>
-        <button class="filter-btn" data-filter="design">Designing</button>
+        <button class="filter-btn" data-filter="web">Web &amp; E-Commerce</button>
+        <button class="filter-btn" data-filter="seo">SEO &amp; Search</button>
+        <button class="filter-btn" data-filter="creative">Creative &amp; 3D</button>
       </div>
       <div class="work-list rv">
 
@@ -1283,81 +1552,81 @@
           <div class="work-year">WEBSITE + SEO</div>
           <div>
             <h3 class="work-name">Safe &amp; Secure Trading Co.</h3>
-            <div class="work-kind">Development &amp; ongoing SEO</div>
+            <div class="work-kind">Corporate Platform &amp; Search Dominance</div>
             <div class="work-tags">
-              <span class="tag">WordPress</span><span class="tag">Technical SEO</span><span class="tag">On-page SEO</span>
+              <span class="tag">WordPress</span><span class="tag">Technical SEO</span><span class="tag">Schema Graph</span>
             </div>
             <div class="work-metrics">
               <span class="metric-badge"><span class="m-icon">⚡</span> 100% Core Web Vitals Pass</span>
               <span class="metric-badge"><span class="m-icon">📈</span> +185% Organic Visibility</span>
-              <span class="metric-badge"><span class="m-icon">🔍</span> Page 1 Google Rankings</span>
+              <span class="metric-badge"><span class="m-icon">🔍</span> 14 Page 1 Keywords</span>
             </div>
           </div>
-          <p class="work-desc">Engineered a high-speed corporate web platform built to rank from day one. Followed with continuous search optimization: technical architecture, schema markup, search console indexing, and targeted keyword positioning that propelled primary trading search terms onto Page 1 of Google.</p>
+          <p class="work-desc">Engineered a high-speed corporate trading platform architected for instant search indexing. Followed with continuous technical SEO: structured Schema.org graphs, automated sitemap delivery, and aggressive commercial keyword targeting that moved 14 high-intent industrial queries onto Page 1 of Google.</p>
         </article>
-        <article class="work-item" data-cat="web design ecom">
-          <div class="work-year">WEBSITE</div>
+        <article class="work-item" data-cat="web creative">
+          <div class="work-year">E-COMMERCE</div>
           <div>
             <h3 class="work-name">Al Nafees</h3>
-            <div class="work-kind">Website design &amp; development</div>
+            <div class="work-kind">Conversion-Focused Storefront &amp; UI</div>
             <div class="work-tags">
-              <span class="tag">WordPress</span><span class="tag">UI Design</span><span class="tag">E-commerce</span>
+              <span class="tag">WordPress</span><span class="tag">UI/UX Design</span><span class="tag">Conversion Funnel</span>
             </div>
             <div class="work-metrics">
-              <span class="metric-badge"><span class="m-icon">⚡</span> 0.9s Page Load Speed</span>
-              <span class="metric-badge"><span class="m-icon">🛒</span> Streamlined 2-Step Funnel</span>
+              <span class="metric-badge"><span class="m-icon">⚡</span> 0.9s Mobile Load Time</span>
+              <span class="metric-badge"><span class="m-icon">🛒</span> 2-Step Checkout Funnel</span>
               <span class="metric-badge"><span class="m-icon">📱</span> 100% Mobile Optimized</span>
             </div>
           </div>
-          <p class="work-desc">Designed and engineered a high-converting storefront from scratch. Replaced a slow legacy experience with an ultra-clean, mobile-first purchase funnel that eliminates user friction and guides visitors seamlessly from product discovery to checkout.</p>
+          <p class="work-desc">Replaced a slow legacy experience with an ultra-clean, mobile-first purchase funnel. Simplified product categorization, cut checkout steps to two clicks, and reduced time-to-interactive to 0.9s, directly eliminating cart abandonment.</p>
         </article>
-        <article class="work-item" data-cat="web ecom">
+        <article class="work-item" data-cat="web">
           <div class="work-year">E-COMMERCE</div>
           <div>
             <h3 class="work-name">Cell City Mobiles</h3>
-            <div class="work-kind">WooCommerce store built from scratch</div>
+            <div class="work-kind">High-Throughput WooCommerce Store</div>
             <div class="work-tags">
-              <span class="tag">WordPress</span><span class="tag">WooCommerce</span><span class="tag">E-commerce</span>
+              <span class="tag">WordPress</span><span class="tag">WooCommerce</span><span class="tag">High-SKU Catalog</span>
             </div>
             <div class="work-metrics">
               <span class="metric-badge"><span class="m-icon">📦</span> 500+ SKU Architecture</span>
-              <span class="metric-badge"><span class="m-icon">💳</span> Tailored Local Checkout</span>
+              <span class="metric-badge"><span class="m-icon">💳</span> One-Page Local Checkout</span>
               <span class="metric-badge"><span class="m-icon">📉</span> 38% Less Cart Drop-off</span>
             </div>
           </div>
-          <p class="work-desc">End-to-end WordPress &amp; WooCommerce retail store built for scale. Structured high-speed product filters, spec-driven device variants (storage, color, PTA status), and a custom localized checkout flow that reduced cart drop-offs by 38%.</p>
+          <p class="work-desc">Architected a scalable WordPress &amp; WooCommerce retail platform engineered for high transaction volume. Implemented instantaneous faceted filtering, dynamic device variant matrices (storage, color, PTA status), and a custom one-page local checkout that slashed cart drop-offs by 38%.</p>
         </article>
         <article class="work-item" data-cat="web">
-          <div class="work-year">WEBSITE</div>
+          <div class="work-year">ENTERPRISE WEB</div>
           <div>
             <h3 class="work-name">Hescone Engineering</h3>
-            <div class="work-kind">Company website &amp; project portfolio</div>
+            <div class="work-kind">Commercial Tender &amp; Portfolio Portal</div>
             <div class="work-tags">
-              <span class="tag">WordPress</span><span class="tag">Company Profile</span><span class="tag">Project Portfolio</span>
+              <span class="tag">WordPress</span><span class="tag">Enterprise Profile</span><span class="tag">Lead Capture Funnel</span>
             </div>
             <div class="work-metrics">
               <span class="metric-badge"><span class="m-icon">🏗️</span> 30-Year Portfolio Showcase</span>
-              <span class="metric-badge"><span class="m-icon">📩</span> Commercial Lead Funnel</span>
-              <span class="metric-badge"><span class="m-icon">⚡</span> Sub-second Performance</span>
+              <span class="metric-badge"><span class="m-icon">📩</span> High-Value RFQ Funnel</span>
+              <span class="metric-badge"><span class="m-icon">⚡</span> Sub-Second Performance</span>
             </div>
           </div>
-          <p class="work-desc">Authority web presence for a three-decade engineering contractor. Built to win high-ticket commercial tenders: structured project case studies, clear scope breakdowns, and prominent friction-free inquiry funnels that convert enterprise prospects into qualified bids.</p>
+          <p class="work-desc">Designed an authoritative corporate web portal for a premier 30-year engineering contractor. Built to secure high-ticket tenders with structured industrial case studies, clear capability breakdowns, and high-visibility inquiry funnels that convert enterprise decision-makers into qualified leads.</p>
         </article>
-        <article class="work-item" data-cat="design">
-          <div class="work-year">3D DESIGN</div>
+        <article class="work-item" data-cat="creative">
+          <div class="work-year">3D DIGITAL TWIN</div>
           <div>
             <h3 class="work-name">Steel Wire Rope</h3>
-            <div class="work-kind">3D graphic design in Blender</div>
+            <div class="work-kind">Photorealistic 3D Product Visuals (Blender)</div>
             <div class="work-tags">
-              <span class="tag">Blender 3D</span><span class="tag">3D Modeling</span><span class="tag">Product Imagery</span>
+              <span class="tag">Blender 3D</span><span class="tag">Digital Twin</span><span class="tag">E-Commerce Asset</span>
             </div>
             <div class="work-metrics">
-              <span class="metric-badge"><span class="m-icon">📐</span> 100% CAD-Level Accuracy</span>
-              <span class="metric-badge"><span class="m-icon">✨</span> Studio 4K Photorealism</span>
-              <span class="metric-badge"><span class="m-icon">💰</span> Cut Studio Photo Costs</span>
+              <span class="metric-badge"><span class="m-icon">📐</span> 100% CAD-Level Precision</span>
+              <span class="metric-badge"><span class="m-icon">✨</span> 4K Studio Photorealism</span>
+              <span class="metric-badge"><span class="m-icon">💰</span> $0 Physical Staging Cost</span>
             </div>
           </div>
-          <p class="work-desc">High-precision 3D modeling and rendering engineered from 2D industrial blueprints in Blender. Delivered strand-by-strand product visual assets that show internal wire rope core constructions with zero need for costly industrial photography.</p>
+          <p class="work-desc">Engineered photorealistic 3D digital twins from technical industrial 2D blueprints in Blender. Delivered cross-sectional and exploded strand-by-strand product renders that show internal steel core geometries with microscopic precision — eliminating thousands in specialized industrial studio photography and accelerating commercial tender catalogs.</p>
         </article>
 
       </div>
@@ -1379,7 +1648,7 @@
     <div class="wrap">
       <div class="sec-head rv">
         <div>
-          <div class="sec-label">04 — Experience</div>
+          <div class="sec-label">05 — Experience</div>
           <h2 class="sec-title">Developer to team lead, and everything since.</h2>
         </div>
       </div>
@@ -1486,7 +1755,7 @@
     <div class="wrap">
       <div class="sec-head rv">
         <div>
-          <div class="sec-label">05 — Toolbox</div>
+          <div class="sec-label">06 — Toolbox</div>
           <h2 class="sec-title">What I actually work with.</h2>
         </div>
       </div>
@@ -1535,7 +1804,7 @@
     <div class="wrap">
       <div class="sec-head rv">
         <div>
-          <div class="sec-label">06 — Social Proof &amp; Reviews</div>
+          <div class="sec-label">07 — Social Proof &amp; Reviews</div>
           <h2 class="sec-title">What clients &amp; teammates say.</h2>
         </div>
         <div class="trust-summary">
@@ -1609,7 +1878,7 @@
     <div class="wrap">
       <div class="sec-head rv">
         <div>
-          <div class="sec-label">07 — Working together</div>
+          <div class="sec-label">08 — Working together</div>
           <h2 class="sec-title">Starting is simple.</h2>
         </div>
         <p class="sec-note">No briefs in a special format and no discovery-call funnel. Here is how a project with me actually runs, and the questions clients ask before they start.</p>
@@ -1702,12 +1971,12 @@
 
         <div class="faq-item">
           <button class="faq-head" aria-expanded="false">
-            <span class="faq-q">What happens after my site launches?</span>
+            <span class="faq-q">What guarantees and post-launch support do you provide?</span>
             <span class="svc-arrow">+</span>
           </button>
           <div class="faq-body">
             <div class="faq-body-in">
-              <p>I don't disappear at launch. Maintenance, security, troubleshooting, and ongoing SEO are part of my services, and on SEO projects I keep monitoring indexing and performance so problems get caught early, not after traffic drops.</p>
+              <p>Every project is backed by two explicit protections: a <strong>100% Core Web Vitals Pass Guarantee</strong> (your site must achieve sub-second speeds and green Google scores before final payment) and a <strong>30-Day Post-Launch Warranty</strong>. For 30 days after going live, all bug fixes, Search Console index monitoring, and speed checks are completely covered at zero additional cost. Ongoing monthly SEO and maintenance plans are also available.</p>
             </div>
           </div>
         </div>
@@ -1958,6 +2227,8 @@
   var lblMsg = document.getElementById('lblMsg');
   var fSubject = document.getElementById('fSubject');
   var bandAuditBtn = document.getElementById('bandAuditBtn');
+  var heroStartBtn = document.getElementById('heroStartBtn');
+  var heroAuditBtn = document.getElementById('heroAuditBtn');
 
   function setAuditMode(isAudit) {
     if (tabInquiry && tabAudit) {
@@ -1997,6 +2268,8 @@
 
   if (tabInquiry) tabInquiry.addEventListener('click', function () { setAuditMode(false); });
   if (tabAudit) tabAudit.addEventListener('click', function () { setAuditMode(true); });
+  if (heroStartBtn) heroStartBtn.addEventListener('click', function () { setAuditMode(false); });
+  if (heroAuditBtn) heroAuditBtn.addEventListener('click', function () { setAuditMode(true); });
   if (bandAuditBtn) {
     bandAuditBtn.addEventListener('click', function () {
       setAuditMode(true);
@@ -2234,11 +2507,13 @@
       "gender": "https://schema.org/Male",
       "nationality": "Pakistani",
       "jobTitle": [
+        "Web Engineer",
+        "Search Dominance Specialist",
+        "Technical SEO & AEO/GEO Architect",
         "WordPress Developer",
-        "SEO Specialist",
         "Web & SEO Team Lead"
       ],
-      "description": "Ahmad Irfan is a WordPress developer and SEO specialist from Lahore, Pakistan, serving as Web & SEO Team Lead at SkySol Media and managing search strategy at Zonix Tech.",
+      "description": "Ahmad Irfan is a Web Engineer, WordPress developer and Technical SEO / AEO specialist from Lahore, Pakistan, serving as Web & SEO Team Lead at SkySol Media and managing search strategy at Zonix Tech.",
       "email": "ahmaddirfaan@gmail.com",
       "telephone": "+923004323600",
       "address": {
@@ -2388,10 +2663,10 @@
         },
         {
           "@type": "Question",
-          "name": "What happens after my site launches?",
+          "name": "What guarantees and post-launch support do you provide?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Post-launch maintenance, security, Core Web Vitals monitoring, and ongoing search optimization ensure search rankings and technical performance stay healthy."
+            "text": "Every project is backed by two explicit protections: a 100% Core Web Vitals Pass Guarantee (sub-second speeds and green Google scores before final payment) and a 30-Day Post-Launch Warranty covering bug fixes, Search Console index monitoring, and speed checks at zero additional cost."
           }
         }
       ]
