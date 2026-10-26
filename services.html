@@ -1,0 +1,576 @@
+<!doctype html>
+<html lang="en" data-theme="dark" style="background-color:#0A120E;color:#EDF3E9;color-scheme:dark;">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#0A120E" />
+<meta name="color-scheme" content="dark light" />
+<meta name="description" content="Explore web engineering, technical SEO, and design services by Ahmad Irfan: Custom WordPress, Shopify, Web &amp; App Development, AEO/GEO, and Core Web Vitals optimization." />
+<meta name="keywords" content="WordPress Development Services, Technical SEO Services, Shopify Development, AEO Services, GEO Services, Web Development Lahore, Core Web Vitals Optimization, Ahmad Irfan Services" />
+<meta name="author" content="Ahmad Irfan" />
+
+<!-- Robots & Indexing -->
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+<meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://ahmadirfan.com/services" />
+
+<!-- Open Graph / Social Media -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://ahmadirfan.com/services" />
+<meta property="og:title" content="Web Engineering, SEO &amp; Design Services — Ahmad Irfan" />
+<meta property="og:description" content="Detailed breakdown of custom WordPress engineering, Shopify, Technical SEO, AI Search (AEO/GEO), and UI/UX design services by Ahmad Irfan." />
+<meta property="og:site_name" content="ahmadirfan.com" />
+<meta property="og:image" content="https://ahmadirfan.com/og-image.jpg?v=2" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Ahmad Irfan Services — Web Engineering, SEO &amp; Design" />
+
+<!-- Twitter / X Cards -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Web Engineering, SEO &amp; Design Services — Ahmad Irfan" />
+<meta name="twitter:description" content="High-impact WordPress, Shopify, SEO, and web development services backed by a 100% Core Web Vitals Pass Guarantee." />
+<meta name="twitter:image" content="https://ahmadirfan.com/og-image.jpg?v=2" />
+
+<title>Services — Web Engineering, Technical SEO &amp; Design | Ahmad Irfan</title>
+<link rel="icon" href="favicon.ico" sizes="32x32" />
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+<link rel="apple-touch-icon" href="apple-touch-icon.png" />
+<link rel="preload" href="/fonts/instrumentsans.woff2" as="font" type="font/woff2" crossorigin fetchpriority="high" />
+<link rel="preload" href="/fonts/bricolagegrotesque.woff2" as="font" type="font/woff2" crossorigin fetchpriority="high" />
+
+<style>
+  @font-face {
+    font-family: 'Instrument Sans';
+    font-style: normal;
+    font-weight: 400 700;
+    font-stretch: 100%;
+    font-display: optional;
+    src: url('/fonts/instrumentsans.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'Bricolage Grotesque';
+    font-style: normal;
+    font-weight: 700 800;
+    font-stretch: 100%;
+    font-display: optional;
+    src: url('/fonts/bricolagegrotesque.woff2') format('woff2');
+  }
+
+  :root, html[data-theme="dark"]{
+    color-scheme: dark;
+    --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Monaco, Consolas, monospace;
+    --bg:#0A120E;
+    --bg-soft:#0D1712;
+    --surface:#101B15;
+    --surface-card:#14241C;
+    --ink:#EDF3E9;
+    --ink-2:#C9D8CC;
+    --muted:#93A898;
+    --line:rgba(237,243,233,.16);
+    --line-strong:rgba(237,243,233,.36);
+    --green:#0B3527;
+    --green-deep:#051B13;
+    --green-card:#0E4230;
+    --on-green:#EFF6EC;
+    --on-green-dim:#A9C3B2;
+    --lime:#C6F24E;
+    --lime-ink:#1D3300;
+    --accent-text:#B9EC6E;
+    --chip:#1A2A20;
+    --shadow:0 24px 48px -24px rgba(0,0,0,.7);
+    --radius:18px;
+  }
+  html[data-theme="light"]{
+    color-scheme: light;
+    --bg:#F5F1E6;
+    --bg-soft:#EFE9D8;
+    --surface:#FCFAF2;
+    --surface-card:#F0EADE;
+    --ink:#132019;
+    --ink-2:#31453A;
+    --muted:#485B4E;
+    --line:rgba(19,32,25,.16);
+    --line-strong:rgba(19,32,25,.34);
+    --green:#0B3527;
+    --green-deep:#07231A;
+    --green-card:#0E4230;
+    --on-green:#EFF6EC;
+    --on-green-dim:#A9C3B2;
+    --lime:#C6F24E;
+    --lime-ink:#1D3300;
+    --accent-text:#3E6B0B;
+    --chip:#EAE3CC;
+    --shadow:0 24px 48px -24px rgba(7,35,26,.35);
+  }
+  *{box-sizing:border-box}
+  html{background-color:var(--bg);color:var(--ink);scroll-behavior:smooth}
+  body{
+    margin:0;background-color:var(--bg);color:var(--ink);
+    font-family:"Instrument Sans",system-ui,-apple-system,sans-serif;
+    font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  ::selection{background:var(--lime);color:var(--lime-ink)}
+  a{color:inherit}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+  .mono{font-family:var(--mono)}
+
+  /* Header */
+  header.site{
+    position:sticky;top:0;z-index:60;
+    background:color-mix(in srgb, var(--bg) 90%, transparent);
+    backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:14px;padding-bottom:14px}
+  .brand{display:flex;align-items:baseline;gap:10px;text-decoration:none;font-weight:700}
+  .brand .b-name{font-family:"Bricolage Grotesque",sans-serif;font-size:20px;font-weight:800}
+  .brand .b-role{font-size:12px;color:var(--muted);font-family:var(--mono);letter-spacing:.04em}
+  .nav-links{display:flex;gap:26px;align-items:center}
+  .nav-links a{text-decoration:none;font-size:15px;font-weight:600;color:var(--ink-2);transition:color .18s ease}
+  .nav-links a:hover, .nav-links a.active{color:var(--ink);text-decoration:underline;text-underline-offset:5px;text-decoration-color:var(--lime);text-decoration-thickness:3px}
+  .theme-toggle{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:38px;height:38px;border-radius:50%;
+    border:1.5px solid var(--line);background:var(--surface);
+    color:var(--ink);cursor:pointer;padding:0;flex-shrink:0;
+  }
+  .theme-toggle .icon-sun{display:block}
+  .theme-toggle .icon-moon{display:none}
+  html[data-theme="light"] .theme-toggle .icon-sun{display:none}
+  html[data-theme="light"] .theme-toggle .icon-moon{display:block}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;border:none;cursor:pointer;text-decoration:none;
+    font-family:inherit;font-weight:700;font-size:15px;padding:12px 22px;border-radius:999px;
+    transition:transform .15s ease, background .15s ease;
+  }
+  .btn:active{transform:scale(.97)}
+  .btn-lime{background:var(--lime);color:var(--lime-ink)}
+  .btn-lime:hover{background:#d4f976}
+  .btn.btn-ink{background:var(--ink);color:var(--bg)}
+  .btn.btn-ghost{background:transparent;color:var(--on-green);border:1.5px solid rgba(239,246,236,.4)}
+  .btn.small{padding:9px 18px;font-size:14px}
+
+  /* Page Hero */
+  .page-hero{
+    padding:64px 0 44px;
+    background:radial-gradient(ellipse 80% 50% at 50% -20%, rgba(198,242,78,.12), transparent);
+    border-bottom:1px solid var(--line);
+  }
+  .kicker{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--accent-text);background:var(--chip);padding:5px 12px;border-radius:999px;margin-bottom:16px;
+  }
+  h1.page-title{
+    font-family:"Bricolage Grotesque",sans-serif;font-size:clamp(36px, 5.5vw, 62px);
+    line-height:1.08;font-weight:800;letter-spacing:-.02em;margin:0 0 20px;
+  }
+  .page-lead{
+    font-size:clamp(18px, 2.4vw, 21px);line-height:1.55;color:var(--ink-2);max-width:38em;margin:0;
+  }
+
+  /* Services Grid */
+  .services-container{padding:64px 0;display:flex;flex-direction:column;gap:56px}
+  .service-card{
+    background:var(--surface);border:1.5px solid var(--line);border-radius:22px;padding:40px;
+    display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:start;box-shadow:var(--shadow);
+    transition:border-color .2s ease;
+  }
+  .service-card:hover{border-color:var(--lime)}
+  .s-num{font-family:var(--mono);font-size:13px;color:var(--accent-text);letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px}
+  .s-title{font-family:"Bricolage Grotesque",sans-serif;font-size:clamp(26px, 3.5vw, 34px);font-weight:800;margin:0 0 16px;color:var(--ink);line-height:1.2}
+  .s-desc{font-size:17px;line-height:1.65;color:var(--ink-2);margin:0 0 24px}
+  .s-deliverables{background:var(--surface-card);border:1px solid var(--line);border-radius:16px;padding:24px;margin-top:12px}
+  .s-del-title{font-family:"Bricolage Grotesque",sans-serif;font-size:16px;font-weight:800;margin:0 0 12px;color:var(--ink);text-transform:uppercase;letter-spacing:.05em}
+  .s-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px}
+  .s-list li{display:flex;align-items:baseline;gap:10px;font-size:15px;color:var(--ink-2);line-height:1.5}
+  .s-list li::before{content:"✓";color:var(--lime);font-weight:800;flex-shrink:0}
+  
+  .s-aside{display:flex;flex-direction:column;gap:20px;background:var(--surface-card);border:1px solid var(--line);border-radius:18px;padding:28px}
+  .s-tech-title{font-family:var(--mono);font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+  .tech-tags{display:flex;flex-wrap:wrap;gap:8px}
+  .tech-tag{background:var(--chip);font-family:var(--mono);font-size:12.5px;padding:5px 10px;border-radius:6px;color:var(--ink)}
+  .s-who{font-size:14px;color:var(--ink-2);border-top:1px solid var(--line);padding-top:16px;margin:0}
+
+  /* Guarantees Callout */
+  .guarantees-grid{display:grid;grid-template-columns:repeat(3, 1fr);gap:24px;margin:32px 0 64px}
+  .guar-card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:28px}
+  .guar-icon{font-size:32px;margin-bottom:14px}
+  .guar-title{font-family:"Bricolage Grotesque",sans-serif;font-size:20px;font-weight:800;margin:0 0 8px;color:var(--ink)}
+  .guar-text{font-size:14.5px;color:var(--ink-2);margin:0;line-height:1.55}
+
+  /* CTA */
+  .cta-box{
+    background:var(--green);color:var(--on-green);border-radius:22px;padding:48px 36px;
+    text-align:center;margin:32px 0 80px;
+  }
+  .cta-box h2{font-family:"Bricolage Grotesque",sans-serif;font-size:clamp(28px, 4vw, 44px);font-weight:800;margin:0 0 14px}
+  .cta-box p{font-size:18px;color:var(--on-green-dim);max-width:32em;margin:0 auto 28px}
+
+  footer.site{border-top:1px solid var(--line);padding:40px 0;font-size:14px;color:var(--muted)}
+  .foot-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+
+  @media (max-width:900px){
+    .service-card{grid-template-columns:1fr;gap:32px;padding:28px}
+    .guarantees-grid{grid-template-columns:1fr}
+  }
+  @media (max-width:760px){
+    .nav-links a:not(.btn){display:none}
+    .brand .b-role{display:none}
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap nav">
+    <a class="brand" href="/">
+      <span class="b-name">Ahmad Irfan</span>
+      <span class="b-role">WORDPRESS · SEO · WEB &amp; APPS</span>
+    </a>
+    <nav class="nav-links" aria-label="Main Navigation">
+      <a href="/">Home</a>
+      <a href="/services" class="active">Services</a>
+      <a href="/about">About</a>
+      <a href="/contact">Contact</a>
+      <button id="themeToggle" class="theme-toggle" type="button" onclick="toggleTheme()" aria-label="Switch theme">
+        <svg class="theme-icon icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/></svg>
+        <svg class="theme-icon icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <a class="btn btn-ink small" href="/contact">Start a project</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- Hero -->
+  <section class="page-hero">
+    <div class="wrap">
+      <span class="kicker">Core Capabilities &amp; Deliverables</span>
+      <h1 class="page-title">Services Built to Rank, Convert &amp; Scale</h1>
+      <p class="page-lead">From clean-code custom development to Page 1 Google dominance and AI search citation. Every service is delivered with direct technical leadership, zero fluff, and written guarantees.</p>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <!-- Guarantees Bar -->
+    <div class="guarantees-grid">
+      <div class="guar-card">
+        <div class="guar-icon">⚡</div>
+        <div class="guar-title">100% Core Web Vitals Pass</div>
+        <p class="guar-text">Guaranteed sub-second load times and green Google PageSpeed scores before final payment.</p>
+      </div>
+      <div class="guar-card">
+        <div class="guar-icon">🛡️</div>
+        <div class="guar-title">30-Day Post-Launch Warranty</div>
+        <p class="guar-text">Full month of bug fixes, Google Search Console index monitoring, and speed checks at zero extra charge.</p>
+      </div>
+      <div class="guar-card">
+        <div class="guar-icon">🤝</div>
+        <div class="guar-title">Fixed Milestone Billing</div>
+        <p class="guar-text">Written scope, clear deliverables, and staged milestone payments. No hourly billing surprises.</p>
+      </div>
+    </div>
+
+    <!-- Detailed Services List -->
+    <div class="services-container">
+      
+      <!-- Service 1: WordPress Engineering -->
+      <article class="service-card" id="wordpress">
+        <div>
+          <div class="s-num">01 — Core Engineering</div>
+          <h2 class="s-title">Custom WordPress &amp; WooCommerce Engineering</h2>
+          <p class="s-desc">
+            Stop relying on heavy page-builders like Elementor or Divi that bloat your site with 100+ unused scripts. I build lean, custom-coded WordPress themes using modern PHP and ACF Pro blocks designed for sub-second speeds, absolute editing control, and enterprise-grade security.
+          </p>
+          <div class="s-deliverables">
+            <div class="s-del-title">What's Included:</div>
+            <ul class="s-list">
+              <li>100% custom, lightweight theme architecture (zero bloated frameworks)</li>
+              <li>ACF Pro (Advanced Custom Fields) custom block suite for modular client editing</li>
+              <li>WooCommerce custom checkout flow optimization &amp; payment gateway wiring</li>
+              <li>Sub-second speed tuning (LCP &lt; 1.2s, 0ms TBT, 0 layout shifts)</li>
+              <li>Enterprise security hardening, database cleanups, and automated backups</li>
+            </ul>
+          </div>
+        </div>
+        <div class="s-aside">
+          <div class="s-tech-title">Technologies &amp; Tools</div>
+          <div class="tech-tags">
+            <span class="tech-tag">WordPress Core</span>
+            <span class="tech-tag">WooCommerce</span>
+            <span class="tech-tag">PHP 8.3+</span>
+            <span class="tech-tag">ACF Pro</span>
+            <span class="tech-tag">REST API</span>
+            <span class="tech-tag">MySQL</span>
+          </div>
+          <p class="s-who"><strong>Best For:</strong> Established businesses, online retailers, and publishers tired of slow, clunky WordPress themes.</p>
+          <a class="btn btn-lime small" href="/contact?service=WordPress">Request WordPress Quote →</a>
+        </div>
+      </article>
+
+      <!-- Service 2: Shopify Engineering -->
+      <article class="service-card" id="shopify">
+        <div>
+          <div class="s-num">02 — E-Commerce Scaling</div>
+          <h2 class="s-title">Shopify Store Architecture &amp; CRO Optimization</h2>
+          <p class="s-desc">
+            High-converting eCommerce stores require flawless mobile UX and lightning-fast load times. I build and customize bespoke Shopify Liquid stores with streamlined app stacks, frictionless checkout flows, and product schemas that dominate Google Shopping and search results.
+          </p>
+          <div class="s-deliverables">
+            <div class="s-del-title">What's Included:</div>
+            <ul class="s-list">
+              <li>Custom Shopify Liquid theme modifications and bespoke section architecture</li>
+              <li>App stack audit &amp; script optimization (stripping redundant third-party apps)</li>
+              <li>Conversion Rate Optimization (CRO) product page &amp; cart drawer funnels</li>
+              <li>Deep Schema.org Product, Offer, and Review JSON-LD integrations</li>
+              <li>Multi-currency, international localization, and inventory workflow setup</li>
+            </ul>
+          </div>
+        </div>
+        <div class="s-aside">
+          <div class="s-tech-title">Technologies &amp; Tools</div>
+          <div class="tech-tags">
+            <span class="tech-tag">Shopify Liquid</span>
+            <span class="tech-tag">Theme 2.0</span>
+            <span class="tech-tag">Shopify APIs</span>
+            <span class="tech-tag">Checkout Extensibility</span>
+            <span class="tech-tag">CRO Analytics</span>
+          </div>
+          <p class="s-who"><strong>Best For:</strong> D2C brands, boutique eCommerce retailers, and merchants aiming to maximize conversion rates.</p>
+          <a class="btn btn-lime small" href="/contact?service=Shopify">Request Shopify Quote →</a>
+        </div>
+      </article>
+
+      <!-- Service 3: Technical SEO -->
+      <article class="service-card" id="seo">
+        <div>
+          <div class="s-num">03 — Search Dominance</div>
+          <h2 class="s-title">Technical, On-Page &amp; Local SEO Architecture</h2>
+          <p class="s-desc">
+            Traffic that doesn't convert is vanity. I build search engines strategies that target high-intent commercial buyers. As SEO Project Manager at Zonix Tech, I implement deep technical audits, eliminate crawl traps, engineer structured entity graphs, and scale Page 1 organic visibility.
+          </p>
+          <div class="s-deliverables">
+            <div class="s-del-title">What's Included:</div>
+            <ul class="s-list">
+              <li>Comprehensive 80-point technical audit (crawl budget, canonicals, 404s, indexation)</li>
+              <li>Core Web Vitals remediation (moving LCP, INP, and CLS into green thresholds)</li>
+              <li>Custom Schema.org JSON-LD entity graph wiring (Person, Service, Organization, FAQ)</li>
+              <li>Commercial keyword clustering &amp; on-page content architecture</li>
+              <li>Google Search Console verification, XML sitemaps, and indexing requests</li>
+            </ul>
+          </div>
+        </div>
+        <div class="s-aside">
+          <div class="s-tech-title">Technologies &amp; Tools</div>
+          <div class="tech-tags">
+            <span class="tech-tag">Google Search Console</span>
+            <span class="tech-tag">Screaming Frog</span>
+            <span class="tech-tag">Ahrefs</span>
+            <span class="tech-tag">SEMrush</span>
+            <span class="tech-tag">Schema.org JSON-LD</span>
+          </div>
+          <p class="s-who"><strong>Best For:</strong> Companies with an existing site that isn't ranking, or new builds wanting to rank from day one.</p>
+          <a class="btn btn-lime small" href="/contact?service=SEO">Request SEO Audit →</a>
+        </div>
+      </article>
+
+      <!-- Service 4: AEO & GEO -->
+      <article class="service-card" id="aeo-geo">
+        <div>
+          <div class="s-num">04 — Next-Gen Search</div>
+          <h2 class="s-title">Answer Engine (AEO) &amp; Generative Engine (GEO) Optimization</h2>
+          <p class="s-desc">
+            Search is no longer just ten blue links. Modern buyers ask Google AI Overviews, Perplexity AI, ChatGPT Search, and Gemini for direct recommendations. Leveraging my Turing LLM background, I architect your content and entity footprint to be the preferred cited authority.
+          </p>
+          <div class="s-deliverables">
+            <div class="s-del-title">What's Included:</div>
+            <ul class="s-list">
+              <li>Direct-answer question &amp; fact extraction formatting for LLM crawlers</li>
+              <li>Wikidata, Wikipedia, and DBpedia entity disambiguation linking</li>
+              <li>Brand citation footprints across authoritative third-party ecosystems</li>
+              <li>Entity relationship mapping connecting your business to industry ontologies</li>
+              <li>Protection against generative hallucination and omission</li>
+            </ul>
+          </div>
+        </div>
+        <div class="s-aside">
+          <div class="s-tech-title">Technologies &amp; Tools</div>
+          <div class="tech-tags">
+            <span class="tech-tag">Google AI Overviews</span>
+            <span class="tech-tag">Perplexity AI</span>
+            <span class="tech-tag">SearchGPT</span>
+            <span class="tech-tag">Gemini</span>
+            <span class="tech-tag">Wikidata / Knowledge Graph</span>
+          </div>
+          <p class="s-who"><strong>Best For:</strong> B2B companies, high-ticket consultants, and brands preparing for the AI-first search shift.</p>
+          <a class="btn btn-lime small" href="/contact?service=AEO">Request AEO Strategy →</a>
+        </div>
+      </article>
+
+      <!-- Service 5: Web & App Development -->
+      <article class="service-card" id="apps">
+        <div>
+          <div class="s-num">05 — Custom Applications</div>
+          <h2 class="s-title">Custom Web &amp; Mobile App Development</h2>
+          <p class="s-desc">
+            When off-the-shelf plugins won't cut it, I engineer custom web portals, interactive client dashboards, booking engines, and cross-platform web applications designed for reliability, fast database response times, and clean UI responsiveness.
+          </p>
+          <div class="s-deliverables">
+            <div class="s-del-title">What's Included:</div>
+            <ul class="s-list">
+              <li>Custom full-stack web applications and interactive client portals</li>
+              <li>Third-party API integrations (CRM, payment gateways, ERPs, automation)</li>
+              <li>Interactive cost calculators, custom forms, and dynamic booking flows</li>
+              <li>Progressive Web App (PWA) development with offline caching support</li>
+              <li>Clean database modeling and scalable server architecture</li>
+            </ul>
+          </div>
+        </div>
+        <div class="s-aside">
+          <div class="s-tech-title">Technologies &amp; Tools</div>
+          <div class="tech-tags">
+            <span class="tech-tag">JavaScript / ES6+</span>
+            <span class="tech-tag">PHP / Node.js</span>
+            <span class="tech-tag">RESTful APIs</span>
+            <span class="tech-tag">PostgreSQL / MySQL</span>
+            <span class="tech-tag">HTML5 / Modern CSS</span>
+          </div>
+          <p class="s-who"><strong>Best For:</strong> Startups, agencies, and businesses needing specialized functionality beyond basic templates.</p>
+          <a class="btn btn-lime small" href="/contact?service=WebApps">Request App Consultation →</a>
+        </div>
+      </article>
+
+      <!-- Service 6: UI/UX & Brand Design -->
+      <article class="service-card" id="design">
+        <div>
+          <div class="s-num">06 — Creative Direction</div>
+          <h2 class="s-title">Graphic, UI/UX &amp; 3D Digital Asset Design</h2>
+          <p class="s-desc">
+            High conversion rates begin with immediate visual trust. As team lead directing design at SkySol Media, I craft premium Figma design systems, conversion-driven UI layouts, and Blender 3D digital product twins that position you as the definitive leader in your market.
+          </p>
+          <div class="s-deliverables">
+            <div class="s-del-title">What's Included:</div>
+            <ul class="s-list">
+              <li>High-fidelity Figma wireframes, interactive prototypes, and design tokens</li>
+              <li>Conversion Rate Optimization (CRO) focused page layout architecture</li>
+              <li>Blender 3D digital models, realistic product renders, and interactive web assets</li>
+              <li>Brand guidelines: typography pairings, color systems, and vector icon sets</li>
+              <li>Responsive mobile-first user experience design</li>
+            </ul>
+          </div>
+        </div>
+        <div class="s-aside">
+          <div class="s-tech-title">Technologies &amp; Tools</div>
+          <div class="tech-tags">
+            <span class="tech-tag">Figma</span>
+            <span class="tech-tag">Blender 3D</span>
+            <span class="tech-tag">Adobe Illustrator</span>
+            <span class="tech-tag">UI/UX Systems</span>
+            <span class="tech-tag">Design Tokens</span>
+          </div>
+          <p class="s-who"><strong>Best For:</strong> Brands looking for a premium, custom visual identity that commands high pricing.</p>
+          <a class="btn btn-lime small" href="/contact?service=Design">Request Design Quote →</a>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- Bottom CTA Box -->
+    <div class="cta-box">
+      <h2>Not sure which service fits your project?</h2>
+      <p>Send a brief overview of your business goals or existing website URL. I'll review it and provide a clear, actionable roadmap with fixed milestone pricing.</p>
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+        <a class="btn btn-lime" href="/contact">Get a tailored proposal →</a>
+        <a class="btn btn-ghost" href="/about">Read about my background</a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="site">
+  <div class="wrap foot-inner">
+    <div>© 2026 Ahmad Irfan · All rights reserved.</div>
+    <div style="display:flex;gap:18px">
+      <a href="/">Home</a>
+      <a href="/services">Services</a>
+      <a href="/about">About</a>
+      <a href="/contact">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function toggleTheme(){
+    var h=document.documentElement;
+    var next=h.getAttribute('data-theme')==='dark'?'light':'dark';
+    h.setAttribute('data-theme',next);
+    localStorage.setItem('theme',next);
+  }
+  (function(){
+    var s=localStorage.getItem('theme');
+    if(s) document.documentElement.setAttribute('data-theme',s);
+  })();
+</script>
+
+<!-- Structured Data JSON-LD for Services Catalog -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "@id": "https://ahmadirfan.com/services#wordpress",
+      "name": "Custom WordPress Development",
+      "serviceType": "WordPress Engineering",
+      "provider": {
+        "@type": "Person",
+        "@id": "https://ahmadirfan.com/#ahmadirfan",
+        "name": "Ahmad Irfan"
+      },
+      "description": "Custom WordPress theme development, ACF Pro workflows, WooCommerce engineering, and Core Web Vitals speed optimization."
+    },
+    {
+      "@type": "Service",
+      "@id": "https://ahmadirfan.com/services#shopify",
+      "name": "Shopify Development & CRO",
+      "serviceType": "E-Commerce Engineering",
+      "provider": {
+        "@type": "Person",
+        "@id": "https://ahmadirfan.com/#ahmadirfan",
+        "name": "Ahmad Irfan"
+      },
+      "description": "Bespoke Shopify Liquid themes, checkout optimization, and product schema integration."
+    },
+    {
+      "@type": "Service",
+      "@id": "https://ahmadirfan.com/services#seo",
+      "name": "Technical & On-Page SEO",
+      "serviceType": "Search Engine Optimization",
+      "provider": {
+        "@type": "Person",
+        "@id": "https://ahmadirfan.com/#ahmadirfan",
+        "name": "Ahmad Irfan"
+      },
+      "description": "Deep technical SEO audits, Core Web Vitals speed optimization, Schema.org graphs, and Page 1 ranking campaigns."
+    },
+    {
+      "@type": "Service",
+      "@id": "https://ahmadirfan.com/services#aeo",
+      "name": "Answer Engine Optimization (AEO/GEO)",
+      "serviceType": "AI Search Optimization",
+      "provider": {
+        "@type": "Person",
+        "@id": "https://ahmadirfan.com/#ahmadirfan",
+        "name": "Ahmad Irfan"
+      },
+      "description": "Optimizing content and entity footprint to be cited in Google AI Overviews, Perplexity AI, SearchGPT, and Gemini."
+    }
+  ]
+}
+</script>
+</body>
+</html>
