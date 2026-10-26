@@ -59,7 +59,7 @@
     font-style: normal;
     font-weight: 400 700;
     font-stretch: 100%;
-    font-display: swap;
+    font-display: optional;
     src: url('/fonts/instrumentsans.woff2') format('woff2');
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
   }
@@ -68,7 +68,7 @@
     font-style: normal;
     font-weight: 700 800;
     font-stretch: 100%;
-    font-display: swap;
+    font-display: optional;
     src: url('/fonts/bricolagegrotesque.woff2') format('woff2');
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
   }
@@ -1120,7 +1120,7 @@
   .foot a{font-weight:600}
 
   /* reveal */
-  .rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+  .rv{opacity:0;transform:translateY(12px);transition:opacity .35s ease,transform .35s ease}
   .rv.in{opacity:1;transform:none}
   @media (prefers-reduced-motion: reduce){ .rv{opacity:1;transform:none;transition:none} }
 
@@ -1284,31 +1284,31 @@
   <!-- STATS -->
   <div class="stats">
     <div class="wrap stats-grid">
-      <div class="stat rv"><div class="n"><span data-count="50">50</span><em>+</em></div><div class="l">Web projects delivered at SkySol Media, from business sites to WooCommerce stores</div></div>
-      <div class="stat rv"><div class="n"><span data-count="5">5</span><em>+</em></div><div class="l">Years of experience since 2021, across design, SEO, development, team leadership, and AI work</div></div>
-      <div class="stat rv"><div class="n"><span data-count="3">3</span></div><div class="l">Teams led day to day: WordPress development, SEO, and design</div></div>
-      <div class="stat rv"><div class="n"><span data-count="6">6</span></div><div class="l">Roles across my career so far: designer, SEO specialist, developer, team lead, project manager, AI engineer</div></div>
+      <div class="stat"><div class="n"><span data-count="50">50</span><em>+</em></div><div class="l">Web projects delivered at SkySol Media, from business sites to WooCommerce stores</div></div>
+      <div class="stat"><div class="n"><span data-count="5">5</span><em>+</em></div><div class="l">Years of experience since 2021, across design, SEO, development, team leadership, and AI work</div></div>
+      <div class="stat"><div class="n"><span data-count="3">3</span></div><div class="l">Teams led day to day: WordPress development, SEO, and design</div></div>
+      <div class="stat"><div class="n"><span data-count="6">6</span></div><div class="l">Roles across my career so far: designer, SEO specialist, developer, team lead, project manager, AI engineer</div></div>
     </div>
   </div>
 
   <!-- GUARANTEES & RISK REVERSAL -->
   <div class="guarantees-band">
     <div class="wrap guar-grid">
-      <div class="guar-item rv">
+      <div class="guar-item">
         <div class="guar-icon" aria-hidden="true">⚡</div>
         <div>
           <div class="guar-title">100% Core Web Vitals Pass</div>
           <p class="guar-desc">Sub-second load speeds and green mobile Google PageSpeed scores guaranteed on every build before final payment.</p>
         </div>
       </div>
-      <div class="guar-item rv">
+      <div class="guar-item">
         <div class="guar-icon" aria-hidden="true">🛡️</div>
         <div>
           <div class="guar-title">30-Day Post-Launch Warranty</div>
           <p class="guar-desc">A full month of included post-go-live coverage: bug fixes, index monitoring, and Core Web Vitals maintenance.</p>
         </div>
       </div>
-      <div class="guar-item rv">
+      <div class="guar-item">
         <div class="guar-icon" aria-hidden="true">🤝</div>
         <div>
           <div class="guar-title">Transparent Milestone Pricing</div>
@@ -2449,9 +2449,9 @@
       entries.forEach(function (en) {
         if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
       });
-    }, { threshold: 0.08, rootMargin: '0px 0px 180px 0px' });
+    }, { threshold: 0.04, rootMargin: '0px 0px 300px 0px' });
     rvEls.forEach(function (el) { io.observe(el); });
-    setTimeout(revealAll, 2600);
+    setTimeout(revealAll, 1000);
   } else {
     revealAll();
   }
@@ -2500,10 +2500,13 @@
   "@graph": [
     {
       "@type": "Person",
-      "@id": "#ahmadirfan",
+      "@id": "https://ahmadirfan.com/#ahmadirfan",
       "name": "Ahmad Irfan",
       "givenName": "Ahmad",
       "familyName": "Irfan",
+      "url": "https://ahmadirfan.com/",
+      "image": "https://ahmadirfan.com/apple-touch-icon.png",
+      "mainEntityOfPage": "https://ahmadirfan.com/",
       "gender": "https://schema.org/Male",
       "nationality": "Pakistani",
       "jobTitle": [
@@ -2569,22 +2572,22 @@
       "alternateName": "Ahmad Irfan Portfolio",
       "description": "Official portfolio of Ahmad Irfan, WordPress developer and SEO specialist.",
       "publisher": {
-        "@id": "#ahmadirfan"
+        "@id": "https://ahmadirfan.com/#ahmadirfan"
       },
       "inLanguage": "en-US"
     },
     {
       "@type": "ProfilePage",
-      "@id": "#profilepage",
+      "@id": "https://ahmadirfan.com/#profilepage",
       "isPartOf": {
-        "@id": "#website"
+        "@id": "https://ahmadirfan.com/#website"
       },
       "name": "Ahmad Irfan — WordPress Developer & SEO Specialist",
       "mainEntity": {
-        "@id": "#ahmadirfan"
+        "@id": "https://ahmadirfan.com/#ahmadirfan"
       },
       "about": {
-        "@id": "#ahmadirfan"
+        "@id": "https://ahmadirfan.com/#ahmadirfan"
       }
     },
     {
@@ -2593,7 +2596,7 @@
       "url": "https://ahmadirfan.com/",
       "name": "Ahmad Irfan — Web Development & SEO Services",
       "founder": {
-        "@id": "#ahmadirfan"
+        "@id": "https://ahmadirfan.com/#ahmadirfan"
       },
       "areaServed": {
         "@type": "AdministrativeArea",
@@ -2621,7 +2624,7 @@
     },
     {
       "@type": "FAQPage",
-      "@id": "#faq",
+      "@id": "https://ahmadirfan.com/#faq",
       "mainEntity": [
         {
           "@type": "Question",
