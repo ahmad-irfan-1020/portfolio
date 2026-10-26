@@ -3,8 +3,14 @@ User-agent: *
 Allow: /
 Disallow: /scratch/
 Disallow: /.system_generated/
+Disallow: /.git/
+Disallow: /wp-admin/
+Disallow: /wp-login.php
+Disallow: /xmlrpc.php
+Disallow: /cgi-bin/
+Disallow: /.env
 
-# AI Crawlers & Answer Engines (Permit full indexing for AEO & GEO)
+# Legitimate Search Engines & AI Answer Engines (Permit full indexing for SEO, AEO & GEO)
 User-agent: Googlebot
 Allow: /
 
@@ -28,5 +34,19 @@ Allow: /
 
 User-agent: CCBot
 Allow: /
+
+# Block Aggressive Scrapers, Content Harvesters & Vulnerability Scanners
+User-agent: AhrefsBot
+User-agent: SemrushBot
+User-agent: DotBot
+User-agent: MJ12bot
+User-agent: BLEXBot
+User-agent: PetalBot
+User-agent: DataForSeoBot
+User-agent: Serpstatbot
+User-agent: sqlmap
+User-agent: nikto
+User-agent: Jorgee
+Disallow: /
 
 Sitemap: https://ahmadirfan.com/sitemap.xml

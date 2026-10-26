@@ -1,0 +1,6 @@
+Contact: mailto:ahmaddirfaan@gmail.com
+Contact: https://wa.me/923004323600
+Expires: 2027-12-31T23:59:59.000Z
+Preferred-Languages: en, ur
+Canonical: https://ahmadirfan.com/.well-known/security.txt
+Policy: https://ahmadirfan.com/contact

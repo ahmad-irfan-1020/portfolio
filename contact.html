@@ -324,6 +324,8 @@
         <p class="form-subtitle">Fill in the details below. You'll receive a detailed, scope-based response within 12 hours.</p>
 
         <form id="contactForm" autocomplete="on">
+          <!-- Anti-Spam Bot Honeypot (Hidden from real users, automated crawlers fill it out) -->
+          <input type="text" name="_honey" id="fHoney" style="display:none !important;position:absolute;left:-9999px;opacity:0;pointer-events:none" tabindex="-1" autocomplete="off" aria-hidden="true" />
           <div class="form-grid">
             <div class="form-group full">
               <label for="fType">What type of project is this?</label>
@@ -513,9 +515,11 @@
     }
   })();
 
-  // Form submission handler
+  // Form submission handler with Multi-Tier Anti-Bot, Anti-Spam & Rate-Limiting Protection
   var form = document.getElementById('contactForm');
   var toast = document.getElementById('toast');
+  var formLoadedAt = Date.now();
+
   function showToast(msg) {
     if(!toast) return;
     toast.textContent = msg;
@@ -528,18 +532,51 @@
       e.preventDefault();
       var btn = document.getElementById('fBtn');
       var origText = btn.textContent;
+
+      // Tier 1: Honeypot trap check (Bots fill hidden fields automatically)
+      var honey = document.getElementById('fHoney');
+      if (honey && honey.value && honey.value.trim() !== '') {
+        // Silently discard bot submission and pretend success
+        showToast('✓ Inquiry received! Ahmad will reply within 12 hours.');
+        form.reset();
+        return;
+      }
+
+      // Tier 2: Unnatural Speed check (Human submission takes > 1.8 seconds)
+      if (Date.now() - formLoadedAt < 1800) {
+        showToast('✓ Inquiry received! Ahmad will reply within 12 hours.');
+        form.reset();
+        return;
+      }
+
+      // Tier 3: Client Rate-Limiting Cooldown (Prevents rapid script flooding)
+      var lastSent = localStorage.getItem('last_inquiry_ts');
+      if (lastSent && (Date.now() - parseInt(lastSent, 10) < 30000)) {
+        showToast('Please wait 30 seconds before sending another inquiry.');
+        return;
+      }
+
+      var nameVal = (document.getElementById('fName').value || '').trim();
+      var emailVal = (document.getElementById('fEmail').value || '').trim();
+      var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!nameVal || !emailVal || !emailRegex.test(emailVal)) {
+        showToast('Please provide a valid name and email address.');
+        return;
+      }
+
       btn.disabled = true;
       btn.textContent = 'Sending inquiry...';
 
       var payload = {
-        name: document.getElementById('fName').value,
-        email: document.getElementById('fEmail').value,
-        _replyto: document.getElementById('fEmail').value,
-        _subject: 'Project inquiry from ' + document.getElementById('fName').value,
+        name: nameVal,
+        email: emailVal,
+        _replyto: emailVal,
+        _honey: (honey ? honey.value : ''),
+        _subject: 'Project inquiry from ' + nameVal,
         _template: 'table',
         'Project Type': document.getElementById('fType').value,
-        'Client Name': document.getElementById('fName').value,
-        'Client Email': document.getElementById('fEmail').value,
+        'Client Name': nameVal,
+        'Client Email': emailVal,
         'Website': document.getElementById('fSite').value || '(none provided)',
         'Budget': document.getElementById('fBudget').value,
         'Message': document.getElementById('fMsg').value
@@ -553,6 +590,7 @@
         if(!res.ok) throw new Error('Submission failed');
         return res.json();
       }).then(function(){
+        localStorage.setItem('last_inquiry_ts', Date.now().toString());
         showToast('✓ Inquiry received! Ahmad will reply within 12 hours.');
         form.reset();
         btn.textContent = 'Inquiry Sent Successfully ✓';
