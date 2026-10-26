@@ -7,9 +7,9 @@
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://ahmadirfan.com/apple-touch-icon.png</image:loc>
+      <image:loc>https://ahmadirfan.com/og-image.jpg</image:loc>
       <image:title>Ahmad Irfan — Web Engineer, WordPress Developer &amp; SEO Specialist</image:title>
-      <image:caption>Ahmad Irfan portfolio monogram and branding</image:caption>
+      <image:caption>Ahmad Irfan official portfolio preview banner</image:caption>
     </image:image>
   </url>
 </urlset>
