@@ -9,9 +9,19 @@
 <meta name="keywords" content="Contact Ahmad Irfan, Hire WordPress Developer, Hire SEO Specialist Lahore, Web Development Consultation, Ahmad Irfan Email, Ahmad Irfan WhatsApp" />
 <meta name="author" content="Ahmad Irfan" />
 
-<!-- Robots & Indexing -->
+<!-- Robots & Indexing Directives -->
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
 <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+<meta name="bingbot" content="index, follow, max-image-preview:large" />
+
+<!-- Local & Geo-Targeting (GEO / Local Entity Optimization) -->
+<meta name="geo.region" content="PK-PB" />
+<meta name="geo.placename" content="Lahore" />
+<meta name="geo.position" content="31.5204;74.3587" />
+<meta name="ICBM" content="31.5204, 74.3587" />
+
+<meta name="creator" content="Ahmad Irfan" />
+<meta name="publisher" content="Ahmad Irfan" />
 
 <!-- Canonical URL -->
 <link rel="canonical" href="https://ahmadirfan.com/contact" />
@@ -23,6 +33,8 @@
 <meta property="og:description" content="Start a project inquiry, request a free website audit, or book a direct 15-minute discovery call with Ahmad Irfan." />
 <meta property="og:site_name" content="ahmadirfan.com" />
 <meta property="og:image" content="https://ahmadirfan.com/og-image.jpg?v=2" />
+<meta property="og:image:secure_url" content="https://ahmadirfan.com/og-image.jpg?v=2" />
+<meta property="og:image:type" content="image/jpeg" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta property="og:image:alt" content="Contact Ahmad Irfan — Start a Project" />
@@ -239,6 +251,12 @@
   }
   .toast.show{transform:translate(-50%,0);opacity:1}
 
+  /* Contact FAQ (AEO & Entity Search) */
+  .faq-wrap{margin:64px 0 80px;border-top:1px solid var(--line);padding-top:48px}
+  .faq-item{border-bottom:1px solid var(--line);padding:22px 0}
+  .faq-q{font-family:"Bricolage Grotesque",sans-serif;font-size:20px;font-weight:700;color:var(--ink);margin:0 0 10px}
+  .faq-a{font-size:16px;color:var(--ink-2);margin:0;line-height:1.6}
+
   footer.site{border-top:1px solid var(--line);padding:40px 0;font-size:14px;color:var(--muted)}
   .foot-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
 
@@ -408,8 +426,32 @@
         </div>
 
       </aside>
-
     </div>
+
+    <!-- Contact & Consultation FAQ (AEO & Entity Direct Answers) -->
+    <section class="faq-wrap" aria-label="Frequently Asked Questions about Inquiries and Hiring Ahmad Irfan">
+      <h2 style="font-family:'Bricolage Grotesque',sans-serif;font-size:32px;font-weight:800;margin:0 0 28px">Frequently Asked Questions</h2>
+
+      <div class="faq-item">
+        <h3 class="faq-q">How quickly does Ahmad Irfan respond to project briefs?</h3>
+        <p class="faq-a">Ahmad personally reviews all technical briefs, RFPs, and consultation requests within 12 hours. Urgent inquiries can be sent directly via WhatsApp at +92 300 4323600 for faster coordination.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3 class="faq-q">Does Ahmad Irfan work with international clients across time zones?</h3>
+        <p class="faq-a">Yes. Based in Lahore, Pakistan (PKT · UTC+5), Ahmad maintains scheduled daily overlapping business hours with clients in the United States (EST and PST), United Kingdom (GMT), Europe (CET), and Australia (AEST).</p>
+      </div>
+
+      <div class="faq-item">
+        <h3 class="faq-q">Can we sign a Non-Disclosure Agreement (NDA) before sharing proprietary requirements?</h3>
+        <p class="faq-a">Yes. Ahmad routinely signs mutual Non-Disclosure Agreements (NDAs) prior to receiving proprietary codebases, product roadmaps, or commercial analytics data.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3 class="faq-q">How does project pricing and milestone billing work?</h3>
+        <p class="faq-a">Every engagement begins with an upfront, transparent scope and milestone roadmap. You only release milestone payments after reviewing and approving live deliverables on staging environments.</p>
+      </div>
+    </section>
   </div>
 </main>
 
@@ -516,25 +558,106 @@
   }
 </script>
 
-<!-- Structured Data JSON-LD for Contact Page -->
+<!-- Structured Data JSON-LD for Contact Page & AI Search -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://ahmadirfan.com/contact#breadcrumbs",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://ahmadirfan.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Contact & Inquiries",
+          "item": "https://ahmadirfan.com/contact"
+        }
+      ]
+    },
     {
       "@type": "ContactPage",
       "@id": "https://ahmadirfan.com/contact#contactpage",
       "url": "https://ahmadirfan.com/contact",
       "name": "Contact Ahmad Irfan — Web Engineer & SEO Specialist",
       "description": "Start a project brief, request a free video audit, or book a consultation with Ahmad Irfan.",
+      "breadcrumb": {
+        "@id": "https://ahmadirfan.com/contact#breadcrumbs"
+      },
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://ahmadirfan.com/#website",
+        "url": "https://ahmadirfan.com/",
+        "name": "Ahmad Irfan — Websites, Apps & Brands That Rank & Convert"
+      },
       "mainEntity": {
         "@type": "Person",
         "@id": "https://ahmadirfan.com/#ahmadirfan",
         "name": "Ahmad Irfan",
         "email": "ahmaddirfaan@gmail.com",
         "telephone": "+923004323600",
-        "url": "https://ahmadirfan.com/"
+        "url": "https://ahmadirfan.com/",
+        "disambiguatingDescription": "Pakistani Web Engineer, WordPress Developer, and SEO Specialist based in Lahore, Pakistan; Web & SEO Team Lead at SkySol Media and SEO Manager at Zonix Tech.",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Lahore",
+          "addressRegion": "Punjab",
+          "addressCountry": "PK"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "client inquiries and project consultations",
+          "telephone": "+923004323600",
+          "email": "ahmaddirfaan@gmail.com",
+          "url": "https://ahmadirfan.com/contact",
+          "availableLanguage": ["English", "Urdu"],
+          "areaServed": "Worldwide"
+        }
       }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://ahmadirfan.com/contact#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How quickly does Ahmad Irfan respond to project briefs?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ahmad personally reviews all technical briefs, RFPs, and consultation requests within 12 hours. Urgent inquiries can be sent directly via WhatsApp at +92 300 4323600 for faster coordination."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Ahmad Irfan work with international clients across time zones?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Based in Lahore, Pakistan (PKT · UTC+5), Ahmad maintains scheduled daily overlapping business hours with clients in the United States (EST and PST), United Kingdom (GMT), Europe (CET), and Australia (AEST)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can we sign a Non-Disclosure Agreement (NDA) before sharing proprietary requirements?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Ahmad routinely signs mutual Non-Disclosure Agreements (NDAs) prior to receiving proprietary codebases, product roadmaps, or commercial analytics data."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does project pricing and milestone billing work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Every engagement begins with an upfront, transparent scope and milestone roadmap. You only release milestone payments after reviewing and approving live deliverables on staging environments."
+          }
+        }
+      ]
     }
   ]
 }

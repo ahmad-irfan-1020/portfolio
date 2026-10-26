@@ -9,9 +9,19 @@
 <meta name="keywords" content="WordPress Development Services, Technical SEO Services, Shopify Development, AEO Services, GEO Services, Web Development Lahore, Core Web Vitals Optimization, Ahmad Irfan Services" />
 <meta name="author" content="Ahmad Irfan" />
 
-<!-- Robots & Indexing -->
+<!-- Robots & Indexing Directives -->
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
 <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+<meta name="bingbot" content="index, follow, max-image-preview:large" />
+
+<!-- Local & Geo-Targeting (GEO / Local Entity Optimization) -->
+<meta name="geo.region" content="PK-PB" />
+<meta name="geo.placename" content="Lahore" />
+<meta name="geo.position" content="31.5204;74.3587" />
+<meta name="ICBM" content="31.5204, 74.3587" />
+
+<meta name="creator" content="Ahmad Irfan" />
+<meta name="publisher" content="Ahmad Irfan" />
 
 <!-- Canonical URL -->
 <link rel="canonical" href="https://ahmadirfan.com/services" />
@@ -23,6 +33,8 @@
 <meta property="og:description" content="Detailed breakdown of custom WordPress engineering, Shopify, Technical SEO, AI Search (AEO/GEO), and UI/UX design services by Ahmad Irfan." />
 <meta property="og:site_name" content="ahmadirfan.com" />
 <meta property="og:image" content="https://ahmadirfan.com/og-image.jpg?v=2" />
+<meta property="og:image:secure_url" content="https://ahmadirfan.com/og-image.jpg?v=2" />
+<meta property="og:image:type" content="image/jpeg" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta property="og:image:alt" content="Ahmad Irfan Services — Web Engineering, SEO &amp; Design" />
@@ -201,6 +213,13 @@
   .guar-icon{font-size:32px;margin-bottom:14px}
   .guar-title{font-family:"Bricolage Grotesque",sans-serif;font-size:20px;font-weight:800;margin:0 0 8px;color:var(--ink)}
   .guar-text{font-size:14.5px;color:var(--ink-2);margin:0;line-height:1.55}
+
+  /* Services FAQ (AEO & Entity Search) */
+  .faq-wrap{margin:64px 0 40px}
+  .faq-item{border-top:1px solid var(--line);padding:24px 0}
+  .faq-item:last-child{border-bottom:1px solid var(--line)}
+  .faq-q{font-family:"Bricolage Grotesque",sans-serif;font-size:20px;font-weight:700;color:var(--ink);margin:0 0 10px}
+  .faq-a{font-size:16px;color:var(--ink-2);margin:0;line-height:1.6}
 
   /* CTA */
   .cta-box{
@@ -479,6 +498,31 @@
 
     </div>
 
+    <!-- AEO / Services FAQ Section -->
+    <section class="faq-wrap" aria-label="Frequently Asked Questions about Ahmad Irfan's Services">
+      <h2 style="font-family:'Bricolage Grotesque',sans-serif;font-size:32px;font-weight:800;margin:0 0 28px">Frequently Asked Questions</h2>
+      
+      <div class="faq-item">
+        <h3 class="faq-q">What services does Ahmad Irfan specialize in?</h3>
+        <p class="faq-a">Ahmad Irfan specializes in Custom WordPress Engineering (ACF Pro, WooCommerce), Shopify E-Commerce Development &amp; CRO, Technical &amp; On-Page SEO, Answer Engine Optimization (AEO/GEO for Google AI Overviews, Perplexity &amp; Gemini), Custom Full-Stack Web Applications, and UI/UX Design.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3 class="faq-q">What is Answer Engine Optimization (AEO) and Generative Engine Optimization (GEO)?</h3>
+        <p class="faq-a">AEO and GEO optimize your website and brand entity so that conversational AI search engines (like Google AI Overviews, Perplexity AI, ChatGPT Search, and Gemini) extract and cite your business as the definitive answer for queries in your niche, rather than just ranking in traditional blue links.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3 class="faq-q">How does the 100% Core Web Vitals Pass Guarantee work?</h3>
+        <p class="faq-a">Every website Ahmad builds or optimizes must pass Google Core Web Vitals (Largest Contentful Paint &lt; 2.5s, Interaction to Next Paint &lt; 200ms, Cumulative Layout Shift &lt; 0.1) on Google PageSpeed Insights before final milestone signoff. If a site doesn't pass, further speed tuning is performed at zero additional charge until it does.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3 class="faq-q">What is covered under the 30-day post-launch warranty?</h3>
+        <p class="faq-a">For 30 days after deployment, Ahmad covers all bug remediation, Search Console index monitoring, speed verification, and CMS troubleshooting at zero additional cost to ensure a smooth, worry-free launch.</p>
+      </div>
+    </section>
+
     <!-- Bottom CTA Box -->
     <div class="cta-box">
       <h2>Not sure which service fits your project?</h2>
@@ -524,11 +568,58 @@
   })();
 </script>
 
-<!-- Structured Data JSON-LD for Services Catalog -->
+<!-- Structured Data JSON-LD for Services Catalog & AI Search -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://ahmadirfan.com/services#breadcrumbs",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://ahmadirfan.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Web Engineering & SEO Services",
+          "item": "https://ahmadirfan.com/services"
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://ahmadirfan.com/services#servicespage",
+      "url": "https://ahmadirfan.com/services",
+      "name": "Web Engineering, Technical SEO & Design Services — Ahmad Irfan",
+      "description": "Comprehensive commercial services by Ahmad Irfan: Custom WordPress, Shopify, Technical SEO, AEO/GEO, Web Applications, and UI/UX Design.",
+      "breadcrumb": {
+        "@id": "https://ahmadirfan.com/services#breadcrumbs"
+      },
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://ahmadirfan.com/#website",
+        "url": "https://ahmadirfan.com/",
+        "name": "Ahmad Irfan — Websites, Apps & Brands That Rank & Convert"
+      }
+    },
+    {
+      "@type": "OfferCatalog",
+      "@id": "https://ahmadirfan.com/services#catalog",
+      "name": "Ahmad Irfan Engineering & Search Services Catalog",
+      "itemListElement": [
+        { "@id": "https://ahmadirfan.com/services#wordpress" },
+        { "@id": "https://ahmadirfan.com/services#shopify" },
+        { "@id": "https://ahmadirfan.com/services#seo" },
+        { "@id": "https://ahmadirfan.com/services#aeo" },
+        { "@id": "https://ahmadirfan.com/services#apps" },
+        { "@id": "https://ahmadirfan.com/services#design" }
+      ]
+    },
     {
       "@type": "Service",
       "@id": "https://ahmadirfan.com/services#wordpress",
@@ -576,6 +667,68 @@
         "name": "Ahmad Irfan"
       },
       "description": "Optimizing content and entity footprint to be cited in Google AI Overviews, Perplexity AI, SearchGPT, and Gemini."
+    },
+    {
+      "@type": "Service",
+      "@id": "https://ahmadirfan.com/services#apps",
+      "name": "Custom Web & Mobile App Development",
+      "serviceType": "Full-Stack Software Engineering",
+      "provider": {
+        "@type": "Person",
+        "@id": "https://ahmadirfan.com/#ahmadirfan",
+        "name": "Ahmad Irfan"
+      },
+      "description": "Full-stack web portals, interactive client dashboards, booking engines, RESTful API integrations, and Progressive Web Apps."
+    },
+    {
+      "@type": "Service",
+      "@id": "https://ahmadirfan.com/services#design",
+      "name": "Graphic, UI/UX & 3D Digital Asset Design",
+      "serviceType": "Digital Product Design",
+      "provider": {
+        "@type": "Person",
+        "@id": "https://ahmadirfan.com/#ahmadirfan",
+        "name": "Ahmad Irfan"
+      },
+      "description": "High-fidelity Figma wireframes, design tokens, Blender 3D product models, and Conversion Rate Optimization layout systems."
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://ahmadirfan.com/services#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What services does Ahmad Irfan specialize in?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ahmad Irfan specializes in Custom WordPress Engineering (ACF Pro, WooCommerce), Shopify E-Commerce Development & CRO, Technical & On-Page SEO, Answer Engine Optimization (AEO/GEO for Google AI Overviews, Perplexity & Gemini), Custom Full-Stack Web Applications, and UI/UX Design."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is Answer Engine Optimization (AEO) and Generative Engine Optimization (GEO)?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "AEO and GEO optimize your website and brand entity so that conversational AI search engines (like Google AI Overviews, Perplexity AI, ChatGPT Search, and Gemini) extract and cite your business as the definitive answer for queries in your niche, rather than just ranking in traditional blue links."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does the 100% Core Web Vitals Pass Guarantee work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Every website Ahmad builds or optimizes must pass Google Core Web Vitals (Largest Contentful Paint < 2.5s, Interaction to Next Paint < 200ms, Cumulative Layout Shift < 0.1) on Google PageSpeed Insights before final milestone signoff. If a site doesn't pass, further speed tuning is performed at zero additional charge until it does."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is covered under the 30-day post-launch warranty?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "For 30 days after deployment, Ahmad covers all bug remediation, Search Console index monitoring, speed verification, and CMS troubleshooting at zero additional cost to ensure a smooth, worry-free launch."
+          }
+        }
+      ]
     }
   ]
 }
