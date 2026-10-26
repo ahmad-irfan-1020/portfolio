@@ -2,13 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
-    <loc>https://ahmadirfan.vercel.app/</loc>
-    <lastmod>2026-10-18</lastmod>
+    <loc>https://ahmadirfan.com/</loc>
+    <lastmod>2026-10-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://ahmadirfan.vercel.app/apple-touch-icon.png</image:loc>
-      <image:title>Ahmad Irfan — WordPress Developer &amp; SEO Specialist</image:title>
+      <image:loc>https://ahmadirfan.com/apple-touch-icon.png</image:loc>
+      <image:title>Ahmad Irfan — Web Engineer, WordPress Developer &amp; SEO Specialist</image:title>
       <image:caption>Ahmad Irfan portfolio monogram and branding</image:caption>
     </image:image>
   </url>
