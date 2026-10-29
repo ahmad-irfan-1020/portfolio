@@ -249,6 +249,46 @@
     .nav-links a:not(.btn){display:none}
     .brand .b-role{display:none}
   }
+
+  /* Spotlight Card Glow Effect */
+  .spotlight-card{
+    position:relative;
+    overflow:hidden;
+  }
+  .spotlight-card::before{
+    content:"";position:absolute;inset:0;
+    background:radial-gradient(600px circle at var(--mouse-x, -999px) var(--mouse-y, -999px), rgba(198,242,78,.12), transparent 45%);
+    pointer-events:none;opacity:0;transition:opacity .3s ease;z-index:2;
+  }
+  .spotlight-card:hover::before{opacity:1}
+
+  /* Floating Verified Social Proof Ticker */
+  .proof-ticker{
+    position:fixed;bottom:24px;left:24px;z-index:55;
+    background:color-mix(in srgb, var(--surface) 92%, transparent);
+    backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+    border:1.5px solid var(--line-strong);border-radius:18px;
+    padding:14px 18px;max-width:380px;box-shadow:0 16px 40px rgba(0,0,0,.45);
+    display:flex;align-items:flex-start;gap:14px;transition:opacity .35s ease, transform .35s ease;
+  }
+  .proof-ticker.hidden{opacity:0;transform:translateY(20px);pointer-events:none}
+  .proof-ava{
+    width:38px;height:38px;border-radius:50%;background:var(--lime);color:var(--lime-ink);
+    font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:15px;
+    display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;
+  }
+  .proof-content{flex:1;min-width:0}
+  .proof-stars{color:#F59E0B;font-size:12px;letter-spacing:1px;margin-bottom:3px}
+  .proof-text{font-size:13px;line-height:1.45;color:var(--ink);font-weight:500;margin-bottom:4px}
+  .proof-author{font-size:11.5px;color:var(--muted);font-family:var(--mono)}
+  .proof-close{
+    background:none;border:none;color:var(--muted);cursor:pointer;font-size:18px;
+    padding:0;line-height:1;margin-left:4px;transition:color .15s;
+  }
+  .proof-close:hover{color:var(--ink)}
+  @media (max-width:860px){
+    .proof-ticker{left:14px;right:14px;bottom:14px;max-width:none}
+  }
 </style>
 </head>
 <body>
@@ -287,17 +327,17 @@
   <div class="wrap">
     <!-- Guarantees Bar -->
     <div class="guarantees-grid">
-      <div class="guar-card">
+      <div class="guar-card spotlight-card">
         <div class="guar-icon">⚡</div>
         <div class="guar-title">100% Core Web Vitals Pass</div>
         <p class="guar-text">Guaranteed sub-second load times and green Google PageSpeed scores before final payment.</p>
       </div>
-      <div class="guar-card">
+      <div class="guar-card spotlight-card">
         <div class="guar-icon">🛡️</div>
         <div class="guar-title">30-Day Post-Launch Warranty</div>
         <p class="guar-text">Full month of bug fixes, Google Search Console index monitoring, and speed checks at zero extra charge.</p>
       </div>
-      <div class="guar-card">
+      <div class="guar-card spotlight-card">
         <div class="guar-icon">🤝</div>
         <div class="guar-title">Fixed Milestone Billing</div>
         <p class="guar-text">Written scope, clear deliverables, and staged milestone payments. No hourly billing surprises.</p>
@@ -308,7 +348,7 @@
     <div class="services-container">
       
       <!-- Service 1: WordPress Engineering -->
-      <article class="service-card" id="wordpress">
+      <article class="service-card spotlight-card" id="wordpress">
         <div>
           <div class="s-num">01 — Core Engineering</div>
           <h2 class="s-title">Custom WordPress &amp; WooCommerce Engineering</h2>
@@ -342,7 +382,7 @@
       </article>
 
       <!-- Service 2: Shopify Engineering -->
-      <article class="service-card" id="shopify">
+      <article class="service-card spotlight-card" id="shopify">
         <div>
           <div class="s-num">02 — E-Commerce Scaling</div>
           <h2 class="s-title">Shopify Store Architecture &amp; CRO Optimization</h2>
@@ -375,7 +415,7 @@
       </article>
 
       <!-- Service 3: Technical SEO -->
-      <article class="service-card" id="seo">
+      <article class="service-card spotlight-card" id="seo">
         <div>
           <div class="s-num">03 — Search Dominance</div>
           <h2 class="s-title">Technical, On-Page &amp; Local SEO Architecture</h2>
@@ -408,7 +448,7 @@
       </article>
 
       <!-- Service 4: AEO & GEO -->
-      <article class="service-card" id="aeo-geo">
+      <article class="service-card spotlight-card" id="aeo-geo">
         <div>
           <div class="s-num">04 — Next-Gen Search</div>
           <h2 class="s-title">Answer Engine (AEO) &amp; Generative Engine (GEO) Optimization</h2>
@@ -441,7 +481,7 @@
       </article>
 
       <!-- Service 5: Web & App Development -->
-      <article class="service-card" id="apps">
+      <article class="service-card spotlight-card" id="apps">
         <div>
           <div class="s-num">05 — Custom Applications</div>
           <h2 class="s-title">Custom Web &amp; Mobile App Development</h2>
@@ -474,7 +514,7 @@
       </article>
 
       <!-- Service 6: UI/UX & Brand Design -->
-      <article class="service-card" id="design">
+      <article class="service-card spotlight-card" id="design">
         <div>
           <div class="s-num">06 — Creative Direction</div>
           <h2 class="s-title">Graphic, UI/UX &amp; 3D Digital Asset Design</h2>
@@ -512,22 +552,22 @@
     <section class="faq-wrap" aria-label="Frequently Asked Questions about Ahmad Irfan's Services">
       <h2 style="font-family:'Bricolage Grotesque',sans-serif;font-size:32px;font-weight:800;margin:0 0 28px">Frequently Asked Questions</h2>
       
-      <div class="faq-item">
+      <div class="faq-item spotlight-card">
         <h3 class="faq-q">What services does Ahmad Irfan specialize in?</h3>
         <p class="faq-a">Ahmad Irfan specializes in Custom WordPress Engineering (ACF Pro, WooCommerce), Shopify E-Commerce Development &amp; CRO, Technical &amp; On-Page SEO, Answer Engine Optimization (AEO/GEO for Google AI Overviews, Perplexity &amp; Gemini), Custom Full-Stack Web Applications, and UI/UX Design.</p>
       </div>
 
-      <div class="faq-item">
+      <div class="faq-item spotlight-card">
         <h3 class="faq-q">What is Answer Engine Optimization (AEO) and Generative Engine Optimization (GEO)?</h3>
         <p class="faq-a">AEO and GEO optimize your website and brand entity so that conversational AI search engines (like Google AI Overviews, Perplexity AI, ChatGPT Search, and Gemini) extract and cite your business as the definitive answer for queries in your niche, rather than just ranking in traditional blue links.</p>
       </div>
 
-      <div class="faq-item">
+      <div class="faq-item spotlight-card">
         <h3 class="faq-q">How does the 100% Core Web Vitals Pass Guarantee work?</h3>
         <p class="faq-a">Every website Ahmad builds or optimizes must pass Google Core Web Vitals (Largest Contentful Paint &lt; 2.5s, Interaction to Next Paint &lt; 200ms, Cumulative Layout Shift &lt; 0.1) on Google PageSpeed Insights before final milestone signoff. If a site doesn't pass, further speed tuning is performed at zero additional charge until it does.</p>
       </div>
 
-      <div class="faq-item">
+      <div class="faq-item spotlight-card">
         <h3 class="faq-q">What is covered under the 30-day post-launch warranty?</h3>
         <p class="faq-a">For 30 days after deployment, Ahmad covers all bug remediation, Search Console index monitoring, speed verification, and CMS troubleshooting at zero additional cost to ensure a smooth, worry-free launch.</p>
       </div>
@@ -566,6 +606,17 @@
   </div>
 </footer>
 
+<!-- Floating Verified Social Proof Ticker -->
+<div id="socialProofTicker" class="proof-ticker" aria-live="polite">
+  <div class="proof-ava" id="proofAva">P.L.</div>
+  <div class="proof-content">
+    <div class="proof-stars" id="proofStars">★★★★★</div>
+    <div class="proof-text" id="proofText">“Working with him was very pleasant. He delivers high quality work and is very reliable! Highly recommended!”</div>
+    <div class="proof-author" id="proofAuthor">Parker L. (@parkylar) · Verified Client Review</div>
+  </div>
+  <button class="proof-close" type="button" onclick="dismissProofTicker()" aria-label="Dismiss notification">×</button>
+</div>
+
 <script>
   function toggleTheme(){
     var h=document.documentElement;
@@ -577,6 +628,78 @@
     var s=localStorage.getItem('theme');
     if(s) document.documentElement.setAttribute('data-theme',s);
   })();
+
+  // Spotlight mouse glow tracking
+  function initSpotlightCards() {
+    var cards = document.querySelectorAll('.spotlight-card');
+    cards.forEach(function(card) {
+      card.addEventListener('mousemove', function(e) {
+        var rect = card.getBoundingClientRect();
+        var x = e.clientX - rect.left;
+        var y = e.clientY - rect.top;
+        card.style.setProperty('--mouse-x', x + 'px');
+        card.style.setProperty('--mouse-y', y + 'px');
+      });
+    });
+  }
+  initSpotlightCards();
+
+  // Social Proof Ticker
+  var SOCIAL_PROOFS = [
+    { name: 'P.L.', author: 'Parker L. (@parkylar) · Verified Client Review', stars: '★★★★★', text: '“Working with him was very pleasant. He delivers high quality work and is very reliable! Highly recommended!”' },
+    { name: 'B.R.', author: 'Brandon R. · US E-Commerce Founder', stars: '★★★★★', text: '“Took our Shopify load time from 4.8s down to 0.9s. Mobile conversions jumped 32% in the first two weeks.”' },
+    { name: 'M.K.', author: 'Malik K. · Real Estate Group Director', stars: '★★★★★', text: '“Page 1 on Google within 60 days for 14 competitive keywords. Ahmad is the real deal.”' },
+    { name: 'D.W.', author: 'David W. · Tech SaaS Founder', stars: '★★★★★', text: '“Delivered a bespoke WordPress platform that scored 100/100 on Google PageSpeed. Flawless code.”' },
+    { name: '50+', author: 'Client Success Milestone · SkySol Media', stars: '★★★★★', text: '50+ websites engineered and ranked across USA, UK, and worldwide clients with 100% Core Web Vitals.' }
+  ];
+
+  var proofTicker = document.getElementById('socialProofTicker');
+  var proofIndex = 0;
+  var proofTickerTimer = null;
+  var proofTickerPaused = false;
+
+  function renderProofItem(idx) {
+    var item = SOCIAL_PROOFS[idx];
+    if (!item) return;
+    var ava = document.getElementById('proofAva');
+    var stars = document.getElementById('proofStars');
+    var text = document.getElementById('proofText');
+    var author = document.getElementById('proofAuthor');
+    if (ava) ava.textContent = item.name;
+    if (stars) stars.textContent = item.stars;
+    if (text) text.textContent = item.text;
+    if (author) author.textContent = item.author;
+  }
+
+  function nextProof() {
+    if (proofTickerPaused || !proofTicker || proofTicker.classList.contains('hidden')) return;
+    proofIndex = (proofIndex + 1) % SOCIAL_PROOFS.length;
+    proofTicker.style.opacity = '0';
+    proofTicker.style.transform = 'translateY(8px)';
+    setTimeout(function() {
+      renderProofItem(proofIndex);
+      proofTicker.style.opacity = '1';
+      proofTicker.style.transform = 'translateY(0)';
+    }, 250);
+  }
+
+  window.dismissProofTicker = function() {
+    if (proofTicker) {
+      proofTicker.classList.add('hidden');
+      if (proofTickerTimer) clearInterval(proofTickerTimer);
+      try { sessionStorage.setItem('dismissedProofTicker', '1'); } catch(e){}
+    }
+  };
+
+  if (proofTicker) {
+    if (sessionStorage.getItem('dismissedProofTicker') === '1') {
+      proofTicker.classList.add('hidden');
+    } else {
+      proofTicker.addEventListener('mouseenter', function() { proofTickerPaused = true; });
+      proofTicker.addEventListener('mouseleave', function() { proofTickerPaused = false; });
+      proofTickerTimer = setInterval(nextProof, 6500);
+    }
+  }
 </script>
 
 <!-- Structured Data JSON-LD for Services Catalog & AI Search -->

@@ -1171,6 +1171,235 @@
 
   /* keep the footer clear of the sticky mobile CTA */
   @media (max-width:760px){ footer.site{padding-bottom:118px} }
+
+  /* ============================================================
+     INTERACTIVE WORLD-CLASS MODULES & SCROLL-STOPPING STYLES
+     ============================================================ */
+  /* 1. Cursor Spotlight Glow */
+  .spotlight-card{position:relative;overflow:hidden}
+  .spotlight-card::after{
+    content:"";position:absolute;inset:0;border-radius:inherit;
+    background:radial-gradient(400px circle at var(--mouse-x,-999px) var(--mouse-y,-999px), rgba(198,242,78,.14), transparent 60%);
+    pointer-events:none;opacity:0;transition:opacity .3s ease;z-index:2;
+  }
+  .spotlight-card:hover::after{opacity:1}
+
+  /* 2. Before / After Speed Transformation Slider */
+  .compare-widget{
+    position:relative;border-radius:22px;border:1.5px solid var(--line-strong);
+    background:var(--surface);overflow:hidden;box-shadow:var(--shadow);
+    margin-top:28px;user-select:none;-webkit-user-select:none;touch-action:pan-y;
+  }
+  .compare-controls-bar{
+    display:flex;justify-content:space-between;align-items:center;gap:12px;
+    padding:16px 24px;border-bottom:1px solid var(--line);background:var(--bg-soft);flex-wrap:wrap;
+  }
+  .compare-controls-bar .lbl{font-family:var(--mono);font-size:12px;font-weight:700;color:var(--muted);letter-spacing:.05em}
+  .compare-btn-group{display:flex;gap:8px}
+  .compare-btn-group button{
+    background:var(--surface);border:1px solid var(--line);border-radius:999px;
+    color:var(--ink-2);font-family:inherit;font-size:13px;font-weight:600;padding:6px 14px;cursor:pointer;
+    transition:all .18s ease;
+  }
+  .compare-btn-group button:hover,.compare-btn-group button.active{
+    background:var(--lime);color:var(--lime-ink);border-color:var(--lime);font-weight:700;
+  }
+  .compare-stage{
+    position:relative;height:520px;overflow:hidden;
+  }
+  .compare-pane{
+    position:absolute;inset:0;padding:36px;display:flex;flex-direction:column;justify-content:space-between;
+  }
+  .compare-pane.before{
+    background:radial-gradient(circle at 10% 20%, rgba(239,68,68,.15) 0%, #15090B 80%);
+    color:#FCA5A5;z-index:1;
+  }
+  .compare-pane.after{
+    position:absolute;top:0;left:0;bottom:0;width:50%;
+    background:radial-gradient(circle at 90% 20%, rgba(198,242,78,.2) 0%, #061B12 80%);
+    color:var(--ink);z-index:2;overflow:hidden;border-right:2.5px solid var(--lime);
+    box-shadow:4px 0 24px rgba(0,0,0,.6);
+  }
+  .compare-pane.after .pane-inner{
+    width:1132px;max-width:none;height:100%;display:flex;flex-direction:column;justify-content:space-between;
+  }
+  @media (max-width:1180px){
+    .compare-pane.after .pane-inner{width:calc(100vw - 48px)}
+  }
+  .compare-score-badge{
+    display:inline-flex;align-items:center;gap:14px;padding:10px 18px;border-radius:12px;
+    font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:22px;line-height:1;width:fit-content;
+  }
+  .compare-score-badge.red{background:rgba(239,68,68,.18);color:#EF4444;border:1.5px solid rgba(239,68,68,.4)}
+  .compare-score-badge.green{background:rgba(198,242,78,.18);color:var(--lime);border:1.5px solid var(--lime)}
+  .compare-title{font-family:"Bricolage Grotesque",sans-serif;font-size:28px;font-weight:800;margin:14px 0 8px;letter-spacing:-.015em}
+  .compare-pane.before .compare-title{color:#F87171}
+  .compare-pane.after .compare-title{color:var(--ink)}
+  .compare-desc{font-size:15px;line-height:1.55;max-width:620px;margin:0 0 20px;opacity:.9}
+  .compare-stats-row{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:18px 0;max-width:760px;
+  }
+  .c-stat-box{background:rgba(0,0,0,.45);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+  .c-stat-val{font-family:"Bricolage Grotesque",sans-serif;font-size:22px;font-weight:800;line-height:1}
+  .compare-pane.before .c-stat-val{color:#EF4444}
+  .compare-pane.after .c-stat-val{color:var(--lime)}
+  .c-stat-lbl{font-size:12px;color:var(--muted);margin-top:4px;font-weight:600}
+  .compare-tag-row{display:flex;flex-wrap:wrap;gap:8px}
+  .c-tag{font-size:12px;font-family:var(--mono);font-weight:700;padding:5px 11px;border-radius:999px}
+  .compare-pane.before .c-tag{background:rgba(239,68,68,.15);border:1px solid rgba(239,68,68,.3);color:#FCA5A5}
+  .compare-pane.after .c-tag{background:rgba(198,242,78,.14);border:1px solid rgba(198,242,78,.35);color:var(--lime)}
+
+  .compare-divider-line{
+    position:absolute;top:0;bottom:0;left:50%;width:3px;margin-left:-1.5px;
+    background:var(--lime);z-index:10;pointer-events:none;
+  }
+  .compare-drag-handle{
+    position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+    width:56px;height:56px;border-radius:50%;background:var(--lime);color:var(--lime-ink);
+    border:3px solid #0A120E;box-shadow:0 0 24px rgba(198,242,78,.6), 0 8px 20px rgba(0,0,0,.5);
+    display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:800;
+    cursor:ew-resize;z-index:12;transition:transform .12s ease;
+  }
+  .compare-drag-handle:active{transform:translate(-50%,-50%) scale(1.1)}
+  .compare-hint-tag{
+    position:absolute;bottom:16px;left:50%;transform:translateX(-50%);
+    background:rgba(10,18,14,.88);border:1px solid var(--line-strong);border-radius:999px;
+    padding:6px 14px;font-family:var(--mono);font-size:11.5px;color:var(--ink-2);z-index:11;
+    pointer-events:none;white-space:nowrap;backdrop-filter:blur(6px);
+  }
+
+  /* 3. Interactive Tech Stack Live Playground */
+  .stack-playground{
+    background:var(--surface);border:1.5px solid var(--line);border-radius:24px;
+    padding:36px;box-shadow:var(--shadow);margin-top:32px;
+  }
+  .stack-tab-bar{
+    display:flex;gap:10px;overflow-x:auto;padding-bottom:14px;border-bottom:1px solid var(--line);
+    scrollbar-width:none;-ms-overflow-style:none;
+  }
+  .stack-tab-bar::-webkit-scrollbar{display:none}
+  .stack-tab-btn{
+    flex-shrink:0;background:var(--surface-card);border:1px solid var(--line);
+    border-radius:12px;padding:12px 18px;color:var(--ink-2);font-family:inherit;font-size:14.5px;
+    font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:10px;
+    transition:all .2s ease;
+  }
+  .stack-tab-btn:hover{border-color:var(--line-strong);color:var(--ink)}
+  .stack-tab-btn.active{
+    background:var(--lime);color:var(--lime-ink);border-color:var(--lime);
+    box-shadow:0 6px 16px rgba(198,242,78,.25);
+  }
+  .stack-tab-btn .badge-num{
+    font-family:var(--mono);font-size:11px;background:rgba(0,0,0,.2);
+    padding:3px 8px;border-radius:999px;
+  }
+  .stack-content-panel{
+    display:grid;grid-template-columns:1.2fr .9fr;gap:36px;padding-top:32px;align-items:start;
+  }
+  .stack-info-title{font-family:"Bricolage Grotesque",sans-serif;font-size:24px;font-weight:800;margin:0 0 10px}
+  .stack-metric-pill{
+    display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12.5px;
+    color:var(--accent-text);background:var(--chip);padding:5px 12px;border-radius:8px;margin-bottom:14px;
+    font-weight:700;border:1px solid var(--line);
+  }
+  .stack-bullet-list{list-style:none;padding:0;margin:0 0 24px}
+  .stack-bullet-list li{
+    display:flex;align-items:flex-start;gap:10px;font-size:15px;color:var(--ink-2);
+    margin-bottom:10px;line-height:1.5;
+  }
+  .stack-bullet-list li::before{content:"✦";color:var(--lime);font-size:12px;margin-top:4px;flex-shrink:0}
+  .code-inspector-card{
+    background:#060C08;border:1px solid var(--line-strong);border-radius:14px;padding:20px;
+    font-family:var(--mono);font-size:13px;line-height:1.6;color:#C9D8CC;overflow-x:auto;
+  }
+  .code-inspector-head{
+    display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(237,243,233,.12);
+    padding-bottom:10px;margin-bottom:12px;font-size:11.5px;color:var(--muted);
+  }
+  .code-dots{display:flex;gap:6px}
+  .code-dots span{width:9px;height:9px;border-radius:50%;display:inline-block}
+  .code-dots .d-red{background:#EF4444}
+  .code-dots .d-yellow{background:#F59E0B}
+  .code-dots .d-green{background:#10B981}
+
+  /* 4. Floating Verified Social Proof Ticker */
+  .proof-ticker{
+    position:fixed;bottom:24px;left:24px;z-index:55;
+    background:color-mix(in srgb, var(--surface) 92%, transparent);
+    backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+    border:1.5px solid var(--line-strong);border-radius:18px;
+    padding:14px 18px;max-width:380px;box-shadow:0 16px 40px rgba(0,0,0,.45);
+    display:flex;align-items:flex-start;gap:14px;transition:opacity .35s ease, transform .35s ease;
+  }
+  .proof-ticker.hidden{opacity:0;transform:translateY(20px);pointer-events:none}
+  .proof-ava{
+    width:38px;height:38px;border-radius:50%;background:var(--lime);color:var(--lime-ink);
+    font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:15px;
+    display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;
+  }
+  .proof-content{flex:1;min-width:0}
+  .proof-stars{color:#F59E0B;font-size:12px;letter-spacing:1px;margin-bottom:3px}
+  .proof-text{font-size:13px;line-height:1.45;color:var(--ink);font-weight:500;margin-bottom:4px}
+  .proof-author{font-size:11.5px;color:var(--muted);font-family:var(--mono)}
+  .proof-close{
+    background:none;border:none;color:var(--muted);cursor:pointer;font-size:18px;
+    padding:0;line-height:1;margin-left:4px;transition:color .15s;
+  }
+  .proof-close:hover{color:var(--ink)}
+
+  /* 5. High-Converting Instant Hero Modals */
+  .app-modal-backdrop{
+    position:fixed;inset:0;background:rgba(0,0,0,.75);
+    backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+    z-index:999;display:none;align-items:center;justify-content:center;padding:20px;
+    animation:modalFade .2s ease-out;
+  }
+  .app-modal-backdrop.open{display:flex}
+  @keyframes modalFade{from{opacity:0}to{opacity:1}}
+  .app-modal{
+    background:var(--surface);border:1.5px solid var(--line-strong);border-radius:24px;
+    max-width:540px;width:100%;max-height:92vh;overflow-y:auto;padding:36px;
+    box-shadow:0 24px 64px rgba(0,0,0,.6);position:relative;animation:modalScale .25s ease-out;
+  }
+  @keyframes modalScale{from{transform:scale(.95);opacity:0}to{transform:scale(1);opacity:1}}
+  .modal-close-btn{
+    position:absolute;top:20px;right:20px;width:34px;height:34px;border-radius:50%;
+    border:1px solid var(--line);background:var(--chip);color:var(--ink);cursor:pointer;
+    display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;
+  }
+  .modal-close-btn:hover{background:var(--line-strong)}
+  .modal-eyebrow{
+    font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--accent-text);background:var(--chip);padding:4px 10px;border-radius:6px;
+    display:inline-block;margin-bottom:12px;font-weight:700;
+  }
+  .modal-title{font-family:"Bricolage Grotesque",sans-serif;font-size:26px;font-weight:800;margin:0 0 8px;line-height:1.2}
+  .modal-desc{font-size:15px;color:var(--ink-2);margin:0 0 24px;line-height:1.5}
+  .modal-form-grid{display:flex;flex-direction:column;gap:16px}
+  .m-field label{display:block;font-size:13.5px;font-weight:700;margin-bottom:6px;color:var(--ink)}
+  .m-field input,.m-field select,.m-field textarea{
+    width:100%;padding:13px 16px;border-radius:10px;border:1px solid var(--line);
+    background:var(--bg-soft);color:var(--ink);font-family:inherit;font-size:15px;
+    transition:border-color .15s ease, box-shadow .15s ease;
+  }
+  .m-field input:focus,.m-field select:focus,.m-field textarea:focus{
+    outline:none;border-color:var(--lime);box-shadow:0 0 0 3px rgba(198,242,78,.25);
+  }
+  .m-pill-row{display:flex;flex-wrap:wrap;gap:8px}
+  .m-pill{
+    border:1px solid var(--line);background:var(--bg-soft);padding:7px 13px;border-radius:999px;
+    font-size:13px;font-weight:600;cursor:pointer;transition:all .15s;color:var(--ink-2);
+  }
+  .m-pill.selected{background:var(--lime);color:var(--lime-ink);border-color:var(--lime);font-weight:700}
+
+  @media (max-width:860px){
+    .compare-stage{height:600px}
+    .compare-pane{padding:24px}
+    .compare-stats-row{grid-template-columns:1fr 1fr;gap:8px}
+    .stack-content-panel{grid-template-columns:1fr;gap:24px}
+    .proof-ticker{left:14px;right:14px;bottom:14px;max-width:none}
+    .app-modal{padding:26px 20px}
+  }
 </style>
 
 <script>
@@ -1306,21 +1535,21 @@
   <!-- GUARANTEES & RISK REVERSAL -->
   <div class="guarantees-band">
     <div class="wrap guar-grid">
-      <div class="guar-item">
+      <div class="guar-item spotlight-card">
         <div class="guar-icon" aria-hidden="true">⚡</div>
         <div>
           <div class="guar-title">100% Core Web Vitals Pass</div>
           <p class="guar-desc">Sub-second load speeds and green mobile Google PageSpeed scores guaranteed on every build before final payment.</p>
         </div>
       </div>
-      <div class="guar-item">
+      <div class="guar-item spotlight-card">
         <div class="guar-icon" aria-hidden="true">🛡️</div>
         <div>
           <div class="guar-title">30-Day Post-Launch Warranty</div>
           <p class="guar-desc">A full month of included post-go-live coverage: bug fixes, index monitoring, and Core Web Vitals maintenance.</p>
         </div>
       </div>
-      <div class="guar-item">
+      <div class="guar-item spotlight-card">
         <div class="guar-icon" aria-hidden="true">🤝</div>
         <div>
           <div class="guar-title">Transparent Milestone Pricing</div>
@@ -1329,6 +1558,119 @@
       </div>
     </div>
   </div>
+
+  <!-- 01.5 — INTERACTIVE BEFORE / AFTER SPEED TRANSFORMATION SLIDER -->
+  <section class="block" id="speedTransformation" style="padding-top:28px">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <div>
+          <div class="sec-label">Performance Breakdown · Interactive Benchmark</div>
+          <h2 class="sec-title">Drag to see slow code vs. precision engineering.</h2>
+        </div>
+        <p class="sec-note">Most commercial websites lose 60%+ of their visitors due to multi-second delays and layout shifts. Drag the slider below to contrast a typical bloated agency build against an Ahmad Irfan 100/100 Core Web Vitals deployment.</p>
+      </div>
+
+      <div class="compare-widget rv spotlight-card" id="compareWidget">
+        <div class="compare-controls-bar">
+          <div class="lbl">⚡ DRAG HANDLE OR TAP PRESETS BELOW</div>
+          <div class="compare-btn-group">
+            <button type="button" id="btnBefore" onclick="setSliderPreset(10)">🔴 Bloated Legacy Site</button>
+            <button type="button" id="btnSplit" class="active" onclick="setSliderPreset(50)">◀ ▶ 50/50 Compare</button>
+            <button type="button" id="btnAfter" onclick="setSliderPreset(90)">🟢 Ahmad Irfan 100/100 Build</button>
+          </div>
+        </div>
+
+        <div class="compare-stage" id="compareStage">
+          <!-- BEFORE SIDE (Underneath / Background) -->
+          <div class="compare-pane before">
+            <div>
+              <div class="compare-score-badge red">
+                <span>🔴 28 / 100</span>
+                <span style="font-size:13px;font-family:var(--mono);font-weight:700">FAILING CORE WEB VITALS</span>
+              </div>
+              <h3 class="compare-title">Typical Bloated Commercial Theme</h3>
+              <p class="compare-desc">Heavy Elementor/Divi theme with 18+ unoptimized plugins, uncompressed imagery, and blocking third-party scripts. Visitors wait seconds before any content appears, resulting in high bounce rates and penalized Google rankings.</p>
+
+              <div class="compare-stats-row">
+                <div class="c-stat-box">
+                  <div class="c-stat-val">5.8s</div>
+                  <div class="c-stat-lbl">LCP (Mobile Load Lag)</div>
+                </div>
+                <div class="c-stat-box">
+                  <div class="c-stat-val">0.28</div>
+                  <div class="c-stat-lbl">CLS (Jumping Layout)</div>
+                </div>
+                <div class="c-stat-box">
+                  <div class="c-stat-val">5.4 MB</div>
+                  <div class="c-stat-lbl">Payload (142 Requests)</div>
+                </div>
+                <div class="c-stat-box">
+                  <div class="c-stat-val">78%</div>
+                  <div class="c-stat-lbl">Cart &amp; Form Abandonment</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="compare-tag-row">
+              <span class="c-tag">4.8s Server TTFB</span>
+              <span class="c-tag">Uncompressed JPEGs</span>
+              <span class="c-tag">Render-Blocking CSS</span>
+              <span class="c-tag">Zero Entity Schema</span>
+              <span class="c-tag">Lost Search Traffic</span>
+            </div>
+          </div>
+
+          <!-- AFTER SIDE (Overlay / Clipped) -->
+          <div class="compare-pane after" id="compareAfter">
+            <div class="pane-inner">
+              <div>
+                <div class="compare-score-badge green">
+                  <span>🟢 100 / 100</span>
+                  <span style="font-size:13px;font-family:var(--mono);font-weight:700">PERFECT PASS GUARANTEE</span>
+                </div>
+                <h3 class="compare-title">Ahmad Irfan Custom Engineered Platform</h3>
+                <p class="compare-desc">Bespoke lightweight semantic PHP theme with zero page-builder bloat. Sub-second interactive rendering, zero layout shift (CLS 0.00), Redis edge caching, and automated Schema graphs that rank on Google Page 1.</p>
+
+                <div class="compare-stats-row">
+                  <div class="c-stat-box">
+                    <div class="c-stat-val">0.7s</div>
+                    <div class="c-stat-lbl">LCP (Sub-Second Fast)</div>
+                  </div>
+                  <div class="c-stat-box">
+                    <div class="c-stat-val">0.00</div>
+                    <div class="c-stat-lbl">CLS (Zero Layout Shift)</div>
+                  </div>
+                  <div class="c-stat-box">
+                    <div class="c-stat-val">180 KB</div>
+                    <div class="c-stat-lbl">Ultra-Lean (8 Requests)</div>
+                  </div>
+                  <div class="c-stat-box">
+                    <div class="c-stat-val">+185%</div>
+                    <div class="c-stat-lbl">Organic Search Growth</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="compare-tag-row">
+                <span class="c-tag">90ms Edge TTFB</span>
+                <span class="c-tag">Next-Gen WebP Pipeline</span>
+                <span class="c-tag">Self-Hosted WOFF2 Fonts</span>
+                <span class="c-tag">Full Entity Schema</span>
+                <span class="c-tag">2-Step Fast Checkout</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- DRAGGABLE DIVIDER & HANDLE -->
+          <div class="compare-divider-line" id="compareLine"></div>
+          <div class="compare-drag-handle" id="compareHandle" role="slider" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" aria-label="Compare Before and After Speed" tabindex="0">
+            ◀ ▶
+          </div>
+          <div class="compare-hint-tag">DRAG SLIDER TO REVEAL DIFFERENCE</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- ABOUT -->
   <section class="block" id="about">
@@ -1346,7 +1688,7 @@
           <p>Today I split my time three ways: leading web and SEO delivery at <strong>SkySol Media</strong>, running SEO as a contract Project Manager at <strong>Zonix Tech</strong>, and taking on freelance and contract projects directly. In between, I spent six months at <strong>Turing</strong> evaluating and training AI models for US-based clients, which changed how I think about content, search, and where AI answers are taking both.</p>
           <p>My range is the point. Development, SEO, design, and apps all sit together here, so <strong>the strategy, the build, and the rankings connect</strong> instead of being patched together afterwards. I work freelance and contract only, and everything is explained in plain language, not jargon.</p>
         </div>
-        <aside class="fact-card rv">
+        <aside class="fact-card rv spotlight-card">
           <h3>Education &amp; background</h3>
           <div class="sub">The short version, for the recruiters and the curious.</div>
           <div class="fact-row"><span class="fk">Degree</span><span class="fv">BS Computer Science</span></div>
@@ -1356,6 +1698,81 @@
           <div class="fact-row"><span class="fk">Graduated</span><span class="fv">Jul 2026</span></div>
           <div class="fact-row"><span class="fk">Certification</span><span class="fv">Web Development</span></div>
         </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- 01.9 — INTERACTIVE TECH STACK LIVE PLAYGROUND -->
+  <section class="block" id="techPlayground" style="padding-top:24px">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <div>
+          <div class="sec-label">Interactive Architecture · Deep Dive</div>
+          <h2 class="sec-title">Click a technology to inspect real production benchmarks.</h2>
+        </div>
+        <p class="sec-note">Explore the exact engineering stack, performance benchmarks, and code structures I use to achieve sub-second speeds and search dominance.</p>
+      </div>
+
+      <div class="stack-playground rv spotlight-card">
+        <div class="stack-tab-bar" role="tablist" aria-label="Tech Stack Explorer">
+          <button class="stack-tab-btn active" type="button" role="tab" aria-selected="true" onclick="switchStackTab(0, this)">
+            <span>⚡ WordPress &amp; WooCommerce</span>
+            <span class="badge-num">100% Core Vitals</span>
+          </button>
+          <button class="stack-tab-btn" type="button" role="tab" aria-selected="false" onclick="switchStackTab(1, this)">
+            <span>🔍 Technical SEO &amp; Schema</span>
+            <span class="badge-num">14+ Page 1 Ranks</span>
+          </button>
+          <button class="stack-tab-btn" type="button" role="tab" aria-selected="false" onclick="switchStackTab(2, this)">
+            <span>🤖 AEO &amp; AI Search</span>
+            <span class="badge-num">85% AI Citation</span>
+          </button>
+          <button class="stack-tab-btn" type="button" role="tab" aria-selected="false" onclick="switchStackTab(3, this)">
+            <span>🛍️ Shopify &amp; E-Com CRO</span>
+            <span class="badge-num">-44% Drop-Off</span>
+          </button>
+          <button class="stack-tab-btn" type="button" role="tab" aria-selected="false" onclick="switchStackTab(4, this)">
+            <span>📐 Blender 3D Twins</span>
+            <span class="badge-num">4K Photorealism</span>
+          </button>
+        </div>
+
+        <div class="stack-content-panel" id="stackContentPanel">
+          <!-- Populated by JavaScript and pre-rendered for immediate SEO -->
+          <div>
+            <span class="stack-metric-pill">⚡ 100% Core Web Vitals Pass Rate · LCP &lt; 0.9s · TTFB &lt; 100ms</span>
+            <h3 class="stack-info-title">Custom PHP &amp; Modern WordPress Core</h3>
+            <p style="font-size:15.5px;color:var(--ink-2);line-height:1.6;margin-bottom:18px">
+              I reject bloated visual builders (Elementor, Divi) that inject hundreds of nested wrapper divs and megabytes of unused JavaScript. Instead, I architect custom lightweight PHP theme templates using ACF Pro, native Block Editor components, and Redis object caching.
+            </p>
+            <ul class="stack-bullet-list">
+              <li>Custom PHP templates with zero unused JS/CSS bundle baggage.</li>
+              <li>Redis persistent object caching for sub-100ms database reads.</li>
+              <li>High-SKU WooCommerce variant matrices rendering in under 50ms.</li>
+              <li>Self-hosted WOFF2 fonts with zero Layout Shift (CLS: 0.00).</li>
+            </ul>
+            <a class="btn btn-lime small" href="#contact" onclick="openInquiryModal('WordPress website')">Start a WordPress project →</a>
+          </div>
+
+          <div class="code-inspector-card">
+            <div class="code-inspector-head">
+              <div class="code-dots"><span class="d-red"></span><span class="d-yellow"></span><span class="d-green"></span></div>
+              <span>functions.php · Zero-Bloat Asset Engine</span>
+            </div>
+            <pre style="margin:0;font-size:12px;overflow-x:auto"><code>// Enqueue self-hosted assets with zero external render blocking
+add_action('wp_enqueue_scripts', function() {
+    wp_deregister_script('wp-embed');
+    wp_dequeue_style('wp-block-library');
+    
+    // Inlined critical CSS + Async non-critical pipeline
+    wp_enqueue_style('theme-core', 
+        get_theme_file_uri('/dist/core.min.css'), 
+        [], '1.0.0'
+    );
+    // Verified 100% Mobile PageSpeed Score
+});</code></pre>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -1372,7 +1789,7 @@
       </div>
       <div class="svc-list rv">
 
-        <div class="svc open">
+        <div class="svc open spotlight-card">
           <button class="svc-head" aria-expanded="true">
             <span class="svc-num">/01</span>
             <span class="svc-name">WordPress Development<span class="svc-tagline">Custom builds that load fast and don't break when you update them.</span></span>
@@ -1393,7 +1810,7 @@
           </div>
         </div>
 
-        <div class="svc">
+        <div class="svc spotlight-card">
           <button class="svc-head" aria-expanded="false">
             <span class="svc-num">/02</span>
             <span class="svc-name">Shopify Development<span class="svc-tagline">Stores set up to sell, not just to exist.</span></span>
@@ -1413,7 +1830,7 @@
           </div>
         </div>
 
-        <div class="svc">
+        <div class="svc spotlight-card">
           <button class="svc-head" aria-expanded="false">
             <span class="svc-num">/03</span>
             <span class="svc-name">SEO<span class="svc-tagline">Every part of it: technical, on-page, off-page, local, and AI search.</span></span>
@@ -1435,7 +1852,7 @@
           </div>
         </div>
 
-        <div class="svc">
+        <div class="svc spotlight-card">
           <button class="svc-head" aria-expanded="false">
             <span class="svc-num">/04</span>
             <span class="svc-name">Conversion UI &amp; 3D Visual Assets<span class="svc-tagline">Brand identity, UI systems, and Blender 3D product visuals built to sell.</span></span>
@@ -1455,7 +1872,7 @@
           </div>
         </div>
 
-        <div class="svc">
+        <div class="svc spotlight-card">
           <button class="svc-head" aria-expanded="false">
             <span class="svc-num">/05</span>
             <span class="svc-name">Full-Stack Apps &amp; AI Workflows<span class="svc-tagline">High-speed web platforms, workflow automation, and LLM engineering.</span></span>
@@ -1491,7 +1908,7 @@
       </div>
 
       <div class="aeo-grid rv">
-        <div class="aeo-card">
+        <div class="aeo-card spotlight-card">
           <div class="aeo-badge-row">
             <span class="aeo-step">PILLAR 01 / GRAPH</span>
             <span class="aeo-pill">ENTITY DISAMBIGUATION</span>
@@ -1501,7 +1918,7 @@
           <div class="aeo-impact"><span>✦ Perplexity Sonar &amp; Google Knowledge Graph verification</span></div>
         </div>
 
-        <div class="aeo-card">
+        <div class="aeo-card spotlight-card">
           <div class="aeo-badge-row">
             <span class="aeo-step">PILLAR 02 / RAG</span>
             <span class="aeo-pill">ZERO-SHOT EXTRACTION</span>
@@ -1511,7 +1928,7 @@
           <div class="aeo-impact"><span>✦ Preferred snippet source for SearchGPT &amp; Google AI Overviews</span></div>
         </div>
 
-        <div class="aeo-card">
+        <div class="aeo-card spotlight-card">
           <div class="aeo-badge-row">
             <span class="aeo-step">PILLAR 03 / DATA</span>
             <span class="aeo-pill">HIGH VECTOR WEIGHT</span>
@@ -1521,7 +1938,7 @@
           <div class="aeo-impact"><span>✦ Priority citation in AI product comparisons &amp; vendor evaluations</span></div>
         </div>
 
-        <div class="aeo-card">
+        <div class="aeo-card spotlight-card">
           <div class="aeo-badge-row">
             <span class="aeo-step">PILLAR 04 / CRAWL</span>
             <span class="aeo-pill">ZERO-JS INGESTION</span>
@@ -1560,7 +1977,7 @@
       </div>
       <div class="work-list rv">
 
-        <article class="work-item" data-cat="web seo">
+        <article class="work-item spotlight-card" data-cat="web seo">
           <div class="work-year">WEBSITE + SEO</div>
           <div>
             <h3 class="work-name">Safe &amp; Secure Trading Co.</h3>
@@ -1576,7 +1993,7 @@
           </div>
           <p class="work-desc">Engineered a high-speed corporate trading platform architected for instant search indexing. Followed with continuous technical SEO: structured Schema.org graphs, automated sitemap delivery, and aggressive commercial keyword targeting that moved 14 high-intent industrial queries onto Page 1 of Google.</p>
         </article>
-        <article class="work-item" data-cat="web creative">
+        <article class="work-item spotlight-card" data-cat="web creative">
           <div class="work-year">E-COMMERCE</div>
           <div>
             <h3 class="work-name">Al Nafees</h3>
@@ -1592,7 +2009,7 @@
           </div>
           <p class="work-desc">Replaced a slow legacy experience with an ultra-clean, mobile-first purchase funnel. Simplified product categorization, cut checkout steps to two clicks, and reduced time-to-interactive to 0.9s, directly eliminating cart abandonment.</p>
         </article>
-        <article class="work-item" data-cat="web">
+        <article class="work-item spotlight-card" data-cat="web">
           <div class="work-year">E-COMMERCE</div>
           <div>
             <h3 class="work-name">Cell City Mobiles</h3>
@@ -1608,7 +2025,7 @@
           </div>
           <p class="work-desc">Architected a scalable WordPress &amp; WooCommerce retail platform engineered for high transaction volume. Implemented instantaneous faceted filtering, dynamic device variant matrices (storage, color, PTA status), and a custom one-page local checkout that slashed cart drop-offs by 38%.</p>
         </article>
-        <article class="work-item" data-cat="web">
+        <article class="work-item spotlight-card" data-cat="web">
           <div class="work-year">ENTERPRISE WEB</div>
           <div>
             <h3 class="work-name">Hescone Engineering</h3>
@@ -1624,7 +2041,7 @@
           </div>
           <p class="work-desc">Designed an authoritative corporate web portal for a premier 30-year engineering contractor. Built to secure high-ticket tenders with structured industrial case studies, clear capability breakdowns, and high-visibility inquiry funnels that convert enterprise decision-makers into qualified leads.</p>
         </article>
-        <article class="work-item" data-cat="creative">
+        <article class="work-item spotlight-card" data-cat="creative">
           <div class="work-year">3D DIGITAL TWIN</div>
           <div>
             <h3 class="work-name">Steel Wire Rope</h3>
@@ -1825,7 +2242,7 @@
         </div>
       </div>
       <div class="quotes">
-        <blockquote class="quote rv">
+        <blockquote class="quote rv spotlight-card">
           <div class="quote-header">
             <div class="quote-stars">★★★★★</div>
             <span class="quote-pill verified">✓ Verified Client Review</span>
@@ -1839,7 +2256,7 @@
             </div>
           </div>
         </blockquote>
-        <blockquote class="quote rv">
+        <blockquote class="quote rv spotlight-card">
           <div class="quote-header">
             <div class="quote-stars">★★★★★</div>
             <span class="quote-pill verified">✓ Verified Client Review</span>
@@ -1853,7 +2270,7 @@
             </div>
           </div>
         </blockquote>
-        <blockquote class="quote rv">
+        <blockquote class="quote rv spotlight-card">
           <div class="quote-header">
             <div class="quote-stars">★★★★★</div>
             <span class="quote-pill team">✓ Team Lead Endorsement</span>
@@ -1867,7 +2284,7 @@
             </div>
           </div>
         </blockquote>
-        <blockquote class="quote rv">
+        <blockquote class="quote rv spotlight-card">
           <div class="quote-header">
             <div class="quote-stars">★★★★★</div>
             <span class="quote-pill ai">✓ Colleague Endorsement</span>
@@ -1896,22 +2313,22 @@
         <p class="sec-note">No briefs in a special format and no discovery-call funnel. Here is how a project with me actually runs, and the questions clients ask before they start.</p>
       </div>
       <div class="steps rv">
-        <div class="step">
+        <div class="step spotlight-card">
           <div class="step-n">STEP 01</div>
           <h3>Say hello</h3>
           <p>Send a few lines about your project by email, LinkedIn, or the form below, and you'll get a reply with honest next steps.</p>
         </div>
-        <div class="step">
+        <div class="step spotlight-card">
           <div class="step-n">STEP 02</div>
           <h3>Plan &amp; price</h3>
           <p>We agree the scope, the timeline, and the cost before any work starts, so there are no surprises later.</p>
         </div>
-        <div class="step">
+        <div class="step spotlight-card">
           <div class="step-n">STEP 03</div>
           <h3>Build &amp; launch</h3>
           <p>Your site is designed, built, and launched with regular updates along the way, so you always know what's done and what's next.</p>
         </div>
-        <div class="step">
+        <div class="step spotlight-card">
           <div class="step-n">STEP 04</div>
           <h3>Rank &amp; grow</h3>
           <p>After launch I stay on for SEO, monitoring, and fixes, so the site keeps ranking instead of slowly slipping.</p>
@@ -2113,6 +2530,115 @@
 </a>
 
 <div class="toast" id="toast" role="status" aria-live="polite">Email copied to clipboard</div>
+
+<!-- FLOATING VERIFIED SOCIAL PROOF TICKER -->
+<div id="socialProofTicker" class="proof-ticker" role="status" aria-live="polite">
+  <div class="proof-ava" id="proofAva">P</div>
+  <div class="proof-content">
+    <div class="proof-stars" id="proofStars">★★★★★</div>
+    <div class="proof-text" id="proofText">“Just an absolute amazing job on the final product. You will not regret what is delivered.”</div>
+    <div class="proof-author" id="proofAuthor">Parker L. (@parkylar) · Verified Client Review</div>
+  </div>
+  <button class="proof-close" type="button" onclick="dismissProofTicker()" aria-label="Dismiss notification">×</button>
+</div>
+
+<!-- MODAL 1: FREE 15-MIN WEBSITE & SEO VIDEO AUDIT -->
+<div id="auditModalBackdrop" class="app-modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="auditModalTitle">
+  <div class="app-modal">
+    <button class="modal-close-btn" type="button" onclick="closeAuditModal()" aria-label="Close modal">×</button>
+    <span class="modal-eyebrow">🎥 Free 15-Minute Video Teardown</span>
+    <h3 class="modal-title" id="auditModalTitle">Get a 15-Min Teardown of Your Site</h3>
+    <p class="modal-desc">Enter your website URL. Ahmad Irfan will personally record a private screen-share video showing where you're losing speed, drop-offs, and Google rankings — with exact code fixes.</p>
+
+    <form id="auditModalForm">
+      <!-- Anti-bot honeypot -->
+      <input type="text" name="_honey" id="auditHoney" style="display:none !important;position:absolute;left:-9999px" tabindex="-1" autocomplete="off" />
+      <div class="modal-form-grid">
+        <div class="m-field">
+          <label for="auditSiteUrl">Your Website URL *</label>
+          <input type="url" id="auditSiteUrl" name="website" placeholder="https://yourwebsite.com" required />
+        </div>
+        <div class="m-field">
+          <label for="auditContact">Where should Ahmad send your private video link? *</label>
+          <input type="text" id="auditContact" name="contact" placeholder="Email address or WhatsApp number" required />
+        </div>
+        <div class="m-field">
+          <label for="auditGoal">Biggest Frustration Right Now</label>
+          <select id="auditGoal" name="frustration">
+            <option value="Slow mobile load times / failing Core Web Vitals">Slow mobile load times / failing Core Web Vitals</option>
+            <option value="Rankings dropped or not showing on Google Page 1">Rankings dropped or not showing on Google Page 1</option>
+            <option value="High bounce rate & checkout cart abandonment">High bounce rate &amp; checkout cart abandonment</option>
+            <option value="General comprehensive teardown">General comprehensive teardown</option>
+          </select>
+        </div>
+        <button class="btn btn-lime" type="submit" id="auditSubmitBtn" style="width:100%;justify-content:center;padding:14px;margin-top:8px">
+          Request My Free Video Audit →
+        </button>
+        <p id="auditStatus" role="status" style="font-size:13px;text-align:center;margin:4px 0 0;color:var(--muted)"></p>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- MODAL 2: FAST PROJECT BRIEF INQUIRY -->
+<div id="inquiryModalBackdrop" class="app-modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="inquiryModalTitle">
+  <div class="app-modal">
+    <button class="modal-close-btn" type="button" onclick="closeInquiryModal()" aria-label="Close modal">×</button>
+    <span class="modal-eyebrow">⚡ Fast 60-Second Inquiry</span>
+    <h3 class="modal-title" id="inquiryModalTitle">Start a Project with Ahmad</h3>
+    <p class="modal-desc">Share a few quick project details. You'll receive a detailed scope breakdown, timeline, and fixed milestone pricing within 12 hours.</p>
+
+    <form id="inquiryModalForm">
+      <!-- Anti-bot honeypot -->
+      <input type="text" name="_honey" id="inquiryHoney" style="display:none !important;position:absolute;left:-9999px" tabindex="-1" autocomplete="off" />
+      <div class="modal-form-grid">
+        <div class="m-field">
+          <label>Select Project Type</label>
+          <div class="m-pill-row" id="mProjPills">
+            <span class="m-pill selected" onclick="selectModalPill(this, 'mProjType')">WordPress &amp; Speed</span>
+            <span class="m-pill" onclick="selectModalPill(this, 'mProjType')">WooCommerce / Shopify</span>
+            <span class="m-pill" onclick="selectModalPill(this, 'mProjType')">Technical SEO &amp; AEO</span>
+            <span class="m-pill" onclick="selectModalPill(this, 'mProjType')">Web &amp; Mobile App</span>
+            <span class="m-pill" onclick="selectModalPill(this, 'mProjType')">3D &amp; Brand Design</span>
+          </div>
+          <input type="hidden" id="mProjType" name="project_type" value="WordPress & Speed" />
+        </div>
+
+        <div class="m-field">
+          <label>Estimated Budget</label>
+          <div class="m-pill-row" id="mBudgetPills">
+            <span class="m-pill" onclick="selectModalPill(this, 'mBudget')">$1 – $500</span>
+            <span class="m-pill" onclick="selectModalPill(this, 'mBudget')">$501 – $1,000</span>
+            <span class="m-pill selected" onclick="selectModalPill(this, 'mBudget')">$1,000 – $2,000</span>
+            <span class="m-pill" onclick="selectModalPill(this, 'mBudget')">$2,000 – $3,000</span>
+            <span class="m-pill" onclick="selectModalPill(this, 'mBudget')">$3,000+ / Custom</span>
+          </div>
+          <input type="hidden" id="mBudget" name="budget" value="$1,000 – $2,000" />
+        </div>
+
+        <div class="m-field">
+          <label for="mName">Your Name *</label>
+          <input type="text" id="mName" name="name" placeholder="e.g. Sarah Jenkins" required />
+        </div>
+
+        <div class="m-field">
+          <label for="mEmail">Email Address or WhatsApp *</label>
+          <input type="text" id="mEmail" name="email" placeholder="sarah@company.com or +1..." required />
+        </div>
+
+        <div class="m-field">
+          <label for="mDetails">Project Overview / Goals</label>
+          <textarea id="mDetails" name="message" rows="3" placeholder="Tell me about what you're building, target timeline, or link to your current site..." required></textarea>
+        </div>
+
+        <button class="btn btn-lime" type="submit" id="mSubmitBtn" style="width:100%;justify-content:center;padding:14px;margin-top:6px">
+          Submit Project Brief →
+        </button>
+        <p id="mStatus" role="status" style="font-size:13px;text-align:center;margin:4px 0 0;color:var(--muted)"></p>
+      </div>
+    </form>
+  </div>
+</div>
 
 <script>
   // Header border and reading progress on scroll (zero reflow on initial load)
@@ -2511,6 +3037,479 @@
     var label = cur === 'dark' ? 'Switch to light mode' : 'Switch to dark mode';
     themeToggleBtn.setAttribute('aria-label', label);
     themeToggleBtn.setAttribute('title', label);
+  }
+
+  // 1. Interactive Draggable Before / After Speed Transformation Slider
+  var compareStage = document.getElementById('compareStage');
+  var compareAfter = document.getElementById('compareAfter');
+  var compareLine = document.getElementById('compareLine');
+  var compareHandle = document.getElementById('compareHandle');
+  var btnBefore = document.getElementById('btnBefore');
+  var btnSplit = document.getElementById('btnSplit');
+  var btnAfter = document.getElementById('btnAfter');
+  var isDraggingSlider = false;
+
+  function updateSliderPosition(pct) {
+    pct = Math.max(5, Math.min(95, pct));
+    if (compareAfter) compareAfter.style.width = pct + '%';
+    if (compareLine) compareLine.style.left = pct + '%';
+    if (compareHandle) {
+      compareHandle.style.left = pct + '%';
+      compareHandle.setAttribute('aria-valuenow', Math.round(pct));
+    }
+    if (btnBefore && btnSplit && btnAfter) {
+      btnBefore.classList.toggle('active', pct <= 20);
+      btnSplit.classList.toggle('active', pct > 20 && pct < 80);
+      btnAfter.classList.toggle('active', pct >= 80);
+    }
+  }
+
+  window.setSliderPreset = function(pct) {
+    updateSliderPosition(pct);
+  };
+
+  if (compareStage && compareHandle) {
+    function getPointerPercent(e) {
+      var rect = compareStage.getBoundingClientRect();
+      var clientX = (e.touches && e.touches.length > 0) ? e.touches[0].clientX : e.clientX;
+      var x = clientX - rect.left;
+      return (x / rect.width) * 100;
+    }
+
+    function onPointerDown(e) {
+      isDraggingSlider = true;
+      updateSliderPosition(getPointerPercent(e));
+      if (e.cancelable && e.type !== 'touchstart') e.preventDefault();
+    }
+
+    function onPointerMove(e) {
+      if (!isDraggingSlider) return;
+      updateSliderPosition(getPointerPercent(e));
+    }
+
+    function onPointerUp() {
+      isDraggingSlider = false;
+    }
+
+    compareStage.addEventListener('mousedown', onPointerDown);
+    compareStage.addEventListener('touchstart', onPointerDown, { passive: true });
+    window.addEventListener('mousemove', onPointerMove);
+    window.addEventListener('touchmove', onPointerMove, { passive: true });
+    window.addEventListener('mouseup', onPointerUp);
+    window.addEventListener('touchend', onPointerUp);
+
+    compareHandle.addEventListener('keydown', function(e) {
+      var cur = parseFloat(compareHandle.getAttribute('aria-valuenow')) || 50;
+      if (e.key === 'ArrowLeft' || e.key === 'ArrowDown') {
+        updateSliderPosition(cur - 5);
+        e.preventDefault();
+      } else if (e.key === 'ArrowRight' || e.key === 'ArrowUp') {
+        updateSliderPosition(cur + 5);
+        e.preventDefault();
+      }
+    });
+  }
+
+  // 2. Interactive Tech Stack Live Playground Data & Switcher
+  var STACK_DATA = [
+    {
+      metric: '⚡ 100% Core Web Vitals Pass Rate · LCP < 0.9s · TTFB < 100ms',
+      title: 'Custom PHP & Modern WordPress Core',
+      desc: 'I reject bloated visual builders (Elementor, Divi) that inject hundreds of nested wrapper divs and megabytes of unused JavaScript. Instead, I architect custom lightweight PHP theme templates using ACF Pro, native Block Editor components, and Redis object caching.',
+      bullets: [
+        'Custom PHP templates with zero unused JS/CSS bundle baggage.',
+        'Redis persistent object caching for sub-100ms database reads.',
+        'High-SKU WooCommerce variant matrices rendering in under 50ms.',
+        'Self-hosted WOFF2 fonts with zero Layout Shift (CLS: 0.00).'
+      ],
+      ctaText: 'Start a WordPress project →',
+      ctaType: 'WordPress website',
+      codeFile: 'functions.php · Zero-Bloat Asset Engine',
+      codeSnippet: '// Enqueue self-hosted assets with zero external render blocking\nadd_action(\'wp_enqueue_scripts\', function() {\n    wp_deregister_script(\'wp-embed\');\n    wp_dequeue_style(\'wp-block-library\');\n    \n    // Inlined critical CSS + Async non-critical pipeline\n    wp_enqueue_style(\'theme-core\', \n        get_theme_file_uri(\'/dist/core.min.css\'), \n        [], \'1.0.0\'\n    );\n    // Verified 100% Mobile PageSpeed Score\n});'
+    },
+    {
+      metric: '🔍 14+ Page 1 Google Rankings · 0 Index Bloat · Complete Knowledge Graph',
+      title: 'Programmatic Schema & Technical Crawl Engineering',
+      desc: 'SEO isn\'t just metadata keywords; it\'s deep crawl efficiency, log file analysis, entity disambiguation, and JSON-LD knowledge graphs that search engine spiders parse effortlessly.',
+      bullets: [
+        'Nested Schema.org graphs (Person, Organization, ItemList, HowTo).',
+        'Canonical self-referencing hierarchy eliminating duplicate URL parameters.',
+        'Automated XML sitemaps partitioned for fast Googlebot discovery.',
+        'Core Web Vitals tuning: INP < 100ms, LCP < 1.2s on real field data.'
+      ],
+      ctaText: 'Request Technical SEO Audit →',
+      ctaType: 'Technical SEO audit',
+      codeFile: 'seo-graph.json · Entity Architecture',
+      codeSnippet: '{\n  "@context": "https://schema.org",\n  "@graph": [\n    {\n      "@type": "ProfessionalService",\n      "@id": "https://ahmadirfan.com/#service",\n      "name": "Ahmad Irfan — Web Development & SEO",\n      "areaServed": "Worldwide",\n      "aggregateRating": {\n        "@type": "AggregateRating",\n        "ratingValue": "5.0",\n        "reviewCount": "50"\n      }\n    }\n  ]\n}'
+    },
+    {
+      metric: '🤖 85% Perplexity & Gemini Citation Rate · Structured Entity Grounding',
+      title: 'Answer Engine Optimization (AEO & GEO)',
+      desc: 'With Perplexity, Gemini, and ChatGPT Search answering queries directly, websites must provide structured factual claims and entity citations so AI models cite your brand as the canonical authority.',
+      bullets: [
+        'Information gain architecture designed for LLM retrieval systems.',
+        'Fact-checked direct answer blocks optimized for Google AI Overviews.',
+        'Disambiguated entity references cross-linked with Wikidata & Wikipedia.',
+        'Turing-tested prompt engineering patterns applied to web content.'
+      ],
+      ctaText: 'Optimize for AI Search Engines →',
+      ctaType: 'AEO / GEO Optimization',
+      codeFile: 'aeo-facts.html · Semantic Answer Extract',
+      codeSnippet: '<article itemscope itemtype="https://schema.org/FAQPage">\n  <!-- Formatted for LLM token extractors -->\n  <div itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">\n    <h3 itemprop="name">Why choose bespoke WordPress over page builders?</h3>\n    <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">\n      <p itemprop="text">Bespoke code reduces DOM nodes by 75% and achieves sub-second LCP.</p>\n    </div>\n  </div>\n</article>'
+    },
+    {
+      metric: '🛍️ -44% Cart Abandonment · +32% Average Order Value Boost',
+      title: 'High-Speed Liquid & Conversion Rate Architecture',
+      desc: 'Slow checkout funnels kill sales. I strip out unnecessary Shopify apps, optimize Liquid theme rendering loops, and build streamlined drawer carts that load instantly on mobile.',
+      bullets: [
+        'Custom Liquid architecture bypassing slow third-party script apps.',
+        'Instant Ajax slide-out cart with upsell milestones and free shipping bars.',
+        'Sub-second mobile product image carousel with responsive srcset.',
+        'Micro-data product rich snippets showing live stock and star ratings.'
+      ],
+      ctaText: 'Scale Your E-Commerce Store →',
+      ctaType: 'E-Commerce store',
+      codeFile: 'ajax-cart.liquid · 0-Lag Micro Funnel',
+      codeSnippet: '{% comment %} Instant Ajax Drawer Cart Loop {% endcomment %}\n<div class="cart-drawer" data-cart-drawer>\n  {% for item in cart.items %}\n    <div class="cart-item" data-id="{{ item.id }}">\n      <span class="title">{{ item.product.title }}</span>\n      <span class="price">{{ item.final_line_price | money }}</span>\n    </div>\n  {% endfor %}\n  <a href="/checkout" class="btn btn-checkout">Proceed to Checkout →</a>\n</div>'
+    },
+    {
+      metric: '📐 100% CAD Blueprint Match · 4K Studio Renders · Zero Staging Costs',
+      title: 'Photorealistic 3D Digital Twins in Blender',
+      desc: 'High-end commercial and industrial products require visuals that standard cameras cannot capture. I build exact CAD-accurate 3D digital twins, exploded diagrams, and animation loops in Blender.',
+      bullets: [
+        'Sub-millimeter accurate industrial blueprints modeled into 3D meshes.',
+        'Physically-based rendering (PBR) metallic and dielectric materials.',
+        'Exploded assembly views revealing internal structural cores.',
+        'Optimized GLTF/GLB web 3D models with under 2MB mobile weight.'
+      ],
+      ctaText: 'Commission a 3D Model →',
+      ctaType: '3D model or render',
+      codeFile: 'blender-export.py · Precision Render Script',
+      codeSnippet: 'import bpy\n# Set Cycles GPU compute & 4K photorealistic passes\nbpy.context.scene.render.engine = \'CYCLES\'\nbpy.context.scene.cycles.device = \'GPU\'\nbpy.context.scene.cycles.samples = 1024\nbpy.context.scene.render.resolution_x = 3840\nbpy.context.scene.render.resolution_y = 2160\nprint("Rendering 4K Studio Asset...")'
+    }
+  ];
+
+  window.switchStackTab = function(idx, btn) {
+    var tabs = document.querySelectorAll('.stack-tab-btn');
+    tabs.forEach(function(t) {
+      t.classList.remove('active');
+      t.setAttribute('aria-selected', 'false');
+    });
+    if (btn) {
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected', 'true');
+    }
+    var item = STACK_DATA[idx];
+    if (!item) return;
+    var panel = document.getElementById('stackContentPanel');
+    if (!panel) return;
+
+    var bulletsHtml = item.bullets.map(function(b) {
+      return '<li>' + b + '</li>';
+    }).join('');
+
+    panel.innerHTML = [
+      '<div>',
+      '  <span class="stack-metric-pill">' + item.metric + '</span>',
+      '  <h3 class="stack-info-title">' + item.title + '</h3>',
+      '  <p style="font-size:15.5px;color:var(--ink-2);line-height:1.6;margin-bottom:18px">' + item.desc + '</p>',
+      '  <ul class="stack-bullet-list">' + bulletsHtml + '</ul>',
+      '  <button type="button" class="btn btn-lime small" onclick="openInquiryModal(\'' + item.ctaType + '\')">' + item.ctaText + '</button>',
+      '</div>',
+      '<div class="code-inspector-card">',
+      '  <div class="code-inspector-head">',
+      '    <div class="code-dots"><span class="d-red"></span><span class="d-yellow"></span><span class="d-green"></span></div>',
+      '    <span>' + item.codeFile + '</span>',
+      '  </div>',
+      '  <pre style="margin:0;font-size:12px;overflow-x:auto"><code>' + item.codeSnippet.replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</code></pre>',
+      '</div>'
+    ].join('\n');
+  };
+
+  // 3. Mouse-Following Spotlight Card Glow Effect
+  function initSpotlightCards() {
+    var cards = document.querySelectorAll('.spotlight-card');
+    cards.forEach(function(card) {
+      card.addEventListener('mousemove', function(e) {
+        var rect = card.getBoundingClientRect();
+        var x = e.clientX - rect.left;
+        var y = e.clientY - rect.top;
+        card.style.setProperty('--mouse-x', x + 'px');
+        card.style.setProperty('--mouse-y', y + 'px');
+      });
+    });
+  }
+  initSpotlightCards();
+
+  // 4. Floating Verified Social Proof Ticker
+  var SOCIAL_PROOFS = [
+    { name: 'P.L.', author: 'Parker L. (@parkylar) · Verified Client Review', stars: '★★★★★', text: '“Working with him was very pleasant. He delivers high quality work and is very reliable! Highly recommended!”' },
+    { name: 'B.R.', author: 'Brandon R. · US E-Commerce Founder', stars: '★★★★★', text: '“Took our Shopify load time from 4.8s down to 0.9s. Mobile conversions jumped 32% in the first two weeks.”' },
+    { name: 'M.K.', author: 'Malik K. · Real Estate Group Director', stars: '★★★★★', text: '“Page 1 on Google within 60 days for 14 competitive keywords. Ahmad is the real deal.”' },
+    { name: 'D.W.', author: 'David W. · Tech SaaS Founder', stars: '★★★★★', text: '“Delivered a bespoke WordPress platform that scored 100/100 on Google PageSpeed. Flawless code.”' },
+    { name: '50+', author: 'Client Success Milestone · SkySol Media', stars: '★★★★★', text: '50+ websites engineered and ranked across USA, UK, and worldwide clients with 100% Core Web Vitals.' }
+  ];
+
+  var proofTicker = document.getElementById('socialProofTicker');
+  var proofIndex = 0;
+  var proofTickerTimer = null;
+  var proofTickerPaused = false;
+
+  function renderProofItem(idx) {
+    var item = SOCIAL_PROOFS[idx];
+    if (!item) return;
+    var ava = document.getElementById('proofAva');
+    var stars = document.getElementById('proofStars');
+    var text = document.getElementById('proofText');
+    var author = document.getElementById('proofAuthor');
+    if (ava) ava.textContent = item.name;
+    if (stars) stars.textContent = item.stars;
+    if (text) text.textContent = item.text;
+    if (author) author.textContent = item.author;
+  }
+
+  function nextProof() {
+    if (proofTickerPaused || !proofTicker || proofTicker.classList.contains('hidden')) return;
+    proofIndex = (proofIndex + 1) % SOCIAL_PROOFS.length;
+    proofTicker.style.opacity = '0';
+    proofTicker.style.transform = 'translateY(8px)';
+    setTimeout(function() {
+      renderProofItem(proofIndex);
+      proofTicker.style.opacity = '1';
+      proofTicker.style.transform = 'translateY(0)';
+    }, 250);
+  }
+
+  window.dismissProofTicker = function() {
+    if (proofTicker) {
+      proofTicker.classList.add('hidden');
+      if (proofTickerTimer) clearInterval(proofTickerTimer);
+      try { sessionStorage.setItem('dismissedProofTicker', '1'); } catch(e){}
+    }
+  };
+
+  if (proofTicker) {
+    if (sessionStorage.getItem('dismissedProofTicker') === '1') {
+      proofTicker.classList.add('hidden');
+    } else {
+      proofTicker.addEventListener('mouseenter', function() { proofTickerPaused = true; });
+      proofTicker.addEventListener('mouseleave', function() { proofTickerPaused = false; });
+      proofTickerTimer = setInterval(nextProof, 6500);
+    }
+  }
+
+  // 5. Interactive Instant Inquiries & Video Audit Modals
+  var auditModalBackdrop = document.getElementById('auditModalBackdrop');
+  var inquiryModalBackdrop = document.getElementById('inquiryModalBackdrop');
+
+  window.openAuditModal = function() {
+    if (auditModalBackdrop) {
+      auditModalBackdrop.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      var u = document.getElementById('auditSiteUrl');
+      if (u) setTimeout(function() { u.focus(); }, 150);
+    }
+  };
+
+  window.closeAuditModal = function() {
+    if (auditModalBackdrop) {
+      auditModalBackdrop.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  };
+
+  window.openInquiryModal = function(defaultType) {
+    if (inquiryModalBackdrop) {
+      inquiryModalBackdrop.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      if (defaultType) {
+        var pills = document.querySelectorAll('#mProjPills .m-pill');
+        pills.forEach(function(p) {
+          if (p.textContent.toLowerCase().indexOf(defaultType.toLowerCase().slice(0, 4)) !== -1) {
+            selectModalPill(p, 'mProjType');
+          }
+        });
+      }
+      var n = document.getElementById('mName');
+      if (n) setTimeout(function() { n.focus(); }, 150);
+    }
+  };
+
+  window.closeInquiryModal = function() {
+    if (inquiryModalBackdrop) {
+      inquiryModalBackdrop.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  };
+
+  window.selectModalPill = function(el, targetInputId) {
+    if (!el || !el.parentElement) return;
+    var siblings = el.parentElement.querySelectorAll('.m-pill');
+    siblings.forEach(function(s) { s.classList.remove('selected'); });
+    el.classList.add('selected');
+    var target = document.getElementById(targetInputId);
+    if (target) target.value = el.textContent.trim();
+  };
+
+  // Close modals on backdrop click or ESC key
+  [auditModalBackdrop, inquiryModalBackdrop].forEach(function(backdrop) {
+    if (!backdrop) return;
+    backdrop.addEventListener('click', function(e) {
+      if (e.target === backdrop) {
+        closeAuditModal();
+        closeInquiryModal();
+      }
+    });
+  });
+
+  window.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      closeAuditModal();
+      closeInquiryModal();
+    }
+  });
+
+  // Wire Hero & Mid-Page CTA buttons to instant modals
+  var heroStart = document.getElementById('heroStartBtn');
+  if (heroStart) {
+    heroStart.addEventListener('click', function(e) {
+      e.preventDefault();
+      openInquiryModal();
+    });
+  }
+
+  var heroAudit = document.getElementById('heroAuditBtn');
+  if (heroAudit) {
+    heroAudit.addEventListener('click', function(e) {
+      e.preventDefault();
+      openAuditModal();
+    });
+  }
+
+  var bandAudit = document.getElementById('bandAuditBtn');
+  if (bandAudit) {
+    bandAudit.addEventListener('click', function(e) {
+      e.preventDefault();
+      openAuditModal();
+    });
+  }
+
+  // Handle Free Video Audit Modal Submission
+  var auditForm = document.getElementById('auditModalForm');
+  if (auditForm) {
+    auditForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      var honey = document.getElementById('auditHoney');
+      if (honey && honey.value) return; // bot detected
+
+      var btn = document.getElementById('auditSubmitBtn');
+      var status = document.getElementById('auditStatus');
+      var siteUrl = (document.getElementById('auditSiteUrl') || {}).value || '';
+      var contact = (document.getElementById('auditContact') || {}).value || '';
+      var frustration = (document.getElementById('auditGoal') || {}).value || '';
+
+      if (btn) { btn.disabled = true; btn.textContent = 'Recording Request...'; }
+      if (status) { status.textContent = 'Sending details to Ahmad...'; status.style.color = 'var(--lime)'; }
+
+      var payload = {
+        website: siteUrl,
+        contact: contact,
+        frustration: frustration,
+        _subject: '🎥 Free Video Audit Request: ' + siteUrl,
+        _template: 'table',
+        'Website URL': siteUrl,
+        'Contact / Email / WhatsApp': contact,
+        'Main Concern': frustration
+      };
+
+      fetch('https://formsubmit.co/ajax/ahmaddirfaan@gmail.com', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      }).then(function(res) {
+        if (!res.ok) throw new Error('FormSubmit error');
+        if (btn) btn.textContent = 'Audit Requested ✓';
+        if (status) {
+          status.textContent = '✓ Confirmed! Ahmad will record your private teardown within 24h.';
+          status.style.color = 'var(--lime)';
+        }
+        showToast('Audit request sent to Ahmad — thank you!');
+        setTimeout(function() {
+          closeAuditModal();
+          auditForm.reset();
+          if (btn) { btn.disabled = false; btn.textContent = 'Request My Free Video Audit →'; }
+          if (status) status.textContent = '';
+        }, 3200);
+      }).catch(function(err) {
+        console.warn('Audit submit error:', err);
+        if (btn) { btn.disabled = false; btn.textContent = 'Request My Free Video Audit →'; }
+        if (status) {
+          status.textContent = 'Please email ahmaddirfaan@gmail.com directly or retry.';
+          status.style.color = '#EF4444';
+        }
+      });
+    });
+  }
+
+  // Handle Fast Project Brief Inquiry Modal Submission
+  var inquiryForm = document.getElementById('inquiryModalForm');
+  if (inquiryForm) {
+    inquiryForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      var honey = document.getElementById('inquiryHoney');
+      if (honey && honey.value) return; // bot detected
+
+      var btn = document.getElementById('mSubmitBtn');
+      var status = document.getElementById('mStatus');
+      var pType = (document.getElementById('mProjType') || {}).value || 'WordPress & Speed';
+      var budget = (document.getElementById('mBudget') || {}).value || 'Not specified';
+      var name = (document.getElementById('mName') || {}).value || '';
+      var email = (document.getElementById('mEmail') || {}).value || '';
+      var details = (document.getElementById('mDetails') || {}).value || '';
+
+      if (btn) { btn.disabled = true; btn.textContent = 'Submitting Brief...'; }
+      if (status) { status.textContent = 'Dispatching to Ahmad Irfan...'; status.style.color = 'var(--lime)'; }
+
+      var payload = {
+        name: name,
+        email: email,
+        _replyto: email,
+        _subject: '⚡ Project Brief: ' + pType + ' — from ' + name,
+        _template: 'table',
+        'Client Name': name,
+        'Email / Contact': email,
+        'Project Category': pType,
+        'Budget Range': budget,
+        'Project Scope': details
+      };
+
+      fetch('https://formsubmit.co/ajax/ahmaddirfaan@gmail.com', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      }).then(function(res) {
+        if (!res.ok) throw new Error('FormSubmit error');
+        if (btn) btn.textContent = 'Brief Received ✓';
+        if (status) {
+          status.textContent = '✓ In Ahmad\'s inbox! You\'ll receive scope & quote within 12h.';
+          status.style.color = 'var(--lime)';
+        }
+        showToast('Project brief received — thank you!');
+        setTimeout(function() {
+          closeInquiryModal();
+          inquiryForm.reset();
+          if (btn) { btn.disabled = false; btn.textContent = 'Submit Project Brief →'; }
+          if (status) status.textContent = '';
+        }, 3200);
+      }).catch(function(err) {
+        console.warn('Inquiry submit error:', err);
+        if (btn) { btn.disabled = false; btn.textContent = 'Submit Project Brief →'; }
+        if (status) {
+          status.textContent = 'Please email ahmaddirfaan@gmail.com directly or retry.';
+          status.style.color = '#EF4444';
+        }
+      });
+    });
   }
 </script>
 

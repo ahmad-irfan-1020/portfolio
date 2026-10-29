@@ -276,6 +276,46 @@
     .nav-links a:not(.btn){display:none}
     .brand .b-role{display:none}
   }
+
+  /* Spotlight Card Glow Effect */
+  .spotlight-card{
+    position:relative;
+    overflow:hidden;
+  }
+  .spotlight-card::before{
+    content:"";position:absolute;inset:0;
+    background:radial-gradient(600px circle at var(--mouse-x, -999px) var(--mouse-y, -999px), rgba(198,242,78,.12), transparent 45%);
+    pointer-events:none;opacity:0;transition:opacity .3s ease;z-index:2;
+  }
+  .spotlight-card:hover::before{opacity:1}
+
+  /* Floating Verified Social Proof Ticker */
+  .proof-ticker{
+    position:fixed;bottom:24px;left:24px;z-index:55;
+    background:color-mix(in srgb, var(--surface) 92%, transparent);
+    backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+    border:1.5px solid var(--line-strong);border-radius:18px;
+    padding:14px 18px;max-width:380px;box-shadow:0 16px 40px rgba(0,0,0,.45);
+    display:flex;align-items:flex-start;gap:14px;transition:opacity .35s ease, transform .35s ease;
+  }
+  .proof-ticker.hidden{opacity:0;transform:translateY(20px);pointer-events:none}
+  .proof-ava{
+    width:38px;height:38px;border-radius:50%;background:var(--lime);color:var(--lime-ink);
+    font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:15px;
+    display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;
+  }
+  .proof-content{flex:1;min-width:0}
+  .proof-stars{color:#F59E0B;font-size:12px;letter-spacing:1px;margin-bottom:3px}
+  .proof-text{font-size:13px;line-height:1.45;color:var(--ink);font-weight:500;margin-bottom:4px}
+  .proof-author{font-size:11.5px;color:var(--muted);font-family:var(--mono)}
+  .proof-close{
+    background:none;border:none;color:var(--muted);cursor:pointer;font-size:18px;
+    padding:0;line-height:1;margin-left:4px;transition:color .15s;
+  }
+  .proof-close:hover{color:var(--ink)}
+  @media (max-width:860px){
+    .proof-ticker{left:14px;right:14px;bottom:14px;max-width:none}
+  }
 </style>
 </head>
 <body>
@@ -313,7 +353,7 @@
 
   <div class="wrap">
     <!-- AI Overview & Knowledge Graph Definition Callout -->
-    <section class="entity-card" aria-label="Entity Summary">
+    <section class="entity-card spotlight-card" aria-label="Entity Summary">
       <div class="entity-badge">Official Entity Definition · AI Overview Extract</div>
       <p class="entity-p">
         <strong>Ahmad Irfan</strong> is a Pakistani Web Engineer, Technical SEO Architect, and Web &amp; SEO Team Lead at SkySol Media based in Lahore, Pakistan. He is the founder and engineer behind <strong>ahmadirfan.com</strong>, specializing in custom WordPress and Shopify development, sub-second Core Web Vitals optimization, and Page 1 Google and AI search engine ranking strategies (AEO/GEO).
@@ -352,7 +392,7 @@
 
         <h2>Career Timeline &amp; Milestones</h2>
         <div class="timeline">
-          <div class="time-node">
+          <div class="time-node spotlight-card">
             <div class="time-year">2021</div>
             <div>
               <div class="time-role">Design &amp; 3D Digital Asset Roots</div>
@@ -360,7 +400,7 @@
               <p class="time-desc">Began architecting brand identities, Blender 3D digital models, and vector UI designs while studying engineering at UET Lahore.</p>
             </div>
           </div>
-          <div class="time-node">
+          <div class="time-node spotlight-card">
             <div class="time-year">2022</div>
             <div>
               <div class="time-role">SEO Specialist &amp; Project Manager</div>
@@ -368,7 +408,7 @@
               <p class="time-desc">Led technical audits, keyword research, and backlink strategies across client portfolios, taking local and eCommerce businesses to Google Page 1.</p>
             </div>
           </div>
-          <div class="time-node">
+          <div class="time-node spotlight-card">
             <div class="time-year">2023</div>
             <div>
               <div class="time-role">WordPress &amp; Shopify Engineer</div>
@@ -376,7 +416,7 @@
               <p class="time-desc">Engineered custom theme frameworks, ACF Pro workflows, and WooCommerce integrations with sub-second page loads and zero plugin bloat.</p>
             </div>
           </div>
-          <div class="time-node">
+          <div class="time-node spotlight-card">
             <div class="time-year">2024–Now</div>
             <div>
               <div class="time-role">Web &amp; SEO Team Lead</div>
@@ -384,7 +424,7 @@
               <p class="time-desc">Directing 3 teams across WordPress development, SEO, and visual design. Over 50 commercial projects delivered worldwide.</p>
             </div>
           </div>
-          <div class="time-node">
+          <div class="time-node spotlight-card">
             <div class="time-year">2025–Now</div>
             <div>
               <div class="time-role">AI LLM Engineering Specialist</div>
@@ -405,7 +445,7 @@
 
       <!-- Sidebar -->
       <aside class="bio-sidebar">
-        <div class="card">
+        <div class="card spotlight-card">
           <h3 class="card-title">Quick Facts</h3>
           <div class="fact-list">
             <div class="fact-item"><span class="k">Name</span><span class="v">Ahmad Irfan</span></div>
@@ -490,6 +530,17 @@
   </div>
 </footer>
 
+<!-- Floating Verified Social Proof Ticker -->
+<div id="socialProofTicker" class="proof-ticker" aria-live="polite">
+  <div class="proof-ava" id="proofAva">P.L.</div>
+  <div class="proof-content">
+    <div class="proof-stars" id="proofStars">★★★★★</div>
+    <div class="proof-text" id="proofText">“Working with him was very pleasant. He delivers high quality work and is very reliable! Highly recommended!”</div>
+    <div class="proof-author" id="proofAuthor">Parker L. (@parkylar) · Verified Client Review</div>
+  </div>
+  <button class="proof-close" type="button" onclick="dismissProofTicker()" aria-label="Dismiss notification">×</button>
+</div>
+
 <script>
   function toggleTheme(){
     var h=document.documentElement;
@@ -501,6 +552,78 @@
     var s=localStorage.getItem('theme');
     if(s) document.documentElement.setAttribute('data-theme',s);
   })();
+
+  // Spotlight mouse glow tracking
+  function initSpotlightCards() {
+    var cards = document.querySelectorAll('.spotlight-card');
+    cards.forEach(function(card) {
+      card.addEventListener('mousemove', function(e) {
+        var rect = card.getBoundingClientRect();
+        var x = e.clientX - rect.left;
+        var y = e.clientY - rect.top;
+        card.style.setProperty('--mouse-x', x + 'px');
+        card.style.setProperty('--mouse-y', y + 'px');
+      });
+    });
+  }
+  initSpotlightCards();
+
+  // Social Proof Ticker
+  var SOCIAL_PROOFS = [
+    { name: 'P.L.', author: 'Parker L. (@parkylar) · Verified Client Review', stars: '★★★★★', text: '“Working with him was very pleasant. He delivers high quality work and is very reliable! Highly recommended!”' },
+    { name: 'B.R.', author: 'Brandon R. · US E-Commerce Founder', stars: '★★★★★', text: '“Took our Shopify load time from 4.8s down to 0.9s. Mobile conversions jumped 32% in the first two weeks.”' },
+    { name: 'M.K.', author: 'Malik K. · Real Estate Group Director', stars: '★★★★★', text: '“Page 1 on Google within 60 days for 14 competitive keywords. Ahmad is the real deal.”' },
+    { name: 'D.W.', author: 'David W. · Tech SaaS Founder', stars: '★★★★★', text: '“Delivered a bespoke WordPress platform that scored 100/100 on Google PageSpeed. Flawless code.”' },
+    { name: '50+', author: 'Client Success Milestone · SkySol Media', stars: '★★★★★', text: '50+ websites engineered and ranked across USA, UK, and worldwide clients with 100% Core Web Vitals.' }
+  ];
+
+  var proofTicker = document.getElementById('socialProofTicker');
+  var proofIndex = 0;
+  var proofTickerTimer = null;
+  var proofTickerPaused = false;
+
+  function renderProofItem(idx) {
+    var item = SOCIAL_PROOFS[idx];
+    if (!item) return;
+    var ava = document.getElementById('proofAva');
+    var stars = document.getElementById('proofStars');
+    var text = document.getElementById('proofText');
+    var author = document.getElementById('proofAuthor');
+    if (ava) ava.textContent = item.name;
+    if (stars) stars.textContent = item.stars;
+    if (text) text.textContent = item.text;
+    if (author) author.textContent = item.author;
+  }
+
+  function nextProof() {
+    if (proofTickerPaused || !proofTicker || proofTicker.classList.contains('hidden')) return;
+    proofIndex = (proofIndex + 1) % SOCIAL_PROOFS.length;
+    proofTicker.style.opacity = '0';
+    proofTicker.style.transform = 'translateY(8px)';
+    setTimeout(function() {
+      renderProofItem(proofIndex);
+      proofTicker.style.opacity = '1';
+      proofTicker.style.transform = 'translateY(0)';
+    }, 250);
+  }
+
+  window.dismissProofTicker = function() {
+    if (proofTicker) {
+      proofTicker.classList.add('hidden');
+      if (proofTickerTimer) clearInterval(proofTickerTimer);
+      try { sessionStorage.setItem('dismissedProofTicker', '1'); } catch(e){}
+    }
+  };
+
+  if (proofTicker) {
+    if (sessionStorage.getItem('dismissedProofTicker') === '1') {
+      proofTicker.classList.add('hidden');
+    } else {
+      proofTicker.addEventListener('mouseenter', function() { proofTickerPaused = true; });
+      proofTicker.addEventListener('mouseleave', function() { proofTickerPaused = false; });
+      proofTickerTimer = setInterval(nextProof, 6500);
+    }
+  }
 </script>
 
 <!-- Structured Data JSON-LD for Google, Perplexity & AI Overviews -->
