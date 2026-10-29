@@ -93,32 +93,33 @@
 <link rel="icon" href="favicon.ico" sizes="32x32" />
 <link rel="icon" type="image/svg+xml" href="favicon.svg" />
 <link rel="apple-touch-icon" href="apple-touch-icon.png" />
-<link rel="preload" href="/fonts/instrumentsans.woff2" as="font" type="font/woff2" crossorigin fetchpriority="high" />
-<link rel="preload" href="/fonts/bricolagegrotesque.woff2" as="font" type="font/woff2" crossorigin fetchpriority="high" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preload" href="/fonts/instrumentsans.woff2" as="font" type="font/woff2" crossorigin="anonymous" fetchpriority="high" />
+<link rel="preload" href="/fonts/bricolagegrotesque.woff2" as="font" type="font/woff2" crossorigin="anonymous" fetchpriority="high" />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600..800&family=Instrument+Sans:wght@400..700&display=swap" rel="stylesheet" />
 <style>
-  /* Inlined Font Definitions: same-origin zero-latency font loading */
+  /* Guaranteed font loading: Local fast WOFF2 + Google Fonts CDN backup with swap display */
   @font-face {
     font-family: 'Instrument Sans';
     font-style: normal;
-    font-weight: 400 700;
-    font-stretch: 100%;
-    font-display: optional;
-    src: url('/fonts/instrumentsans.woff2') format('woff2');
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    font-weight: 100 900;
+    font-display: swap;
+    src: url('/fonts/instrumentsans.woff2') format('woff2'),
+         local('Instrument Sans');
   }
   @font-face {
     font-family: 'Bricolage Grotesque';
     font-style: normal;
-    font-weight: 700 800;
-    font-stretch: 100%;
-    font-display: optional;
-    src: url('/fonts/bricolagegrotesque.woff2') format('woff2');
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    font-weight: 100 900;
+    font-display: swap;
+    src: url('/fonts/bricolagegrotesque.woff2') format('woff2'),
+         local('Bricolage Grotesque');
   }
   /* Fallback Font Metric Overrides to completely eliminate layout shift */
   @font-face {
     font-family: 'Bricolage Fallback';
-    src: local('Arial');
+    src: local('Arial'), local('Helvetica Neue'), local('Helvetica');
     ascent-override: 96%;
     descent-override: 22%;
     line-gap-override: 0%;
@@ -126,7 +127,7 @@
   }
   @font-face {
     font-family: 'Instrument Fallback';
-    src: local('Segoe UI'), local('Arial');
+    src: local('Segoe UI'), local('Arial'), local('Helvetica Neue');
     ascent-override: 98%;
     descent-override: 24%;
     line-gap-override: 0%;
@@ -187,7 +188,7 @@
   }
   body{
     margin:0;background-color:#0A120E;color:#EDF3E9;
-    font-family:"Instrument Sans","Instrument Fallback",system-ui,-apple-system,"Segoe UI",sans-serif;
+    font-family:"Instrument Sans","Instrument Fallback",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
     font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;
     overflow-x:hidden;
   }
@@ -197,7 +198,7 @@
   img{max-width:100%}
   .wrap{max-width:1180px;margin:0 auto;padding:0 24px;padding-left:max(24px,env(safe-area-inset-left));padding-right:max(24px,env(safe-area-inset-right))}
   .mono{font-family:var(--mono)}
-  .display{font-family:"Bricolage Grotesque","Bricolage Fallback","Instrument Sans",sans-serif;letter-spacing:-.01em}
+  .display{font-family:"Bricolage Grotesque","Bricolage Fallback",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;letter-spacing:-.01em}
 
   /* ---------- header ---------- */
   header.site{
@@ -209,7 +210,7 @@
   header.site.scrolled{border-bottom-color:var(--line)}
   .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:14px;padding-bottom:14px}
   .brand{display:flex;align-items:baseline;gap:10px;text-decoration:none;font-weight:700}
-  .brand .b-name{font-family:"Bricolage Grotesque","Bricolage Fallback",sans-serif;font-size:20px;font-weight:800}
+  .brand .b-name{font-family:"Bricolage Grotesque","Bricolage Fallback",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;font-size:20px;font-weight:800}
   .brand .b-role{font-size:12px;color:var(--muted);font-family:var(--mono);letter-spacing:.04em}
   .nav-links{display:flex;gap:26px;align-items:center}
   .nav-links a{text-decoration:none;font-size:15px;font-weight:600;color:var(--ink-2)}
@@ -270,7 +271,7 @@
   .avail .dot{width:8px;height:8px;border-radius:50%;background:var(--lime);animation:pulse 2s infinite}
   @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(198,242,78,.5)}50%{box-shadow:0 0 0 6px rgba(198,242,78,0)}}
   h1.hero-title{
-    font-family:"Bricolage Grotesque","Bricolage Fallback",sans-serif;font-weight:800;
+    font-family:"Bricolage Grotesque","Bricolage Fallback",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;font-weight:800;
     font-size:clamp(44px,6.4vw,78px);line-height:1.02;margin:26px 0 20px;letter-spacing:-.015em;
   }
   h1.hero-title .hl{
