@@ -23,14 +23,41 @@
 <meta name="creator" content="Ahmad Irfan" />
 <meta name="publisher" content="Ahmad Irfan" />
 
-<!-- Google Analytics (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-D57Q1ZRPWM"></script>
+<!-- Google Consent Mode v2, Google Analytics & Microsoft Clarity -->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
+
+  var _savedConsent = null;
+  try { _savedConsent = localStorage.getItem('cookie_consent'); } catch(e){}
+
+  gtag('consent', 'default', {
+    'ad_storage': 'denied',
+    'ad_user_data': 'denied',
+    'ad_personalization': 'denied',
+    'analytics_storage': _savedConsent === 'accepted' ? 'granted' : 'denied',
+    'wait_for_update': 500
+  });
+
   gtag('js', new Date());
   gtag('config', 'G-D57Q1ZRPWM');
+
+  window.initClarity = function() {
+    var clarityId = window.CLARITY_ID || "";
+    if (!clarityId || window.clarityInitialized) return;
+    window.clarityInitialized = true;
+    (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", clarityId);
+  };
+
+  if (_savedConsent === 'accepted') {
+    window.initClarity();
+  }
 </script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-D57Q1ZRPWM"></script>
 
 <!-- Canonical URL -->
 <link rel="canonical" href="https://ahmadirfan.com/about" />
@@ -313,8 +340,45 @@
     padding:0;line-height:1;margin-left:4px;transition:color .15s;
   }
   .proof-close:hover{color:var(--ink)}
+  /* Cookie Consent Glassmorphism Modal */
+  .cookie-banner{
+    position:fixed;bottom:24px;left:24px;z-index:90;
+    max-width:390px;
+    background:color-mix(in srgb, var(--surface) 94%, transparent);
+    backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+    border:1.5px solid var(--line-strong);border-radius:20px;
+    padding:22px;box-shadow:0 24px 55px rgba(0,0,0,.6);
+    display:flex;flex-direction:column;gap:12px;
+    transition:opacity .35s ease, transform .35s ease, visibility .35s;
+  }
+  .cookie-banner.hidden{
+    opacity:0;transform:translateY(16px);pointer-events:none;visibility:hidden;
+  }
+  .cookie-header{display:flex;align-items:center;gap:10px}
+  .cookie-icon{
+    width:32px;height:32px;border-radius:10px;background:rgba(198,242,78,.15);
+    color:var(--lime);display:flex;align-items:center;justify-content:center;
+    font-size:16px;flex-shrink:0;border:1px solid rgba(198,242,78,.3);
+  }
+  .cookie-title{
+    font-family:"Bricolage Grotesque",sans-serif;font-size:16.5px;font-weight:800;
+    color:var(--ink);margin:0;line-height:1.2;
+  }
+  .cookie-desc{
+    font-size:13.5px;line-height:1.55;color:var(--ink-2);margin:0;
+  }
+  .cookie-actions{display:flex;align-items:center;gap:10px;margin-top:6px}
+  .cookie-actions .btn{padding:8px 16px;font-size:13px;border-radius:10px}
+  .cookie-manage-btn{
+    background:none;border:none;color:var(--muted);font-size:13.5px;font-family:inherit;
+    font-weight:500;cursor:pointer;padding:0;text-decoration:underline;text-underline-offset:3px;
+    transition:color .2s;
+  }
+  .cookie-manage-btn:hover{color:var(--lime)}
+
   @media (max-width:860px){
     .proof-ticker{left:14px;right:14px;bottom:14px;max-width:none}
+    .cookie-banner{left:14px;right:14px;bottom:14px;max-width:none;padding:18px}
   }
 </style>
 </head>
@@ -521,17 +585,33 @@
       <a href="/about" class="active">About</a>
       <a href="/contact">Contact</a>
     </div>
-    <div style="display:flex;gap:14px;flex-wrap:wrap">
+    <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center">
       <a href="https://www.linkedin.com/in/ahmadirfan1020" target="_blank" rel="noopener">LinkedIn</a>
       <a href="https://github.com/ahmad-irfan-1020" target="_blank" rel="noopener">GitHub</a>
       <a href="https://wa.me/923004323600" target="_blank" rel="noopener">WhatsApp</a>
       <a href="mailto:ahmaddirfaan@gmail.com">Email</a>
+      <button type="button" class="cookie-manage-btn" onclick="openCookieBanner()">Cookie Settings</button>
     </div>
   </div>
 </footer>
 
+<!-- COOKIE CONSENT BANNER (GDPR / CCPA / Consent Mode v2) -->
+<div id="cookieBanner" class="cookie-banner hidden" role="region" aria-label="Cookie consent">
+  <div class="cookie-header">
+    <div class="cookie-icon" aria-hidden="true">🍪</div>
+    <h3 class="cookie-title">Privacy &amp; Performance Cookies</h3>
+  </div>
+  <p class="cookie-desc">
+    We use privacy-safe, non-identifying cookies to measure site performance, understand visitor navigation, and improve user experience. No personal info is sold or shared.
+  </p>
+  <div class="cookie-actions">
+    <button type="button" class="btn btn-lime small" onclick="handleCookieConsent('accepted')">Accept All</button>
+    <button type="button" class="btn btn-ghost small" onclick="handleCookieConsent('declined')">Necessary Only</button>
+  </div>
+</div>
+
 <!-- Floating Verified Social Proof Ticker -->
-<div id="socialProofTicker" class="proof-ticker" aria-live="polite">
+<div id="socialProofTicker" class="proof-ticker hidden" aria-live="polite">
   <div class="proof-ava" id="proofAva">P.L.</div>
   <div class="proof-content">
     <div class="proof-stars" id="proofStars">★★★★★</div>
@@ -616,14 +696,59 @@
   };
 
   if (proofTicker) {
-    if (sessionStorage.getItem('dismissedProofTicker') === '1') {
+    var hasConsent = false;
+    try { hasConsent = !!localStorage.getItem('cookie_consent'); } catch(e){}
+    if (sessionStorage.getItem('dismissedProofTicker') === '1' || !hasConsent) {
       proofTicker.classList.add('hidden');
     } else {
-      proofTicker.addEventListener('mouseenter', function() { proofTickerPaused = true; });
-      proofTicker.addEventListener('mouseleave', function() { proofTickerPaused = false; });
-      proofTickerTimer = setInterval(nextProof, 6500);
+      proofTicker.classList.remove('hidden');
     }
+    proofTicker.addEventListener('mouseenter', function() { proofTickerPaused = true; });
+    proofTicker.addEventListener('mouseleave', function() { proofTickerPaused = false; });
+    proofTickerTimer = setInterval(nextProof, 6500);
   }
+
+  // Cookie Consent Management
+  window.handleCookieConsent = function(choice) {
+    try { localStorage.setItem('cookie_consent', choice); } catch(e){}
+    var banner = document.getElementById('cookieBanner');
+    if (banner) banner.classList.add('hidden');
+
+    if (choice === 'accepted') {
+      if (typeof gtag === 'function') {
+        gtag('consent', 'update', { 'analytics_storage': 'granted' });
+      }
+      if (typeof window.initClarity === 'function') {
+        window.initClarity();
+      }
+    } else {
+      if (typeof gtag === 'function') {
+        gtag('consent', 'update', { 'analytics_storage': 'denied' });
+      }
+    }
+
+    if (proofTicker && sessionStorage.getItem('dismissedProofTicker') !== '1') {
+      proofTicker.classList.remove('hidden');
+    }
+  };
+
+  window.openCookieBanner = function() {
+    var banner = document.getElementById('cookieBanner');
+    if (banner) banner.classList.remove('hidden');
+    if (proofTicker) proofTicker.classList.add('hidden');
+  };
+
+  (function initCookieBanner() {
+    var consent = null;
+    try { consent = localStorage.getItem('cookie_consent'); } catch(e){}
+    var banner = document.getElementById('cookieBanner');
+    if (!consent) {
+      if (banner) banner.classList.remove('hidden');
+      if (proofTicker) proofTicker.classList.add('hidden');
+    } else {
+      if (banner) banner.classList.add('hidden');
+    }
+  })();
 </script>
 
 <!-- Structured Data JSON-LD for Google, Perplexity & AI Overviews -->
