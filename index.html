@@ -1184,59 +1184,6 @@
   }
   .spotlight-card:hover::after{opacity:1}
 
-  /* 2. Interactive Tech Stack Live Playground */
-  .stack-playground{
-    background:var(--surface);border:1.5px solid var(--line);border-radius:24px;
-    padding:36px;box-shadow:var(--shadow);margin-top:32px;
-  }
-  .stack-tab-bar{
-    display:flex;gap:10px;overflow-x:auto;padding-bottom:14px;border-bottom:1px solid var(--line);
-    scrollbar-width:none;-ms-overflow-style:none;
-  }
-  .stack-tab-bar::-webkit-scrollbar{display:none}
-  .stack-tab-btn{
-    flex-shrink:0;background:var(--surface-card);border:1px solid var(--line);
-    border-radius:12px;padding:12px 18px;color:var(--ink-2);font-family:inherit;font-size:14.5px;
-    font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:10px;
-    transition:all .2s ease;
-  }
-  .stack-tab-btn:hover{border-color:var(--line-strong);color:var(--ink)}
-  .stack-tab-btn.active{
-    background:var(--lime);color:var(--lime-ink);border-color:var(--lime);
-    box-shadow:0 6px 16px rgba(198,242,78,.25);
-  }
-  .stack-tab-btn .badge-num{
-    font-family:var(--mono);font-size:11px;background:rgba(0,0,0,.2);
-    padding:3px 8px;border-radius:999px;
-  }
-  .stack-content-panel{
-    display:grid;grid-template-columns:1.2fr .9fr;gap:36px;padding-top:32px;align-items:start;
-  }
-  .stack-info-title{font-family:"Bricolage Grotesque",sans-serif;font-size:24px;font-weight:800;margin:0 0 10px}
-  .stack-metric-pill{
-    display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12.5px;
-    color:var(--accent-text);background:var(--chip);padding:5px 12px;border-radius:8px;margin-bottom:14px;
-    font-weight:700;border:1px solid var(--line);
-  }
-  .stack-bullet-list{list-style:none;padding:0;margin:0 0 24px}
-  .stack-bullet-list li{
-    display:flex;align-items:flex-start;gap:10px;font-size:15px;color:var(--ink-2);
-    margin-bottom:10px;line-height:1.5;
-  }
-  .stack-bullet-list li::before{content:"✦";color:var(--lime);font-size:12px;margin-top:4px;flex-shrink:0}
-  .code-inspector-card{
-    background:#060C08;border:1px solid var(--line-strong);border-radius:14px;padding:20px;
-    font-family:var(--mono);font-size:13px;line-height:1.6;color:#C9D8CC;overflow-x:auto;
-  }
-  .code-inspector-head{
-    display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(237,243,233,.12);
-    padding-bottom:10px;margin-bottom:12px;font-size:11.5px;color:var(--muted);
-  }
-  .code-dots{display:flex;gap:6px}
-  .code-dots span{width:9px;height:9px;border-radius:50%;display:inline-block}
-  .code-dots .d-red{background:#EF4444}
-  .code-dots .d-yellow{background:#F59E0B}
-  .code-dots .d-green{background:#10B981}
 
   /* 4. Floating Verified Social Proof Ticker */
   .proof-ticker{
@@ -1309,7 +1256,6 @@
   .m-pill.selected{background:var(--lime);color:var(--lime-ink);border-color:var(--lime);font-weight:700}
 
   @media (max-width:860px){
-    .stack-content-panel{grid-template-columns:1fr;gap:24px}
     .proof-ticker{left:14px;right:14px;bottom:14px;max-width:none}
     .app-modal{padding:26px 20px}
   }
@@ -1502,80 +1448,6 @@
     </div>
   </section>
 
-  <!-- 01.9 — INTERACTIVE TECH STACK LIVE PLAYGROUND -->
-  <section class="block" id="techPlayground" style="padding-top:24px">
-    <div class="wrap">
-      <div class="sec-head rv">
-        <div>
-          <div class="sec-label">Interactive Architecture · Deep Dive</div>
-          <h2 class="sec-title">Click a technology to inspect real production benchmarks.</h2>
-        </div>
-        <p class="sec-note">Explore the exact engineering stack, performance benchmarks, and code structures I use to achieve sub-second speeds and search dominance.</p>
-      </div>
-
-      <div class="stack-playground rv spotlight-card">
-        <div class="stack-tab-bar" role="tablist" aria-label="Tech Stack Explorer">
-          <button class="stack-tab-btn active" type="button" role="tab" aria-selected="true" onclick="switchStackTab(0, this)">
-            <span>⚡ WordPress &amp; WooCommerce</span>
-            <span class="badge-num">100% Core Vitals</span>
-          </button>
-          <button class="stack-tab-btn" type="button" role="tab" aria-selected="false" onclick="switchStackTab(1, this)">
-            <span>🔍 Technical SEO &amp; Schema</span>
-            <span class="badge-num">14+ Page 1 Ranks</span>
-          </button>
-          <button class="stack-tab-btn" type="button" role="tab" aria-selected="false" onclick="switchStackTab(2, this)">
-            <span>🤖 AEO &amp; AI Search</span>
-            <span class="badge-num">85% AI Citation</span>
-          </button>
-          <button class="stack-tab-btn" type="button" role="tab" aria-selected="false" onclick="switchStackTab(3, this)">
-            <span>🛍️ Shopify &amp; E-Com CRO</span>
-            <span class="badge-num">-44% Drop-Off</span>
-          </button>
-          <button class="stack-tab-btn" type="button" role="tab" aria-selected="false" onclick="switchStackTab(4, this)">
-            <span>📐 Blender 3D Twins</span>
-            <span class="badge-num">4K Photorealism</span>
-          </button>
-        </div>
-
-        <div class="stack-content-panel" id="stackContentPanel">
-          <!-- Populated by JavaScript and pre-rendered for immediate SEO -->
-          <div>
-            <span class="stack-metric-pill">⚡ 100% Core Web Vitals Pass Rate · LCP &lt; 0.9s · TTFB &lt; 100ms</span>
-            <h3 class="stack-info-title">Custom PHP &amp; Modern WordPress Core</h3>
-            <p style="font-size:15.5px;color:var(--ink-2);line-height:1.6;margin-bottom:18px">
-              I reject bloated visual builders (Elementor, Divi) that inject hundreds of nested wrapper divs and megabytes of unused JavaScript. Instead, I architect custom lightweight PHP theme templates using ACF Pro, native Block Editor components, and Redis object caching.
-            </p>
-            <ul class="stack-bullet-list">
-              <li>Custom PHP templates with zero unused JS/CSS bundle baggage.</li>
-              <li>Redis persistent object caching for sub-100ms database reads.</li>
-              <li>High-SKU WooCommerce variant matrices rendering in under 50ms.</li>
-              <li>Self-hosted WOFF2 fonts with zero Layout Shift (CLS: 0.00).</li>
-            </ul>
-            <a class="btn btn-lime small" href="#contact" onclick="openInquiryModal('WordPress website')">Start a WordPress project →</a>
-          </div>
-
-          <div class="code-inspector-card">
-            <div class="code-inspector-head">
-              <div class="code-dots"><span class="d-red"></span><span class="d-yellow"></span><span class="d-green"></span></div>
-              <span>functions.php · Zero-Bloat Asset Engine</span>
-            </div>
-            <pre style="margin:0;font-size:12px;overflow-x:auto"><code>// Enqueue self-hosted assets with zero external render blocking
-add_action('wp_enqueue_scripts', function() {
-    wp_deregister_script('wp-embed');
-    wp_dequeue_style('wp-block-library');
-    
-    // Inlined critical CSS + Async non-critical pipeline
-    wp_enqueue_style('theme-core', 
-        get_theme_file_uri('/dist/core.min.css'), 
-        [], '1.0.0'
-    );
-    // Verified 100% Mobile PageSpeed Score
-});</code></pre>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- SERVICES -->
   <section class="block tight" id="services" style="padding-top:20px">
@@ -2839,121 +2711,6 @@ add_action('wp_enqueue_scripts', function() {
     themeToggleBtn.setAttribute('title', label);
   }
 
-  // 1. Interactive Tech Stack Live Playground Data & Switcher
-  var STACK_DATA = [
-    {
-      metric: '⚡ 100% Core Web Vitals Pass Rate · LCP < 0.9s · TTFB < 100ms',
-      title: 'Custom PHP & Modern WordPress Core',
-      desc: 'I reject bloated visual builders (Elementor, Divi) that inject hundreds of nested wrapper divs and megabytes of unused JavaScript. Instead, I architect custom lightweight PHP theme templates using ACF Pro, native Block Editor components, and Redis object caching.',
-      bullets: [
-        'Custom PHP templates with zero unused JS/CSS bundle baggage.',
-        'Redis persistent object caching for sub-100ms database reads.',
-        'High-SKU WooCommerce variant matrices rendering in under 50ms.',
-        'Self-hosted WOFF2 fonts with zero Layout Shift (CLS: 0.00).'
-      ],
-      ctaText: 'Start a WordPress project →',
-      ctaType: 'WordPress website',
-      codeFile: 'functions.php · Zero-Bloat Asset Engine',
-      codeSnippet: '// Enqueue self-hosted assets with zero external render blocking\nadd_action(\'wp_enqueue_scripts\', function() {\n    wp_deregister_script(\'wp-embed\');\n    wp_dequeue_style(\'wp-block-library\');\n    \n    // Inlined critical CSS + Async non-critical pipeline\n    wp_enqueue_style(\'theme-core\', \n        get_theme_file_uri(\'/dist/core.min.css\'), \n        [], \'1.0.0\'\n    );\n    // Verified 100% Mobile PageSpeed Score\n});'
-    },
-    {
-      metric: '🔍 14+ Page 1 Google Rankings · 0 Index Bloat · Complete Knowledge Graph',
-      title: 'Programmatic Schema & Technical Crawl Engineering',
-      desc: 'SEO isn\'t just metadata keywords; it\'s deep crawl efficiency, log file analysis, entity disambiguation, and JSON-LD knowledge graphs that search engine spiders parse effortlessly.',
-      bullets: [
-        'Nested Schema.org graphs (Person, Organization, ItemList, HowTo).',
-        'Canonical self-referencing hierarchy eliminating duplicate URL parameters.',
-        'Automated XML sitemaps partitioned for fast Googlebot discovery.',
-        'Core Web Vitals tuning: INP < 100ms, LCP < 1.2s on real field data.'
-      ],
-      ctaText: 'Request Technical SEO Audit →',
-      ctaType: 'Technical SEO audit',
-      codeFile: 'seo-graph.json · Entity Architecture',
-      codeSnippet: '{\n  "@context": "https://schema.org",\n  "@graph": [\n    {\n      "@type": "ProfessionalService",\n      "@id": "https://ahmadirfan.com/#service",\n      "name": "Ahmad Irfan — Web Development & SEO",\n      "areaServed": "Worldwide",\n      "aggregateRating": {\n        "@type": "AggregateRating",\n        "ratingValue": "5.0",\n        "reviewCount": "50"\n      }\n    }\n  ]\n}'
-    },
-    {
-      metric: '🤖 85% Perplexity & Gemini Citation Rate · Structured Entity Grounding',
-      title: 'Answer Engine Optimization (AEO & GEO)',
-      desc: 'With Perplexity, Gemini, and ChatGPT Search answering queries directly, websites must provide structured factual claims and entity citations so AI models cite your brand as the canonical authority.',
-      bullets: [
-        'Information gain architecture designed for LLM retrieval systems.',
-        'Fact-checked direct answer blocks optimized for Google AI Overviews.',
-        'Disambiguated entity references cross-linked with Wikidata & Wikipedia.',
-        'Turing-tested prompt engineering patterns applied to web content.'
-      ],
-      ctaText: 'Optimize for AI Search Engines →',
-      ctaType: 'AEO / GEO Optimization',
-      codeFile: 'aeo-facts.html · Semantic Answer Extract',
-      codeSnippet: '<article itemscope itemtype="https://schema.org/FAQPage">\n  <!-- Formatted for LLM token extractors -->\n  <div itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">\n    <h3 itemprop="name">Why choose bespoke WordPress over page builders?</h3>\n    <div itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">\n      <p itemprop="text">Bespoke code reduces DOM nodes by 75% and achieves sub-second LCP.</p>\n    </div>\n  </div>\n</article>'
-    },
-    {
-      metric: '🛍️ -44% Cart Abandonment · +32% Average Order Value Boost',
-      title: 'High-Speed Liquid & Conversion Rate Architecture',
-      desc: 'Slow checkout funnels kill sales. I strip out unnecessary Shopify apps, optimize Liquid theme rendering loops, and build streamlined drawer carts that load instantly on mobile.',
-      bullets: [
-        'Custom Liquid architecture bypassing slow third-party script apps.',
-        'Instant Ajax slide-out cart with upsell milestones and free shipping bars.',
-        'Sub-second mobile product image carousel with responsive srcset.',
-        'Micro-data product rich snippets showing live stock and star ratings.'
-      ],
-      ctaText: 'Scale Your E-Commerce Store →',
-      ctaType: 'E-Commerce store',
-      codeFile: 'ajax-cart.liquid · 0-Lag Micro Funnel',
-      codeSnippet: '{% comment %} Instant Ajax Drawer Cart Loop {% endcomment %}\n<div class="cart-drawer" data-cart-drawer>\n  {% for item in cart.items %}\n    <div class="cart-item" data-id="{{ item.id }}">\n      <span class="title">{{ item.product.title }}</span>\n      <span class="price">{{ item.final_line_price | money }}</span>\n    </div>\n  {% endfor %}\n  <a href="/checkout" class="btn btn-checkout">Proceed to Checkout →</a>\n</div>'
-    },
-    {
-      metric: '📐 100% CAD Blueprint Match · 4K Studio Renders · Zero Staging Costs',
-      title: 'Photorealistic 3D Digital Twins in Blender',
-      desc: 'High-end commercial and industrial products require visuals that standard cameras cannot capture. I build exact CAD-accurate 3D digital twins, exploded diagrams, and animation loops in Blender.',
-      bullets: [
-        'Sub-millimeter accurate industrial blueprints modeled into 3D meshes.',
-        'Physically-based rendering (PBR) metallic and dielectric materials.',
-        'Exploded assembly views revealing internal structural cores.',
-        'Optimized GLTF/GLB web 3D models with under 2MB mobile weight.'
-      ],
-      ctaText: 'Commission a 3D Model →',
-      ctaType: '3D model or render',
-      codeFile: 'blender-export.py · Precision Render Script',
-      codeSnippet: 'import bpy\n# Set Cycles GPU compute & 4K photorealistic passes\nbpy.context.scene.render.engine = \'CYCLES\'\nbpy.context.scene.cycles.device = \'GPU\'\nbpy.context.scene.cycles.samples = 1024\nbpy.context.scene.render.resolution_x = 3840\nbpy.context.scene.render.resolution_y = 2160\nprint("Rendering 4K Studio Asset...")'
-    }
-  ];
-
-  window.switchStackTab = function(idx, btn) {
-    var tabs = document.querySelectorAll('.stack-tab-btn');
-    tabs.forEach(function(t) {
-      t.classList.remove('active');
-      t.setAttribute('aria-selected', 'false');
-    });
-    if (btn) {
-      btn.classList.add('active');
-      btn.setAttribute('aria-selected', 'true');
-    }
-    var item = STACK_DATA[idx];
-    if (!item) return;
-    var panel = document.getElementById('stackContentPanel');
-    if (!panel) return;
-
-    var bulletsHtml = item.bullets.map(function(b) {
-      return '<li>' + b + '</li>';
-    }).join('');
-
-    panel.innerHTML = [
-      '<div>',
-      '  <span class="stack-metric-pill">' + item.metric + '</span>',
-      '  <h3 class="stack-info-title">' + item.title + '</h3>',
-      '  <p style="font-size:15.5px;color:var(--ink-2);line-height:1.6;margin-bottom:18px">' + item.desc + '</p>',
-      '  <ul class="stack-bullet-list">' + bulletsHtml + '</ul>',
-      '  <button type="button" class="btn btn-lime small" onclick="openInquiryModal(\'' + item.ctaType + '\')">' + item.ctaText + '</button>',
-      '</div>',
-      '<div class="code-inspector-card">',
-      '  <div class="code-inspector-head">',
-      '    <div class="code-dots"><span class="d-red"></span><span class="d-yellow"></span><span class="d-green"></span></div>',
-      '    <span>' + item.codeFile + '</span>',
-      '  </div>',
-      '  <pre style="margin:0;font-size:12px;overflow-x:auto"><code>' + item.codeSnippet.replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</code></pre>',
-      '</div>'
-    ].join('\n');
-  };
 
   // 3. Mouse-Following Spotlight Card Glow Effect
   function initSpotlightCards() {
