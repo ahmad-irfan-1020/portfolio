@@ -214,6 +214,162 @@
   .btn.btn-ink{background:var(--ink);color:var(--bg)}
   .btn.small{padding:9px 18px;font-size:14px;white-space:nowrap;flex-shrink:0}
 
+  /* Services Header Dropdown Menu */
+  .nav-dropdown{
+    position:relative;
+    display:inline-flex;
+    align-items:center;
+  }
+  .nav-dropdown-trigger{
+    display:inline-flex;
+    align-items:center;
+    gap:5px;
+    text-decoration:none;
+    font-size:15px;
+    font-weight:600;
+    color:var(--ink-2);
+    padding:6px 0;
+    cursor:pointer;
+    transition:color .2s ease;
+  }
+  .nav-dropdown-trigger:hover,
+  .nav-dropdown:hover .nav-dropdown-trigger,
+  .nav-dropdown:focus-within .nav-dropdown-trigger{
+    color:var(--ink);
+    text-decoration:none !important;
+  }
+  .dropdown-chevron{
+    transition:transform .22s ease;
+    flex-shrink:0;
+  }
+  .nav-dropdown:hover .dropdown-chevron,
+  .nav-dropdown:focus-within .dropdown-chevron{
+    transform:rotate(180deg);
+  }
+  .nav-dropdown-menu{
+    position:absolute;
+    top:calc(100% + 10px);
+    left:50%;
+    transform:translateX(-50%) translateY(8px);
+    width:340px;
+    background:color-mix(in srgb, var(--surface) 96%, transparent);
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+    border:1.5px solid var(--line-strong);
+    border-radius:18px;
+    box-shadow:0 24px 50px rgba(0,0,0,.5);
+    padding:10px;
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+    transition:opacity .22s cubic-bezier(0.16, 1, 0.3, 1), transform .22s cubic-bezier(0.16, 1, 0.3, 1), visibility .22s;
+    z-index:100;
+  }
+  .nav-dropdown-menu::before{
+    content:"";
+    position:absolute;
+    top:-14px;
+    left:0;
+    right:0;
+    height:14px;
+  }
+  .nav-dropdown:hover .nav-dropdown-menu,
+  .nav-dropdown:focus-within .nav-dropdown-menu{
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
+    transform:translateX(-50%) translateY(0);
+  }
+  .nd-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:6px 10px 8px;
+    border-bottom:1px solid var(--line);
+    margin-bottom:6px;
+  }
+  .nd-eyebrow{
+    font-family:var(--mono);
+    font-size:10.5px;
+    font-weight:700;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--muted);
+  }
+  .nd-view-all{
+    font-family:var(--mono);
+    font-size:11.5px;
+    font-weight:700;
+    color:var(--lime) !important;
+    text-decoration:none !important;
+  }
+  .nd-view-all:hover{
+    text-decoration:underline !important;
+  }
+  .nd-list{
+    display:flex;
+    flex-direction:column;
+    gap:2px;
+  }
+  .nd-item{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:8px 10px;
+    border-radius:10px;
+    text-decoration:none !important;
+    transition:background .15s ease, transform .15s ease;
+  }
+  .nd-item:hover{
+    background:rgba(198,242,78,.08);
+    transform:translateX(3px);
+    text-decoration:none !important;
+  }
+  .nd-badge{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:30px;
+    height:30px;
+    border-radius:8px;
+    background:rgba(198,242,78,.14);
+    color:var(--lime);
+    font-family:var(--mono);
+    font-size:11px;
+    font-weight:800;
+    flex-shrink:0;
+    border:1px solid rgba(198,242,78,.25);
+  }
+  html[data-theme="light"] .nd-badge{
+    background:rgba(198,242,78,.2);
+    color:var(--accent-text);
+    border-color:rgba(198,242,78,.4);
+  }
+  .nd-text{
+    display:flex;
+    flex-direction:column;
+    min-width:0;
+  }
+  .nd-title{
+    font-family:"Bricolage Grotesque",sans-serif;
+    font-size:14px;
+    font-weight:700;
+    color:var(--ink) !important;
+    line-height:1.2;
+    margin-bottom:2px;
+  }
+  .nd-sub{
+    font-size:11.5px;
+    color:var(--muted) !important;
+    line-height:1.3;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+  .nd-item:hover .nd-title{
+    color:var(--lime) !important;
+  }
+
   /* Breadcrumb */
   .breadcrumb-nav{padding:24px 0 0;font-size:13.5px;color:var(--muted);font-family:var(--mono)}
   .breadcrumb-nav a{color:var(--muted);text-decoration:none;transition:color .15s}
@@ -345,7 +501,7 @@
     .wrap{padding-left:max(16px,env(safe-area-inset-left));padding-right:max(16px,env(safe-area-inset-right))}
     .nav{gap:10px;padding-top:12px;padding-bottom:12px}
     .nav-links{gap:10px;flex-shrink:0}
-    .nav-links a:not(.btn){display:none !important}
+    .nav-links > a:not(.btn), .nav-dropdown{display:none !important}
     .brand .b-role{display:none !important}
     .brand .b-name{font-size:clamp(17px,4.2vw,20px);white-space:nowrap}
     .theme-toggle{width:36px;height:36px;flex-shrink:0}
@@ -381,7 +537,55 @@
     <nav class="nav-links" aria-label="Main Navigation">
       <a href="/">Home</a>
       <a href="/portfolio">Portfolio</a>
-      <a href="/services" class="active">Services</a>
+      <div class="nav-dropdown" id="navServicesDropdown">
+        <a href="/services" class="nav-dropdown-trigger active" aria-haspopup="true" aria-expanded="false" style="color:var(--ink);text-decoration:underline;text-underline-offset:5px;text-decoration-color:var(--lime);text-decoration-thickness:3px">
+          Services
+          <svg class="dropdown-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </a>
+        <div class="nav-dropdown-menu" role="menu" aria-label="Services Submenu">
+          <div class="nd-header">
+            <span class="nd-eyebrow">Core Engineering Services</span>
+            <a href="/services" class="nd-view-all">All Services →</a>
+          </div>
+          <div class="nd-list">
+            <a href="/services/wordpress-development" class="nd-item" role="menuitem">
+              <span class="nd-badge">WP</span>
+              <div class="nd-text">
+                <span class="nd-title">WordPress Development</span>
+                <span class="nd-sub">Custom themes, sub-second speed &amp; WooCommerce</span>
+              </div>
+            </a>
+            <a href="/services/shopify-development" class="nd-item" role="menuitem">
+              <span class="nd-badge">SH</span>
+              <div class="nd-text">
+                <span class="nd-title">Shopify Development</span>
+                <span class="nd-sub">Liquid OS 2.0 themes, app cleanup &amp; CRO checkout</span>
+              </div>
+            </a>
+            <a href="/services/seo" class="nd-item" role="menuitem">
+              <span class="nd-badge">SEO</span>
+              <div class="nd-text">
+                <span class="nd-title">Technical SEO &amp; AEO</span>
+                <span class="nd-sub">Page 1 organic rankings &amp; AI answer citations</span>
+              </div>
+            </a>
+            <a href="/services/app-development" class="nd-item" role="menuitem">
+              <span class="nd-badge">APP</span>
+              <div class="nd-text">
+                <span class="nd-title">App Development &amp; AI</span>
+                <span class="nd-sub">Full-stack web apps, client portals &amp; LLM workflows</span>
+              </div>
+            </a>
+            <a href="/services/graphic-design" class="nd-item" role="menuitem">
+              <span class="nd-badge">UI</span>
+              <div class="nd-text">
+                <span class="nd-title">Graphic &amp; Brand Design</span>
+                <span class="nd-sub">Conversion UI systems, brand identity &amp; Blender 3D</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
       <a href="/about">About</a>
       <a href="/contact">Contact</a>
       <button id="themeToggle" class="theme-toggle" type="button" onclick="toggleTheme()" aria-label="Switch theme">
@@ -604,6 +808,69 @@
     </div>
   </section>
 
+  <!-- DEEP DIVE: Liquid OS 2.0 vs App Bloat -->
+  <section class="section-block">
+    <div class="wrap">
+      <div class="sec-tag">SPEED &amp; PROFIT RECOVERY</div>
+      <h2 class="sec-h2">App-Stripping: How Replacing 12+ Apps with Native Liquid Recovers Revenue</h2>
+      <p class="sec-sub">The average Shopify merchant pays $300–$800/month for apps that add countdown timers, sticky add-to-cart buttons, FAQ accordions, and mega-menus. Worse, each app injects uncompressed external scripts that crush mobile load times. Here is how native Liquid OS 2.0 engineering solves this permanently.</p>
+
+      <div class="deliv-grid">
+        <div class="deliv-card spotlight-card">
+          <div>
+            <div class="deliv-icon">📉</div>
+            <h3>Zero App Script Bloat</h3>
+            <p>Every feature (sticky Add-to-Cart, size charts, variant swatches, trust badges) is coded directly into your Shopify theme Liquid and Vanilla JavaScript—saving hundreds in monthly app subscriptions while slashing HTTP requests from 90+ down to under 25.</p>
+          </div>
+        </div>
+        <div class="deliv-card spotlight-card">
+          <div>
+            <div class="deliv-icon">🛍️</div>
+            <h3>Conversion Cart Drawer Architecture</h3>
+            <p>We replace slow third-party cart popups with an instant AJAX slide-out cart drawer featuring free shipping threshold progress bars, 1-click order notes, dynamic tier discounts, and high-margin product upsells directly inside the drawer.</p>
+          </div>
+        </div>
+        <div class="deliv-card spotlight-card">
+          <div>
+            <div class="deliv-icon">🏷️</div>
+            <h3>Structured Data &amp; Merchant Center Feeds</h3>
+            <p>Complete Schema.org <code>Product</code>, <code>Offer</code>, <code>AggregateRating</code>, and <code>Brand</code> JSON-LD integration ensuring star ratings, real-time stock availability, and currency pricing show up as rich snippets on Google Search and Shopping tab.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEEP DIVE: CRO Funnel Architecture -->
+  <section class="section-block">
+    <div class="wrap">
+      <div class="sec-tag">CONVERSION OPTIMIZATION</div>
+      <h2 class="sec-h2">The Product Detail Page (PDP) &amp; Checkout Conversion Blueprint</h2>
+      <p class="sec-sub">Traffic means nothing if shoppers abandon cart before payment. We optimize every pixel of your customer journey around consumer buying psychology and mobile thumb zones.</p>
+
+      <div class="comp-grid">
+        <div class="comp-card spotlight-card" style="background:var(--surface);border-color:var(--line-strong)">
+          <h3 style="color:var(--lime);font-family:'Bricolage Grotesque',sans-serif;font-size:20px;margin-bottom:14px">📱 Mobile PDP Friction Removal</h3>
+          <ul class="comp-list">
+            <li><strong>Sticky Mobile Add-to-Cart Bar:</strong> Stays docked at the bottom of the viewport as users scroll reviews, keeping the checkout action 1 tap away.</li>
+            <li><strong>Instant Visual Variant Swatches:</strong> Image swatches update without full page reloads, eliminating delay on slow cellular networks.</li>
+            <li><strong>Reassurance Micro-Copy:</strong> Security seals, estimated delivery countdowns, and return policy highlights positioned right above the buy button.</li>
+            <li><strong>Compressed WebP Gallery:</strong> Touch-responsive pinch-to-zoom galleries with zero CLS layout shifting during high-res image loading.</li>
+          </ul>
+        </div>
+        <div class="comp-card spotlight-card" style="background:var(--surface);border-color:var(--line-strong)">
+          <h3 style="color:var(--lime);font-family:'Bricolage Grotesque',sans-serif;font-size:20px;margin-bottom:14px">💳 Checkout Abandonment Defense</h3>
+          <ul class="comp-list">
+            <li><strong>Shopify One-Page Checkout Optimization:</strong> Customized theme typography, branding, and trust seals across the newly released 1-page checkout.</li>
+            <li><strong>Accelerated Wallet Triggers:</strong> Prominently featured Apple Pay, Google Pay, and Shop Pay buttons that skip form entry entirely.</li>
+            <li><strong>Dynamic Currency &amp; Duty Calculation:</strong> Shopify Markets integration so global shoppers view transparent local currency with zero surprise fees.</li>
+            <li><strong>Post-Purchase One-Click Upsells:</strong> Re-engage buyers right on the thank-you confirmation page to lift average order value (AOV) by 15–22%.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- FAQ Section -->
   <section class="section-block">
     <div class="wrap">
@@ -635,6 +902,11 @@
         <div class="faq-item spotlight-card">
           <h3 class="faq-q">What is covered under your 30-day post-launch warranty? <span class="faq-toggle-icon">+</span></h3>
           <p class="faq-a">For 30 full days after deployment, I monitor transaction flows, check payment gateway webhooks, verify Google Merchant Center product feed syncs, and resolve any bugs at zero additional cost to guarantee a smooth and profitable launch.</p>
+        </div>
+
+        <div class="faq-item spotlight-card">
+          <h3 class="faq-q">How do you handle Shopify Markets, multi-currency pricing, and international taxation? <span class="faq-toggle-icon">+</span></h3>
+          <p class="faq-a">I configure Shopify Markets with localized subfolders (e.g. /en-gb, /en-ca, /de), automated IP geolocation currency selectors, country-specific pricing rounding rules, and landed cost calculation (import duties and local taxes) so your international customers enjoy a friction-free domestic shopping experience.</p>
         </div>
       </div>
     </div>
@@ -771,6 +1043,14 @@
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "For 30 full days after launch, Ahmad monitors transactions, verifies payment webhooks, checks Google Merchant Center feeds, and resolves any bugs at zero cost."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do you handle Shopify Markets, multi-currency pricing, and international taxation?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "I configure Shopify Markets with localized subfolders (e.g. /en-gb, /en-ca, /de), automated IP geolocation currency selectors, country-specific pricing rounding rules, and landed cost calculation (import duties and local taxes) so your international customers enjoy a friction-free domestic shopping experience."
           }
         }
       ]
