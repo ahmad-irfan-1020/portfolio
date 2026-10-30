@@ -1202,8 +1202,22 @@
   }
   .toast.show{transform:translate(-50%,0);opacity:1;visibility:visible;transition:transform .3s ease,opacity .3s ease}
 
-  /* scroll progress */
-  #progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--lime);z-index:80}
+  /* scroll progress: 100% compositor-driven scroll animation with zero reflow */
+  #progress{
+    position:fixed;top:0;left:0;right:0;height:3px;
+    background:var(--lime);z-index:80;
+    transform-origin:0 50%;transform:scaleX(0);pointer-events:none;
+  }
+  @supports (animation-timeline: scroll()){
+    #progress{
+      animation: growReadingProgress auto linear;
+      animation-timeline: scroll();
+    }
+  }
+  @keyframes growReadingProgress{
+    from{transform:scaleX(0)}
+    to{transform:scaleX(1)}
+  }
   section[id]{scroll-margin-top:88px}
 
   /* career arc */
@@ -2421,32 +2435,15 @@
 </div>
 
 <script>
-  // Header border and reading progress on scroll (zero reflow on initial load)
+  // 100% Reflow-Free Header Scrolled State (Compositor-driven IntersectionObserver, zero scroll queries)
   var header = document.getElementById('siteHeader');
-  var progress = document.getElementById('progress');
-  var scrollTicking = false;
-  var maxScroll = 0;
-  function measureDocHeight(){
-    var doc = document.documentElement;
-    maxScroll = (doc.scrollHeight || 0) - (doc.clientHeight || 0);
+  var topAnchor = document.getElementById('top');
+  if (header && topAnchor && 'IntersectionObserver' in window) {
+    var headerObs = new IntersectionObserver(function(entries) {
+      header.classList.toggle('scrolled', !entries[0].isIntersecting);
+    }, { rootMargin: '-10px 0px 0px 0px' });
+    headerObs.observe(topAnchor);
   }
-  function updateScroll(){
-    var sy = window.scrollY || window.pageYOffset || 0;
-    if (header) header.classList.toggle('scrolled', sy > 8);
-    if (progress && maxScroll > 0) {
-      progress.style.width = ((sy / maxScroll) * 100) + '%';
-    }
-    scrollTicking = false;
-  }
-  function onScroll(){
-    if (maxScroll <= 0) measureDocHeight();
-    if (!scrollTicking) {
-      scrollTicking = true;
-      requestAnimationFrame(updateScroll);
-    }
-  }
-  window.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('resize', measureDocHeight, { passive: true });
 
   // Services + FAQ accordions (100% reflow-free pure CSS toggle)
   document.querySelectorAll('.svc, .faq-item').forEach(function (svc) {
@@ -2743,30 +2740,28 @@
     });
   });
 
-  // Sticky mobile CTA: appears after the hero, hides while the contact section is on screen
+  // Sticky mobile CTA: 100% reflow-free IntersectionObserver (zero scroll events, zero scrollY queries)
   var stickyCta = document.getElementById('stickyCta');
-  var contactInView = false;
-  var stickyTicking = false;
-  function updateSticky() {
-    if (stickyCta) {
-      var sy = window.scrollY || window.pageYOffset || 0;
-      stickyCta.classList.toggle('show', sy > 650 && !contactInView);
+  var heroEl = document.querySelector('.hero');
+  var contactEl = document.getElementById('contact');
+  if (stickyCta && heroEl && contactEl && 'IntersectionObserver' in window) {
+    var heroPassed = false;
+    var contactInView = false;
+    function syncStickyCta() {
+      stickyCta.classList.toggle('show', heroPassed && !contactInView);
     }
-    stickyTicking = false;
-  }
-  function onStickyScroll() {
-    if (!stickyTicking) {
-      stickyTicking = true;
-      requestAnimationFrame(updateSticky);
-    }
-  }
-  if ('IntersectionObserver' in window) {
-    new IntersectionObserver(function (entries) {
+    var heroObserver = new IntersectionObserver(function (entries) {
+      heroPassed = !entries[0].isIntersecting;
+      syncStickyCta();
+    }, { threshold: 0 });
+    heroObserver.observe(heroEl);
+
+    var contactObserver = new IntersectionObserver(function (entries) {
       contactInView = entries[0].isIntersecting;
-      updateSticky();
-    }, { threshold: 0.04 }).observe(document.getElementById('contact'));
+      syncStickyCta();
+    }, { threshold: 0.04 });
+    contactObserver.observe(contactEl);
   }
-  window.addEventListener('scroll', onStickyScroll, { passive: true });
 
   // Reveal on scroll, with a timed fallback so content is never left hidden
   var rvEls = document.querySelectorAll('.rv');
