@@ -1,0 +1,783 @@
+<!doctype html>
+<html lang="en" data-theme="dark" style="background-color:#0A120E;color:#EDF3E9;color-scheme:dark;">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#0A120E" />
+<meta name="color-scheme" content="dark light" />
+<title>Custom WordPress Development &amp; WooCommerce Engineering | Ahmad Irfan</title>
+<meta name="description" content="Custom WordPress development, bespoke ACF Pro block themes, sub-second speeds, and secure WooCommerce store engineering by Ahmad Irfan. 100% Core Web Vitals guarantee." />
+<meta name="keywords" content="WordPress Development Services, Custom WordPress Developer, ACF Pro Blocks, WooCommerce Development, WordPress Speed Optimization, Headless WordPress, Ahmad Irfan" />
+<meta name="author" content="Ahmad Irfan" />
+
+<!-- Robots & Indexing -->
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+<meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+<meta name="bingbot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://ahmadirfan.com/services/wordpress-development" />
+
+<!-- Open Graph / Social Media -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://ahmadirfan.com/services/wordpress-development" />
+<meta property="og:title" content="Custom WordPress Development &amp; WooCommerce Engineering | Ahmad Irfan" />
+<meta property="og:description" content="High-performance custom WordPress builds, bespoke ACF Pro block suites, and scalable WooCommerce stores with guaranteed sub-second speeds." />
+<meta property="og:site_name" content="ahmadirfan.com" />
+<meta property="og:image" content="https://ahmadirfan.com/og-image.jpg?v=2" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Custom WordPress Development &amp; WooCommerce Engineering | Ahmad Irfan" />
+<meta name="twitter:description" content="Enterprise-grade custom WordPress themes, ACF Pro blocks, and sub-second load times." />
+<meta name="twitter:image" content="https://ahmadirfan.com/og-image.jpg?v=2" />
+
+<link rel="icon" href="/favicon.ico" sizes="32x32" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="preload" href="/fonts/instrumentsans.woff2" as="font" type="font/woff2" crossorigin="anonymous" fetchpriority="high" />
+<link rel="preload" href="/fonts/bricolagegrotesque.woff2" as="font" type="font/woff2" crossorigin="anonymous" fetchpriority="high" />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600..800&family=Instrument+Sans:wght@400..700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600..800&family=Instrument+Sans:wght@400..700&display=swap" /></noscript>
+
+<!-- Analytics & Consent Mode -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  var _savedConsent = null;
+  try { _savedConsent = localStorage.getItem('cookie_consent'); } catch(e){}
+  gtag('consent', 'default', {
+    'ad_storage': 'denied',
+    'ad_user_data': 'denied',
+    'ad_personalization': 'denied',
+    'analytics_storage': _savedConsent === 'accepted' ? 'granted' : 'denied',
+    'wait_for_update': 500
+  });
+  gtag('js', new Date());
+  gtag('config', 'G-D57Q1ZRPWM');
+  window.loadGtag = function() {
+    if (window._gtagLoaded) return;
+    window._gtagLoaded = true;
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = "https://www.googletagmanager.com/gtag/js?id=G-D57Q1ZRPWM";
+    document.head.appendChild(s);
+  };
+  window.initClarity = function() {
+    var clarityId = "z5cbbiy4so";
+    if (!clarityId || window.clarityInitialized) return;
+    window.clarityInitialized = true;
+    (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", clarityId);
+  };
+  function deferAnalytics() {
+    window.loadGtag();
+    if (_savedConsent === 'accepted') window.initClarity();
+  }
+  if (_savedConsent === 'accepted') {
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(function() { setTimeout(deferAnalytics, 1500); });
+    } else {
+      window.addEventListener('load', function() { setTimeout(deferAnalytics, 2000); });
+    }
+    ['pointerdown', 'touchstart', 'scroll', 'keydown'].forEach(function(evt) {
+      window.addEventListener(evt, deferAnalytics, { once: true, passive: true });
+    });
+  }
+</script>
+
+<style>
+  @font-face {
+    font-family: 'Instrument Sans';
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+    src: local('Instrument Sans'), local('Instrument-Sans'), url('/fonts/instrumentsans.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'Bricolage Grotesque';
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+    src: local('Bricolage Grotesque'), local('Bricolage-Grotesque'), url('/fonts/bricolagegrotesque.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'Bricolage Fallback';
+    src: local('Arial'), local('Helvetica Neue'), local('Helvetica');
+    ascent-override: 96%; descent-override: 22%; line-gap-override: 0%; size-adjust: 104%;
+  }
+  @font-face {
+    font-family: 'Instrument Fallback';
+    src: local('Segoe UI'), local('Arial'), local('Helvetica Neue');
+    ascent-override: 98%; descent-override: 24%; line-gap-override: 0%; size-adjust: 100%;
+  }
+
+  :root, html[data-theme="dark"]{
+    color-scheme: dark;
+    --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Monaco, Consolas, monospace;
+    --bg:#0A120E;
+    --bg-soft:#0D1712;
+    --surface:#101B15;
+    --surface-card:#14241C;
+    --ink:#EDF3E9;
+    --ink-2:#C9D8CC;
+    --muted:#93A898;
+    --line:rgba(237,243,233,.16);
+    --line-strong:rgba(237,243,233,.36);
+    --green:#0B3527;
+    --green-deep:#051B13;
+    --green-card:#0E4230;
+    --on-green:#EFF6EC;
+    --on-green-dim:#A9C3B2;
+    --lime:#C6F24E;
+    --lime-ink:#1D3300;
+    --accent-text:#B9EC6E;
+    --chip:#1A2A20;
+    --shadow:0 24px 48px -24px rgba(0,0,0,.7);
+    --radius:18px;
+  }
+  html[data-theme="light"]{
+    color-scheme: light;
+    --bg:#F5F1E6;
+    --bg-soft:#EFE9D8;
+    --surface:#FCFAF2;
+    --surface-card:#F0EADE;
+    --ink:#132019;
+    --ink-2:#31453A;
+    --muted:#485B4E;
+    --line:rgba(19,32,25,.16);
+    --line-strong:rgba(19,32,25,.34);
+    --green:#0B3527;
+    --green-deep:#07231A;
+    --green-card:#0E4230;
+    --on-green:#EFF6EC;
+    --on-green-dim:#A9C3B2;
+    --lime:#C6F24E;
+    --lime-ink:#1D3300;
+    --accent-text:#3E6B0B;
+    --chip:#EAE3CC;
+    --shadow:0 24px 48px -24px rgba(7,35,26,.35);
+  }
+  *{box-sizing:border-box}
+  html{background-color:var(--bg);color:var(--ink);scroll-behavior:smooth}
+  body{
+    margin:0;background-color:var(--bg);color:var(--ink);
+    font-family:"Instrument Sans","Instrument Fallback",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  ::selection{background:var(--lime);color:var(--lime-ink)}
+  a{color:inherit}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+  .mono{font-family:var(--mono)}
+  .display{font-family:"Bricolage Grotesque","Bricolage Fallback",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;letter-spacing:-.015em}
+
+  /* Header */
+  header.site{
+    position:sticky;top:0;z-index:60;
+    background:color-mix(in srgb, var(--bg) 90%, transparent);
+    backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:14px;padding-bottom:14px}
+  .brand{display:flex;align-items:baseline;gap:10px;text-decoration:none;font-weight:700;flex-shrink:0;min-width:0}
+  .brand .b-name{font-family:"Bricolage Grotesque",sans-serif;font-size:20px;font-weight:800;white-space:nowrap}
+  .brand .b-role{font-size:12px;color:var(--muted);font-family:var(--mono);letter-spacing:.04em}
+  .nav-links{display:flex;gap:26px;align-items:center;flex-shrink:0}
+  .nav-links a{text-decoration:none;font-size:15px;font-weight:600;color:var(--ink-2);transition:color .18s ease}
+  .nav-links a:hover, .nav-links a.active{color:var(--ink);text-decoration:underline;text-underline-offset:5px;text-decoration-color:var(--lime);text-decoration-thickness:3px}
+  .nav-links a.btn.btn-ink{color:var(--bg)}
+  .nav-links a.btn.btn-ink:hover{color:var(--bg);text-decoration:none !important;opacity:.88}
+  .theme-toggle{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:38px;height:38px;border-radius:50%;
+    border:1.5px solid var(--line);background:var(--surface);
+    color:var(--ink);cursor:pointer;padding:0;flex-shrink:0;
+  }
+  .theme-toggle .icon-sun{display:block}
+  .theme-toggle .icon-moon{display:none}
+  html[data-theme="light"] .theme-toggle .icon-sun{display:none}
+  html[data-theme="light"] .theme-toggle .icon-moon{display:block}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;border:none;cursor:pointer;text-decoration:none;
+    font-family:inherit;font-weight:700;font-size:15px;padding:12px 22px;border-radius:999px;
+    white-space:nowrap;transition:transform .15s ease, background .15s ease;
+  }
+  .btn:active{transform:scale(.97)}
+  .btn-lime{background:var(--lime);color:var(--lime-ink)}
+  .btn-lime:hover{background:#d4f976}
+  .btn.btn-ink{background:var(--ink);color:var(--bg)}
+  .btn.small{padding:9px 18px;font-size:14px;white-space:nowrap;flex-shrink:0}
+
+  /* Breadcrumb */
+  .breadcrumb-nav{padding:24px 0 0;font-size:13.5px;color:var(--muted);font-family:var(--mono)}
+  .breadcrumb-nav a{color:var(--muted);text-decoration:none;transition:color .15s}
+  .breadcrumb-nav a:hover{color:var(--ink);text-decoration:underline}
+  .breadcrumb-nav span{margin:0 8px;opacity:.5}
+
+  /* Page Hero */
+  .page-hero{
+    padding:36px 0 52px;
+    background:radial-gradient(ellipse 80% 50% at 50% -20%, rgba(198,242,78,.14), transparent);
+    border-bottom:1px solid var(--line);
+  }
+  .kicker{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--accent-text);background:var(--chip);padding:5px 12px;border-radius:999px;margin-bottom:18px;
+  }
+  h1.page-title{
+    font-family:"Bricolage Grotesque",sans-serif;font-size:clamp(36px, 5.2vw, 58px);
+    line-height:1.08;font-weight:800;letter-spacing:-.025em;margin:0 0 20px;max-width:920px;
+  }
+  .page-lead{
+    font-size:clamp(17px, 2vw, 20px);line-height:1.6;color:var(--ink-2);
+    max-width:820px;margin:0 0 32px;font-weight:400;
+  }
+  .hero-cta-row{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:36px}
+  .btn-ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line-strong)}
+  .btn-ghost:hover{border-color:var(--ink)}
+
+  /* Trust Metrics Strip */
+  .trust-strip{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:16px;
+    background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:20px;margin-top:24px;
+  }
+  .metric-item{text-align:left;padding:0 8px;border-right:1px solid var(--line)}
+  .metric-item:last-child{border-right:none}
+  .metric-num{font-family:"Bricolage Grotesque",sans-serif;font-size:26px;font-weight:800;color:var(--accent-text);line-height:1.1}
+  .metric-label{font-size:12.5px;color:var(--muted);margin-top:4px;font-family:var(--mono)}
+
+  /* Section Styling */
+  .section-block{padding:72px 0;border-bottom:1px solid var(--line)}
+  .sec-tag{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-text);margin-bottom:10px}
+  .sec-h2{font-family:"Bricolage Grotesque",sans-serif;font-size:clamp(28px, 4vw, 40px);font-weight:800;letter-spacing:-.02em;margin:0 0 16px}
+  .sec-sub{font-size:17.5px;color:var(--ink-2);max-width:760px;margin:0 0 44px;line-height:1.6}
+
+  /* Comparison Grid (The Problem vs Solution) */
+  .comp-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:32px}
+  .comp-card{padding:32px;border-radius:20px;border:1px solid var(--line);position:relative}
+  .comp-bad{background:color-mix(in srgb, #FF453A 5%, var(--surface));border-color:rgba(255,69,58,.25)}
+  .comp-good{background:color-mix(in srgb, #C6F24E 7%, var(--surface));border-color:rgba(198,242,78,.35)}
+  .comp-bad h3{color:#FF8A84;font-family:"Bricolage Grotesque",sans-serif;font-size:22px;margin:0 0 16px;font-weight:800}
+  .comp-good h3{color:var(--accent-text);font-family:"Bricolage Grotesque",sans-serif;font-size:22px;margin:0 0 16px;font-weight:800}
+  .comp-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:12px;font-size:15px}
+  .comp-bad li::before{content:"✕ ";color:#FF8A84;font-weight:bold;margin-right:8px}
+  .comp-good li::before{content:"✓ ";color:var(--accent-text);font-weight:bold;margin-right:8px}
+
+  /* Deliverables Grid */
+  .deliv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .deliv-card{
+    background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:32px;
+    display:flex;flex-direction:column;justify-content:space-between;transition:transform .2s ease, border-color .2s ease;
+  }
+  .deliv-card:hover{transform:translateY(-4px);border-color:var(--line-strong)}
+  .deliv-icon{font-size:32px;margin-bottom:18px}
+  .deliv-card h3{font-family:"Bricolage Grotesque",sans-serif;font-size:21px;font-weight:800;margin:0 0 12px;letter-spacing:-.01em}
+  .deliv-card p{color:var(--ink-2);font-size:15px;line-height:1.6;margin:0}
+
+  /* Process Timeline */
+  .process-timeline{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:36px}
+  .process-step{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:24px 20px;position:relative}
+  .step-num{font-family:var(--mono);font-size:12px;color:var(--accent-text);letter-spacing:.08em;font-weight:700;margin-bottom:8px}
+  .step-title{font-family:"Bricolage Grotesque",sans-serif;font-size:18px;font-weight:800;margin:0 0 10px}
+  .step-desc{font-size:13.5px;color:var(--muted);line-height:1.55;margin:0}
+
+  /* Tech Tags */
+  .tech-cloud{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+  .tech-pill{background:var(--chip);border:1px solid var(--line);padding:6px 14px;border-radius:999px;font-family:var(--mono);font-size:13px;color:var(--ink)}
+
+  /* Proof Spotlight Card */
+  .proof-box{
+    background:radial-gradient(circle at 10% 20%, rgba(198,242,78,.08), transparent 70%), var(--surface-card);
+    border:1.5px solid var(--line-strong);border-radius:24px;padding:40px;margin-top:40px;
+    display:grid;grid-template-columns:1.2fr .8fr;gap:36px;align-items:center;
+  }
+  .proof-box h3{font-family:"Bricolage Grotesque",sans-serif;font-size:26px;font-weight:800;margin:0 0 14px}
+  .proof-box p{color:var(--ink-2);font-size:16px;line-height:1.6;margin:0 0 20px}
+
+  /* FAQ Section */
+  .faq-wrap{max-width:880px;margin:0 auto}
+  .faq-item{background:var(--surface);border:1px solid var(--line);border-radius:16px;margin-bottom:14px;overflow:hidden}
+  .faq-q{
+    padding:22px 26px;margin:0;font-family:"Bricolage Grotesque",sans-serif;font-size:18px;font-weight:700;
+    cursor:pointer;display:flex;justify-content:space-between;align-items:center;user-select:none;
+  }
+  .faq-a{padding:0 26px 22px;margin:0;color:var(--ink-2);font-size:15.5px;line-height:1.65;display:none}
+  .faq-item.active .faq-a{display:block}
+  .faq-item.active .faq-toggle-icon{transform:rotate(45deg)}
+  .faq-toggle-icon{font-size:20px;color:var(--accent-text);transition:transform .2s ease}
+
+  /* Bottom CTA Banner */
+  .cta-banner{
+    background:radial-gradient(circle at 80% 30%, rgba(198,242,78,.15), transparent 60%), var(--surface);
+    border:1.5px solid var(--line-strong);border-radius:24px;padding:48px 40px;margin:64px 0 80px;text-align:center;
+  }
+  .cta-banner h2{font-family:"Bricolage Grotesque",sans-serif;font-size:clamp(30px, 4vw, 44px);font-weight:800;margin:0 0 16px;letter-spacing:-.02em}
+  .cta-banner p{font-size:18px;color:var(--ink-2);max-width:640px;margin:0 auto 28px}
+
+  /* Footer */
+  footer.site{border-top:1px solid var(--line);padding:40px 0;font-size:14px;color:var(--muted)}
+  .foot-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+
+  /* Spotlight Card Glow */
+  .spotlight-card{position:relative;overflow:hidden}
+  .spotlight-card::before{
+    content:"";position:absolute;inset:0;
+    background:radial-gradient(600px circle at var(--mouse-x, -999px) var(--mouse-y, -999px), rgba(198,242,78,.12), transparent 45%);
+    pointer-events:none;opacity:0;transition:opacity .3s ease;z-index:2;
+  }
+  .spotlight-card:hover::before{opacity:1}
+
+  /* Responsive Breakpoints */
+  @media (max-width:980px){
+    .brand .b-role{display:none}
+    .deliv-grid{grid-template-columns:1fr 1fr}
+    .process-timeline{grid-template-columns:1fr 1fr;gap:16px}
+    .proof-box{grid-template-columns:1fr}
+  }
+  @media (max-width:860px){
+    .wrap{padding-left:max(16px,env(safe-area-inset-left));padding-right:max(16px,env(safe-area-inset-right))}
+    .nav{gap:10px;padding-top:12px;padding-bottom:12px}
+    .nav-links{gap:10px;flex-shrink:0}
+    .nav-links a:not(.btn){display:none !important}
+    .brand .b-role{display:none !important}
+    .brand .b-name{font-size:clamp(17px,4.2vw,20px);white-space:nowrap}
+    .theme-toggle{width:36px;height:36px;flex-shrink:0}
+    .btn.small{padding:8px 14px;font-size:13.5px;white-space:nowrap;flex-shrink:0}
+    .trust-strip{grid-template-columns:1fr 1fr;gap:20px}
+    .metric-item:nth-child(2){border-right:none}
+    .comp-grid{grid-template-columns:1fr}
+  }
+  @media (max-width:600px){
+    .deliv-grid{grid-template-columns:1fr}
+    .process-timeline{grid-template-columns:1fr}
+    .trust-strip{grid-template-columns:1fr;gap:16px}
+    .metric-item{border-right:none;border-bottom:1px solid var(--line);padding-bottom:12px}
+    .metric-item:last-child{border-bottom:none;padding-bottom:0}
+    .cta-banner{padding:36px 20px}
+  }
+  @media (max-width:380px){
+    .brand .b-name{font-size:16px}
+    .nav-links{gap:6px}
+    .theme-toggle{width:34px;height:34px}
+    .btn.small{padding:7px 11px;font-size:12px}
+  }
+</style>
+</head>
+
+<body>
+<header class="site">
+  <div class="wrap nav">
+    <a class="brand" href="/">
+      <span class="b-name">Ahmad Irfan</span>
+      <span class="b-role">WORDPRESS · SEO · WEB &amp; APPS</span>
+    </a>
+    <nav class="nav-links" aria-label="Main Navigation">
+      <a href="/">Home</a>
+      <a href="/portfolio">Portfolio</a>
+      <a href="/services" class="active">Services</a>
+      <a href="/about">About</a>
+      <a href="/contact">Contact</a>
+      <button id="themeToggle" class="theme-toggle" type="button" onclick="toggleTheme()" aria-label="Switch theme">
+        <svg class="theme-icon icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/></svg>
+        <svg class="theme-icon icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <a class="btn btn-ink small" href="/contact?service=WordPress">Start a project</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- Breadcrumb -->
+  <div class="wrap">
+    <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+      <a href="/">Home</a>
+      <span>/</span>
+      <a href="/services">Services</a>
+      <span>/</span>
+      <span style="color:var(--ink)">WordPress Development</span>
+    </nav>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="kicker">⚡ BESPOKE PHP &amp; ACF PRO SUITES · ZERO PAGE-BUILDER BLOAT</div>
+      <h1 class="page-title">Custom WordPress Development for Sub-Second Speeds &amp; Unbreakable Scale</h1>
+      <p class="page-lead">
+        Stop wrestling with heavy Elementor setups or fragile commercial themes that crash with every update. I engineer bespoke WordPress themes and WooCommerce stores using clean modern PHP and modular ACF Pro blocks—delivering 100/100 Core Web Vitals, enterprise security, and seamless editing control.
+      </p>
+
+      <div class="hero-cta-row">
+        <a class="btn btn-lime" href="/contact?service=WordPress">Start a WordPress Project →</a>
+        <a class="btn btn-ghost" href="#deliverables">View Technical Deliverables ↓</a>
+      </div>
+
+      <!-- Trust Strip -->
+      <div class="trust-strip">
+        <div class="metric-item">
+          <div class="metric-num">100/100</div>
+          <div class="metric-label">Core Web Vitals Pass Guarantee</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-num">&lt; 1.2s</div>
+          <div class="metric-label">Average Largest Contentful Paint</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-num">0 ms</div>
+          <div class="metric-label">Total Blocking Time (TBT)</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-num">30 Days</div>
+          <div class="metric-label">Post-Launch Warranty Included</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem vs Solution (CRO Funnel) -->
+  <section class="section-block">
+    <div class="wrap">
+      <div class="sec-tag">THE ARCHITECTURAL DIFFERENCE</div>
+      <h2 class="sec-h2">Why Custom WordPress Engineering Beats Pre-Made Themes Every Time</h2>
+      <p class="sec-sub">Most WordPress sites suffer from plugin overload and excessive DOM depth. Here is how custom-engineered code transforms your site from a slow liability into a high-converting growth engine.</p>
+
+      <div class="comp-grid">
+        <div class="comp-card comp-bad spotlight-card">
+          <h3>✕ Typical Page-Builder Themes (Elementor / Divi)</h3>
+          <ul class="comp-list">
+            <li>Injects 80–120+ CSS &amp; JavaScript files on every single page load</li>
+            <li>DOM depth exceeds 3,000+ nodes, destroying mobile INP &amp; FID responsiveness</li>
+            <li>Frequent theme/plugin updates cause CSS conflicts and broken checkout flows</li>
+            <li>Slow server queries (TTFB &gt; 1.8s) hurting organic Google rankings</li>
+            <li>Content editors constantly break layouts when adding new copy or images</li>
+          </ul>
+        </div>
+        <div class="comp-card comp-good spotlight-card">
+          <h3>✓ Ahmad Irfan Custom Engineering</h3>
+          <ul class="comp-list">
+            <li>Handcrafted, lean PHP 8.3 template architecture (zero unused CSS or JS)</li>
+            <li>Clean semantic DOM (&lt; 600 nodes) guaranteeing green Core Web Vitals</li>
+            <li>Custom ACF Pro blocks giving your team flexible, unbreakable page building</li>
+            <li>Optimized MySQL database indexing and Redis object caching (TTFB &lt; 200ms)</li>
+            <li>Hardened security architecture, automated daily backups, and strict permissions</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Deliverables Grid -->
+  <section class="section-block" id="deliverables">
+    <div class="wrap">
+      <div class="sec-tag">WHAT'S INCLUDED</div>
+      <h2 class="sec-h2">Comprehensive WordPress Engineering Capabilities</h2>
+      <p class="sec-sub">Every custom build is engineered from scratch to match your exact business model, conversion goals, and content workflows.</p>
+
+      <div class="deliv-grid">
+        <div class="deliv-card spotlight-card">
+          <div>
+            <div class="deliv-icon">🧱</div>
+            <h3>Bespoke Theme Architecture</h3>
+            <p>100% custom theme built without pre-packaged bloatware. Clean semantic HTML5, modern SCSS/CSS, and structured template hierarchies built for enterprise longevity.</p>
+          </div>
+        </div>
+
+        <div class="deliv-card spotlight-card">
+          <div>
+            <div class="deliv-icon">🧩</div>
+            <h3>ACF Pro Custom Gutenberg Blocks</h3>
+            <p>Empower your marketing team with modular, custom-coded blocks (Heroes, Testimonials, Comparison Tables, Pricing Matrices) that can be rearranged without breaking styling.</p>
+          </div>
+        </div>
+
+        <div class="deliv-card spotlight-card">
+          <div>
+            <div class="deliv-icon">🛍️</div>
+            <h3>High-Performance WooCommerce</h3>
+            <p>Streamlined checkout flows, AJAX slide-out carts, custom product attribute filters, and optimized database queries that handle high-volume flash sales seamlessly.</p>
+          </div>
+        </div>
+
+        <div class="deliv-card spotlight-card">
+          <div>
+            <div class="deliv-icon">⚡</div>
+            <h3>Sub-Second Speed &amp; CWV Tuning</h3>
+            <p>Advanced asset minification, critical CSS inlining, WebP/AVIF next-gen media encoding, lazy loading, and Redis caching to achieve guaranteed green PageSpeed scores.</p>
+          </div>
+        </div>
+
+        <div class="deliv-card spotlight-card">
+          <div>
+            <div class="deliv-icon">🛡️</div>
+            <h3>Enterprise Security &amp; Hardening</h3>
+            <p>Custom login endpoints, XML-RPC disabling, strict file permissions, Cloudflare WAF integration, anti-brute force throttling, and automated off-site backup pipelines.</p>
+          </div>
+        </div>
+
+        <div class="deliv-card spotlight-card">
+          <div>
+            <div class="deliv-icon">🔗</div>
+            <h3>Custom API &amp; CRM Integrations</h3>
+            <p>Seamless bidirectional synchronization with Stripe, PayPal, HubSpot, Salesforce, Klaviyo, custom webhook endpoints, and headless REST/GraphQL APIs.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Timeline -->
+  <section class="section-block">
+    <div class="wrap">
+      <div class="sec-tag">HOW WE WORK</div>
+      <h2 class="sec-h2">The 5-Stage Engineering Roadmap</h2>
+      <p class="sec-sub">From initial code audit to launch day, enjoy complete transparency, structured milestone checkpoints, and zero hourly billing surprises.</p>
+
+      <div class="process-timeline">
+        <div class="process-step spotlight-card">
+          <div class="step-num">PHASE 01</div>
+          <div class="step-title">Discovery &amp; Tech Spec</div>
+          <p class="step-desc">Audit existing infrastructure, define custom post types, map data schemas, and draft fixed milestone scopes.</p>
+        </div>
+        <div class="process-step spotlight-card">
+          <div class="step-num">PHASE 02</div>
+          <div class="step-title">UI &amp; Block Architecture</div>
+          <p class="step-desc">Design Figma tokens and component specs for every custom block before writing a single line of PHP.</p>
+        </div>
+        <div class="process-step spotlight-card">
+          <div class="step-num">PHASE 03</div>
+          <div class="step-title">Sprint Development</div>
+          <p class="step-desc">Clean-code theme implementation, ACF block suite coding, WooCommerce hooks, and API integrations.</p>
+        </div>
+        <div class="process-step spotlight-card">
+          <div class="step-num">PHASE 04</div>
+          <div class="step-title">QA &amp; Speed Hardening</div>
+          <p class="step-desc">Cross-browser validation, mobile stress testing, Core Web Vitals tuning, and strict security hardening.</p>
+        </div>
+        <div class="process-step spotlight-card">
+          <div class="step-num">PHASE 05</div>
+          <div class="step-title">Launch &amp; 30-Day Care</div>
+          <p class="step-desc">Zero-downtime DNS cutover, Search Console index verification, and 30 days of post-launch warranty support.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tech Stack -->
+  <section class="section-block">
+    <div class="wrap">
+      <div class="sec-tag">MODERN TOOLING</div>
+      <h2 class="sec-h2">The Modern WordPress Engineering Stack</h2>
+      <p class="sec-sub">Battle-tested tools and languages configured for peak speed, security, and developer ergonomics.</p>
+      
+      <div class="tech-cloud">
+        <span class="tech-pill">PHP 8.3+</span>
+        <span class="tech-pill">WordPress Core APIs</span>
+        <span class="tech-pill">ACF Pro</span>
+        <span class="tech-pill">WooCommerce</span>
+        <span class="tech-pill">MySQL / MariaDB</span>
+        <span class="tech-pill">Redis Object Cache</span>
+        <span class="tech-pill">REST API &amp; Webhooks</span>
+        <span class="tech-pill">Git / GitHub Actions</span>
+        <span class="tech-pill">Vercel / WP Engine / Kinsta</span>
+        <span class="tech-pill">Cloudflare Enterprise CDN</span>
+      </div>
+
+      <!-- Proof Box -->
+      <div class="proof-box spotlight-card">
+        <div>
+          <div class="kicker" style="margin-bottom:12px">FEATURED CASE STUDY</div>
+          <h3>Custom WooCommerce Store: Sub-Second Load &amp; +140% Sales</h3>
+          <p>Re-engineered a clunky, 4.2s Elementor store into a custom ACF Pro theme with instant AJAX cart drawer. Load time dropped to 0.78s and conversion rate jumped by 38% in the first 60 days.</p>
+          <a class="btn btn-lime small" href="/portfolio">Read the Full Case Study →</a>
+        </div>
+        <div style="background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:24px;text-align:center">
+          <div style="font-size:48px;font-weight:800;color:var(--accent-text);font-family:'Bricolage Grotesque',sans-serif">0.78s</div>
+          <div style="font-size:13px;color:var(--muted);font-family:var(--mono);margin-top:6px">Mobile LCP achieved on 4G networks</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="section-block">
+    <div class="wrap">
+      <div class="faq-wrap">
+        <div class="sec-tag" style="text-align:center">GOT QUESTIONS?</div>
+        <h2 class="sec-h2" style="text-align:center">Frequently Asked Questions</h2>
+        <p class="sec-sub" style="text-align:center;margin-left:auto;margin-right:auto">Everything you need to know about working with a dedicated WordPress engineer.</p>
+
+        <div class="faq-item spotlight-card active">
+          <h3 class="faq-q">Why custom WordPress instead of a commercial theme or page builder? <span class="faq-toggle-icon">+</span></h3>
+          <p class="faq-a">Commercial themes and page builders like Elementor or Divi try to cater to everyone, meaning they load hundreds of unused scripts, unoptimized CSS files, and thousands of nested DOM elements. This leads to slow mobile loading, low PageSpeed scores, and frequent plugin conflicts. A custom WordPress build contains only the exact code your site needs—resulting in sub-second speeds, zero bloat, and complete layout reliability.</p>
+        </div>
+
+        <div class="faq-item spotlight-card">
+          <h3 class="faq-q">Will my non-technical team be able to edit and publish content easily? <span class="faq-toggle-icon">+</span></h3>
+          <p class="faq-a">Yes, absolutely. Using Advanced Custom Fields (ACF Pro) and native WordPress blocks, I build a custom, visual editing interface tailored specifically to your content. Your team can easily update headlines, swap images, create new landing pages, and reorder sections without touching a single line of code or risking broken styling.</p>
+        </div>
+
+        <div class="faq-item spotlight-card">
+          <h3 class="faq-q">What does your 100% Core Web Vitals Pass Guarantee mean? <span class="faq-toggle-icon">+</span></h3>
+          <p class="faq-a">Before final project delivery and signoff, your website is thoroughly audited on Google PageSpeed Insights. I guarantee passing scores across all three Core Web Vitals metrics: Largest Contentful Paint (LCP &lt; 2.5s), Interaction to Next Paint (INP &lt; 200ms), and Cumulative Layout Shift (CLS &lt; 0.1). If any metric does not pass, I tune it at zero additional cost until it does.</p>
+        </div>
+
+        <div class="faq-item spotlight-card">
+          <h3 class="faq-q">How does the 30-day post-launch warranty work? <span class="faq-toggle-icon">+</span></h3>
+          <p class="faq-a">For 30 full days after your site goes live, I provide complimentary post-launch support. This includes immediate bug fixes, Search Console crawl monitoring, speed checks, and technical assistance. You won't be left hanging after launch.</p>
+        </div>
+
+        <div class="faq-item spotlight-card">
+          <h3 class="faq-q">Can you migrate our existing content, blog posts, and SEO rankings? <span class="faq-toggle-icon">+</span></h3>
+          <p class="faq-a">Yes. I implement full automated database migrations preserving all your blog posts, product catalogs, customer accounts, order history, and media libraries. In addition, I perform strict 1-to-1 301 redirect mapping to ensure your established Google rankings and backlinks remain 100% protected.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bottom CTA -->
+  <div class="wrap">
+    <div class="cta-banner spotlight-card">
+      <div class="kicker">READY FOR A HIGH-PERFORMANCE BUILD?</div>
+      <h2>Let's Engineer Your Custom WordPress Site</h2>
+      <p>Have an existing slow WordPress site that needs a custom rebuild, or starting a new high-speed brand from scratch? Let's discuss your scope and provide a fixed milestone roadmap.</p>
+      <a class="btn btn-lime" href="/contact?service=WordPress">Request a Fixed-Price WordPress Proposal →</a>
+    </div>
+  </div>
+</main>
+
+<footer class="site">
+  <div class="wrap foot-inner">
+    <div>&copy; 2026 Ahmad Irfan. All rights reserved. Custom WordPress &amp; WooCommerce Engineering.</div>
+    <div style="display:flex;gap:20px">
+      <a href="/portfolio">Portfolio</a>
+      <a href="/services">Services Hub</a>
+      <a href="/about">About</a>
+      <a href="/contact">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function toggleTheme(){
+    var html = document.documentElement;
+    var current = html.getAttribute('data-theme') || 'dark';
+    var next = current === 'dark' ? 'light' : 'dark';
+    html.setAttribute('data-theme', next);
+    try { localStorage.setItem('theme', next); } catch(e){}
+  }
+
+  // FAQ Accordion
+  document.querySelectorAll('.faq-q').forEach(function(header){
+    header.addEventListener('click', function(){
+      var item = this.parentElement;
+      var wasActive = item.classList.contains('active');
+      document.querySelectorAll('.faq-item').forEach(function(el){ el.classList.remove('active'); });
+      if(!wasActive) item.classList.add('active');
+    });
+  });
+
+  // Spotlight Mouse Glow
+  document.querySelectorAll('.spotlight-card').forEach(function(card){
+    card.addEventListener('mousemove', function(e){
+      var rect = card.getBoundingClientRect();
+      card.style.setProperty('--mouse-x', (e.clientX - rect.left) + 'px');
+      card.style.setProperty('--mouse-y', (e.clientY - rect.top) + 'px');
+    });
+  });
+</script>
+
+<!-- Structured Data JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ahmadirfan.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://ahmadirfan.com/services" },
+        { "@type": "ListItem", "position": 3, "name": "WordPress Development", "item": "https://ahmadirfan.com/services/wordpress-development" }
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://ahmadirfan.com/services/wordpress-development#service",
+      "name": "Custom WordPress Development & WooCommerce Engineering",
+      "serviceType": "WordPress Engineering",
+      "provider": {
+        "@type": "Person",
+        "@id": "https://ahmadirfan.com/#ahmadirfan",
+        "name": "Ahmad Irfan",
+        "url": "https://ahmadirfan.com"
+      },
+      "description": "Bespoke WordPress theme engineering, modular ACF Pro block systems, WooCommerce checkout optimization, and sub-second Core Web Vitals speed tuning.",
+      "areaServed": "Worldwide",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "WordPress Engineering Deliverables",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Custom WordPress Theme Architecture" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "ACF Pro Custom Gutenberg Blocks" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "WooCommerce Performance Optimization" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Core Web Vitals Remediation" } }
+        ]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://ahmadirfan.com/services/wordpress-development#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Why custom WordPress instead of a commercial theme or page builder?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Commercial themes and page builders like Elementor or Divi inject hundreds of unused scripts, unoptimized CSS files, and thousands of nested DOM elements, slowing mobile loading and causing plugin conflicts. A custom build contains only the code your site needs for sub-second speeds and complete layout reliability."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Will my non-technical team be able to edit and publish content easily?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Using Advanced Custom Fields (ACF Pro) and native WordPress blocks, Ahmad builds a custom visual editing interface tailored specifically to your content so your team can easily update headlines, swap images, and create new pages without touching code."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does your 100% Core Web Vitals Pass Guarantee mean?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Before final delivery, your site is audited on Google PageSpeed Insights, guaranteeing passing scores across all three Core Web Vitals metrics: LCP < 2.5s, INP < 200ms, and CLS < 0.1 at zero additional cost."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does the 30-day post-launch warranty work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "For 30 full days after launch, Ahmad covers all bug remediation, Search Console crawl monitoring, speed checks, and technical assistance at zero extra cost."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can you migrate our existing content, blog posts, and SEO rankings?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Complete automated database migrations preserve your posts, products, and media, while strict 1-to-1 301 redirect mapping protects your established Google rankings and backlinks."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</body>
+</html>

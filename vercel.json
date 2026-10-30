@@ -1,5 +1,13 @@
 {
   "cleanUrls": true,
+  "rewrites": [
+    { "source": "/services", "destination": "/services.html" },
+    { "source": "/services/wordpress-development", "destination": "/services/wordpress-development.html" },
+    { "source": "/services/shopify-development", "destination": "/services/shopify-development.html" },
+    { "source": "/services/seo", "destination": "/services/seo.html" },
+    { "source": "/services/app-development", "destination": "/services/app-development.html" },
+    { "source": "/services/graphic-design", "destination": "/services/graphic-design.html" }
+  ],
   "redirects": [
     {
       "source": "/(.*)",
